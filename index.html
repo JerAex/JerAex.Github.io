@@ -184,7 +184,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-11-28 15:08:25 / 修改时间：15:14:14" itemprop="dateCreated datePublished" datetime="2020-11-28T15:08:25+08:00">2020-11-28</time>
+              <time title="创建时间：2020-11-28 15:08:25 / 修改时间：20:09:53" itemprop="dateCreated datePublished" datetime="2020-11-28T15:08:25+08:00">2020-11-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,7 +200,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java多线程</span></a>
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
                 </span>
             </span>
 
@@ -215,7 +215,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="1-程序、进程、线程的概念"><a href="#1-程序、进程、线程的概念" class="headerlink" title="1 程序、进程、线程的概念"></a>1 程序、进程、线程的概念</h1><p><strong>程序（program）：</strong></p>
+<p>为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。</p>
+<p><strong>进程（process）：</strong></p>
+<p>程序的一次执行过程，或者正在运行的一个程序。是一个动态的过程：有它自身的产生、存在和消亡的过程。——生命周期</p>
+<ul>
+<li>程序是静态的，进程是动态的</li>
+<li>进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域。</li>
+</ul>
+<p><strong>线程（thread）：</strong></p>
+<p>进程可进一步细化为线程，是一个程序内部的一条执行路径。</p>
+<ul>
+<li>若一个进程同一时间并行执行多个线程，就是支持多线程的</li>
+<li>线程作为调度和执行的单位，每个线程拥有独立的运行栈和程序计数器（pc），线程切换的开销小</li>
+<li>一个进程中的多个线程共享相同的内存单元/内存地址空间→它们从同一堆中分配对象，可以访问相同的变量和对象。这就使得线程间的通讯更简洁、高效。d但多个线程操作共享的系统资源可能会带来安全隐患。</li>
+</ul>
+<h1 id="2-线程的创建和使用"><a href="#2-线程的创建和使用" class="headerlink" title="2 线程的创建和使用"></a>2 线程的创建和使用</h1><h2 id="2-1-创建方式一：继承于Thread类"><a href="#2-1-创建方式一：继承于Thread类" class="headerlink" title="2.1 创建方式一：继承于Thread类"></a>2.1 创建方式一：继承于<code>Thread</code>类</h2><p><strong>第一步</strong> 创建一个继承于<code>Thread</code>类的子类</p>
+<p><strong>第二步</strong> 重写<code>Thread</code>类中的<code>run()</code> → 将此线程执行的操作声明在<code>run()</code>方法中</p>
+<p><strong>第三步</strong> 创建<code>Thread</code>类的子类的对象</p>
+<p><strong>第四步</strong> 通过此对象调用<code>start()</code>：① 启动当前线程 ② 调用当前线程的<code>run()</code></p>
+<p><strong>例如：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread t1 = <span class="keyword">new</span> MyThread();</span><br><span class="line">        t1.start(); </span><br><span class="line">        <span class="comment">//如下的操作仍然在main线程中执行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            	System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Thread中的常用方法</strong></p>
+<p>1️⃣  <code>start()</code>：启动当前线程；调用当前线程的<code>run()</code></p>
+<p>2️⃣ <code>run()</code>：通常需要重写<code>Thread</code>类中的此方法，将创建的线程要执行的操作声明在此方法中。</p>
+<p>3️⃣ <code>currentThread()</code>：静态方法，返回执行当前代码的线程。</p>
+<p>4️⃣ <code>getName()</code>：获取当前线程的名字</p>
+<p>5️⃣ <code>setName()</code>：设置当前线程的名字</p>
+<p>6️⃣ <code>yield()</code>：释放当前cpu的执行权</p>
+<p>7️⃣ <code>join()</code> ：在线程a中调用线程b的<code>join()</code>，此时线程a进入阻塞状态，直到线程b完全执行完以后，线程a才结束阻塞状态。</p>
+<p>8️⃣ <code>sleep(long millitime)</code>：让当前线程“睡眠”指定的millitime毫秒数。在指定的millitime毫秒时间内，当前线程是阻塞状态。</p>
+<p>9️⃣ <code>isAlive()</code>：判断当前线程是否存活。</p>
+<p><strong>线程的调度</strong></p>
+<p>① 线程的优先级</p>
+<p>1️⃣ MAX_PRIORITY：10</p>
+<p>2️⃣ MIN_PRIORITY：1</p>
+<p>3️⃣ NORM_PRIORITY：5 → 默认的优先级</p>
+<p>② 如何来获取和设置当前线程的优先级</p>
+<p><code>getPriority()</code>：获取线程的优先级</p>
+<p><code>setPriority(int p)</code>：设置线程的优先级</p>
+<p><strong>说明：高优先级的线程要抢占低优先级线程cpu的执行权。但只是从概率上讲，高优先级的线程高概率的情况下别执行。并不意味着只有当高优先级的线程执行完以后，低优先级的线程才执行。</strong></p>
+
       
     </div>
 
