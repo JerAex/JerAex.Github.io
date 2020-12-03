@@ -159,6 +159,739 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/02/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/02/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">网络编程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-02 20:29:29" itemprop="dateCreated datePublished" datetime="2020-12-02T20:29:29+08:00">2020-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-03 12:12:15" itemprop="dateModified" datetime="2020-12-03T12:12:15+08:00">2020-12-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-通信要素1：IP和端口号"><a href="#1-通信要素1：IP和端口号" class="headerlink" title="1 通信要素1：IP和端口号"></a>1 通信要素1：IP和端口号</h1><p><strong>功能：</strong></p>
+<p>准确定位网络上一台或多台主机；定位主机上的特定的应用</p>
+<h2 id="1-1-IP"><a href="#1-1-IP" class="headerlink" title="1.1 IP"></a>1.1 IP</h2><ul>
+<li><p>功能：唯一的标识Internet上的计算机（通讯实体）</p>
+</li>
+<li><p>在Java中使用<code>InetAddress</code>类代表IP</p>
+</li>
+<li><p>IP分类：IPV4和IPV6；万维网和局域网</p>
+</li>
+<li><p>域名：<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+</li>
+<li><p>本地回路地址：127.0.0.1对应着：localhost</p>
+</li>
+<li><p>实例化<code>InetAddress</code>的两个方法。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">InetAddress inet1 = InetAddress.getByName(<span class="string">&quot;192.168.10.14&quot;</span>);</span><br><span class="line">InetAddress inet3 = InetAddress.getLocalHost();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>InetAddress</code>的两个常用方法<code>getHostName()</code>、<code>getHostAddress()</code></li>
+</ul>
+<h2 id="1-2-端口号"><a href="#1-2-端口号" class="headerlink" title="1.2 端口号"></a>1.2 端口号</h2><p>端口号用来标识正在计算机上运行的进程</p>
+<p>范围：0~65535</p>
+<hr>
+<p><strong>端口号和IP地址的组合得出一个网络套接字：Socket</strong></p>
+<h1 id="2-通信要素2：网络协议"><a href="#2-通信要素2：网络协议" class="headerlink" title="2 通信要素2：网络协议"></a>2 通信要素2：网络协议</h1><p><strong>功能：</strong></p>
+<p>找到主机后可靠高效地进行数据传输</p>
+<h1 id="3-TCP网络编程"><a href="#3-TCP网络编程" class="headerlink" title="3 TCP网络编程"></a>3 TCP网络编程</h1><ul>
+<li>客户端发送信息给服务端，服务端将数据显示在控制台上</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//客户端</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">client</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Socket socket = <span class="keyword">null</span>;</span><br><span class="line">    OutputStream os = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建Socket的对象，指明服务器端的IP和端口号</span></span><br><span class="line">        InetAddress inet = InetAddress.getByName(<span class="string">&quot;127.0.0.1&quot;</span>);</span><br><span class="line">        socket = <span class="keyword">new</span> Socket(inet, <span class="number">8899</span>);</span><br><span class="line">        <span class="comment">//2.获取一个输出流，用于输出数据</span></span><br><span class="line">        os = socket.getOutputStream();</span><br><span class="line">        <span class="comment">//3.写出数据的操作</span></span><br><span class="line">        os.write(<span class="string">&quot;你好，我是客户端&quot;</span>.getBytes());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">//4.资源的关闭</span></span><br><span class="line">        <span class="keyword">if</span> (os != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                os.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (socket != <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                socket.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//服务端</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">server</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ServerSocket ss = <span class="keyword">null</span>;</span><br><span class="line">    Socket socket = <span class="keyword">null</span>;</span><br><span class="line">    InputStream is = <span class="keyword">null</span>;</span><br><span class="line">    ByteArrayOutputStream boas = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//1.创建服务器端的ServerScoket，指明自己的端口号</span></span><br><span class="line">        ss = <span class="keyword">new</span> ServerSocket(<span class="number">8899</span>);</span><br><span class="line">        <span class="comment">//2.调用accept()表示接受来自于客户端的socket</span></span><br><span class="line">        socket = ss.accept();</span><br><span class="line">        <span class="comment">//3.获取一个输入流</span></span><br><span class="line">        is = socket.getInputStream();</span><br><span class="line">        <span class="comment">//4.读取输入流当中的数据</span></span><br><span class="line">        boas = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">5</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = is.read(buffer)) != -<span class="number">1</span>)&#123;</span><br><span class="line">            boas.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(boas.toString());</span><br><span class="line">        System.out.println(<span class="string">&quot;收到了来自于&quot;</span> + socket.getInetAddress().getHostAddress() + <span class="string">&quot;的数据&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">//5.资源的关闭</span></span><br><span class="line">        <span class="keyword">if</span> (boas != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                boas.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (is != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                is.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (socket != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                socket.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ss != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                ss.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>客户端发送文件给服务端，服务端将文件保存在本地</li>
+</ul>
+<h1 id="4-UDP网络编程"><a href="#4-UDP网络编程" class="headerlink" title="4 UDP网络编程"></a>4 UDP网络编程</h1><h1 id="5-URL编程"><a href="#5-URL编程" class="headerlink" title="5 URL编程"></a>5 URL编程</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/IO%E6%B5%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/IO%E6%B5%81/" class="post-title-link" itemprop="url">IO流</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-01 20:57:22" itemprop="dateCreated datePublished" datetime="2020-12-01T20:57:22+08:00">2020-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-02 20:28:58" itemprop="dateModified" datetime="2020-12-02T20:28:58+08:00">2020-12-02</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-File类的使用"><a href="#1-File类的使用" class="headerlink" title="1 File类的使用"></a>1 File类的使用</h1><p>1️⃣ File类的一个对象，代表一个文件或一个文件目录（俗称：文件夹）</p>
+<p>2️⃣ File类声明在java.io包下</p>
+<p>3️⃣ File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法，并未涉及到写入或读取文件内容的操作。如果需要写入或读取文件内          容，必须使用IO流完成。</p>
+<p>4️⃣ 后续的File类的对象常会作为参数传递到流的构造器中，指明读取或写入的“终点”。</p>
+<h2 id="1-1-如何创建File类的实例"><a href="#1-1-如何创建File类的实例" class="headerlink" title="1.1 如何创建File类的实例"></a>1.1 如何创建File类的实例</h2><p>第一种方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(String filePath);<span class="comment">//绝对路径或者相对路径</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二种方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(String parentPath, String childPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第三种方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(File parentFile, String childPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-File类常用方法"><a href="#1-2-File类常用方法" class="headerlink" title="1.2 File类常用方法"></a>1.2 File类常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(file.getAbsolutePath());<span class="comment">//绝对路径</span></span><br><span class="line">System.out.println(file.getPath());<span class="comment">//相对路径</span></span><br><span class="line">System.out.println(file.getName());</span><br><span class="line">System.out.println(file.getParent());<span class="comment">//如果通过相对路径构造File类，则为null；绝对路径则存在</span></span><br><span class="line">System.out.println(file.length());</span><br><span class="line">System.out.println(file.lastModified());</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">      String[] list = file.list();</span><br><span class="line">      File[] files = file.listFiles();</span><br><span class="line"><span class="keyword">boolean</span> renamedTo = file1.renameTo(file2);</span><br></pre></td></tr></table></figure>
+
+<p>创建硬盘中对应的文件或文件目录：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file.createNewFile();<span class="comment">//文件的创建</span></span><br><span class="line"><span class="keyword">boolean</span> mkdir = file.mkdir();</span><br><span class="line"><span class="keyword">boolean</span> mkdirs = file.mkdirs();<span class="comment">//如果上层目录不存在，mkdirs会创建文件的上层目录</span></span><br></pre></td></tr></table></figure>
+
+<p>删除硬盘中对应的文件或文件目录：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> delete = file.delete();<span class="comment">//Java中的删除不走回收箱		</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-IO流原理及流的分流"><a href="#2-IO流原理及流的分流" class="headerlink" title="2 IO流原理及流的分流"></a>2 IO流原理及流的分流</h1><h2 id="2-1-流的分类"><a href="#2-1-流的分类" class="headerlink" title="2.1 流的分类"></a>2.1 流的分类</h2><ul>
+<li>操作数据单位：字节流，字符流</li>
+<li>数据的流向：输入流，输出流</li>
+<li>留的角色：节点流和处理流</li>
+</ul>
+<h2 id="2-2-流的体系结构"><a href="#2-2-流的体系结构" class="headerlink" title="2.2 流的体系结构"></a>2.2 流的体系结构</h2><p>抽象基类：                    节点流（文件流）                    缓冲流（处理流的一种）</p>
+<p><code>InputStream</code>                <code>FileInputStream</code>                 <code>BufferInputStream</code></p>
+<p><code>OutputStream</code>              <code>FileOutputStream</code>               <code>BufferOutputStream</code></p>
+<p><code>Reader</code>                           <code>FileReader</code>                           <code>BufferedReader</code></p>
+<p><code>Writer</code>                           <code>FileWriter</code>                           <code>BufferedWriter</code></p>
+<h1 id="3-节点流（文件流）"><a href="#3-节点流（文件流）" class="headerlink" title="3 节点流（文件流）"></a>3 节点流（文件流）</h1><h2 id="3-1-FileReader读入数据"><a href="#3-1-FileReader读入数据" class="headerlink" title="3.1 FileReader读入数据"></a>3.1 <code>FileReader</code>读入数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReader</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//1.实例化File类的对象，指明要操作的文件</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">        <span class="comment">//2.提供具体的流</span></span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">        <span class="comment">//3.数据的读入</span></span><br><span class="line">        <span class="comment">//read()：返回读入的一个字符。如果达到文件末尾，返回-1</span></span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line">        <span class="keyword">while</span> ((data = fr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println((<span class="keyword">char</span>) data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">//4.流的关闭操作</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fr.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<p>① <code>read()</code>：返回读入的一个字符。如果达到文件末尾，返回-1</p>
+<p>② 异常的处理：为了保证流资源一定可以执行关闭操作，需要使用<code>try...catch...fianlly</code>来处理</p>
+<p>③ 读入的文件一定要存在，否则就会报<code>FileNotFoundException</code></p>
+<hr>
+<p><strong>对<code>read()</code>方法操作升级：使用read的重载方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReader</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">            fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">            <span class="keyword">char</span>[] cbnf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = fr.read(cbnf)) != -<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//第一种方法</span></span><br><span class="line"><span class="comment">//                for (int i = 0; i &lt; len; i++) &#123;</span></span><br><span class="line"><span class="comment">//                    System.out.print(i);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line">                <span class="comment">//第二种方法</span></span><br><span class="line">                String str = <span class="keyword">new</span> String(cbnf, <span class="number">0</span>, len);</span><br><span class="line">                System.out.print(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fr.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-FileWriter写出数据"><a href="#3-2-FileWriter写出数据" class="headerlink" title="3.2 FileWriter写出数据"></a>3.2 <code>FileWriter</code>写出数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileWriter</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.提供File类的对象，指明写出到的文件</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">    <span class="comment">//2.提供FileWriter的对象，用于数据的写出</span></span><br><span class="line">    FileWriter fw = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">    <span class="comment">//3.写出的操作</span></span><br><span class="line">    fw.write(<span class="string">&quot;I hava a dream!&quot;</span>);</span><br><span class="line">    <span class="comment">//4.流资源的关闭</span></span><br><span class="line">    fw.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<p>① 输出操作，对应的File可以不存在。并不会报异常</p>
+<p>② File对应的硬盘中的文件，如果不存在，在输出的过程中，会自动创建此文件。</p>
+<p>​                                                 如果存在：</p>
+<p>​                                                                    如果流使用的构造器是：<code>FileWriter(file, false)/FilterWrite(file)</code>：对原有文件的覆盖</p>
+<p>​                                                                    如果流使用的构造器是：<code>FileWriter(file, true)</code>：不会对原有文件覆盖，而是在原有文件基础上追加内容</p>
+<h2 id="3-3-复制文件"><a href="#3-3-复制文件" class="headerlink" title="3.3 复制文件"></a>3.3 复制文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReaderFileWriter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        File srcfile = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">        File destfile = <span class="keyword">new</span> File(<span class="string">&quot;hello1.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(srcfile);</span><br><span class="line">        fw = <span class="keyword">new</span> FileWriter(destfile);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] cbuf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = fr.read(cbuf)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            fw.write(cbuf, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fw != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fw.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fr.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-缓冲流"><a href="#4-缓冲流" class="headerlink" title="4 缓冲流"></a>4 缓冲流</h1><p>说明：</p>
+<p>先关闭外层的流，再关闭内层的流</p>
+<p>关闭外层流的同时，内层流也会自动的进行关闭。</p>
+<h1 id="5-转换流"><a href="#5-转换流" class="headerlink" title="5 转换流"></a>5 转换流</h1><p>属于字符流</p>
+<p>作用：提供字节流和字符流之间的转换</p>
+<p><code>InputStreamReader</code>：将一个字节的输入流转换为字符的输入流（解码）</p>
+<p><code>OutputStreamWriter</code>：将一个字符的输出流转换为字节的输出流（编码）</p>
+<h1 id="6-标准输入、输出流"><a href="#6-标准输入、输出流" class="headerlink" title="6 标准输入、输出流"></a>6 标准输入、输出流</h1><p><code>System.in</code></p>
+<p><code>System.out</code></p>
+<h1 id="7-打印流"><a href="#7-打印流" class="headerlink" title="7 打印流"></a>7 打印流</h1><h1 id="8-数据流"><a href="#8-数据流" class="headerlink" title="8 数据流"></a>8 数据流</h1><p><code>DataInputStream</code></p>
+<p><code>DataOutputStream</code></p>
+<h1 id="9-对象流"><a href="#9-对象流" class="headerlink" title="9 对象流"></a>9 对象流</h1><p><code>ObjectOutputStream</code>：保存基本数据类型数据或对象的机制（序列化）</p>
+<p><code>ObjectInputStream</code>：读取基本类型数据或对象的机制（反序列化）</p>
+<p><strong>序列化过程：</strong>将内存中的Java对象保存到磁盘中或通过网络传输出去</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testObjectOutputStream</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ObjectOutputStream oos = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;object.dat&quot;</span>));</span><br><span class="line">        oos.writeObject(<span class="keyword">new</span> String(<span class="string">&quot;我爱北京天安门&quot;</span>));</span><br><span class="line">        oos.flush();<span class="comment">//刷新</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (oos != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                oos.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>反序列化过程：</strong>将磁盘文件中的对象还原为内存中的一个Java对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testObjectInputStream</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ObjectInputStream ois = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;object.dat&quot;</span>));</span><br><span class="line">        Object obj = ois.readObject();</span><br><span class="line">        String str = (String) obj;</span><br><span class="line">        System.out.print(str);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (ois != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                ois.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>要想一个Java对象是可序列化的，需要满足相应的要求：</p>
+<p>① 需要实现<code>Serializable</code>接口</p>
+<p>② 当前类提供一个全局常量<code>serialVersionUID</code></p>
+<p>③ 除了当前<code>Person</code>类需要实现<code>Serializable</code>接口之外，还必须保证其内部的所有属性也必须是可序列化的（默认情况下，基本数据类型可序列化）</p>
+<p>④ 序列化机制：对象系列化机制允许把内存中的Java对象装换为平台无关的二进制流，从而允许把这种二进制流持久的保存在磁盘上，或通过网络将这种二进制流         传输到另一个网络节点，当其他程序获取了这种二进制流，就可以恢复成原理的Java对象。</p>
+<p>补充：<strong>不能序列化<code>static</code>和<code>transient</code>修饰的成员变量</strong></p>
+<h1 id="10-随机存取文件流"><a href="#10-随机存取文件流" class="headerlink" title="10 随机存取文件流"></a>10 随机存取文件流</h1><h2 id="10-1-RandomAccessFile类"><a href="#10-1-RandomAccessFile类" class="headerlink" title="10.1 RandomAccessFile类"></a>10.1 <code>RandomAccessFile</code>类</h2><p><strong>使用说明：</strong></p>
+<ul>
+<li><code>RandomAccessFile</code>直接继承于<code>java.lang.Object</code>类，实现了<code>DataInput</code>和<code>DataOutput</code>接口</li>
+<li><code>RandomAccessFile</code>既可以作为一个输入流，又可以作为一个输出流</li>
+<li>如果<code>RandomAccessFile</code>作为输出流时，写出到的文件如果不存在，则在执行过程中自动创建。 如果写出到的文件存在，则会对原文件内容进行覆盖。（默认情况下，从头覆盖）</li>
+<li>可以通过相关的操作，实现<code>RandomAccessFile</code>“插入”数据的效果。<code>seek(int pos)</code></li>
+</ul>
+<h1 id="11-NIO-2中Path、Paths、Files类的使用"><a href="#11-NIO-2中Path、Paths、Files类的使用" class="headerlink" title="11 NIO.2中Path、Paths、Files类的使用"></a>11 NIO.2中Path、Paths、Files类的使用</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/%E6%B3%9B%E5%9E%8B%E4%B8%8EFile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/%E6%B3%9B%E5%9E%8B%E4%B8%8EFile/" class="post-title-link" itemprop="url">泛型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-01 17:17:34 / 修改时间：20:46:04" itemprop="dateCreated datePublished" datetime="2020-12-01T17:17:34+08:00">2020-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/Java%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/Java%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">Java集合</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-01 13:16:17 / 修改时间：17:16:52" itemprop="dateCreated datePublished" datetime="2020-12-01T13:16:17+08:00">2020-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-Java集合框架概述"><a href="#1-Java集合框架概述" class="headerlink" title="1 Java集合框架概述"></a>1 Java集合框架概述</h1><p>集合和数组都是对多个数据进行存储操作的结构，简称为Java容器</p>
+<hr>
+<p> <strong>数组在存储多个数据方面的特点：</strong></p>
+<ul>
+<li><p> 一旦初始化以后，其长度就确定了</p>
+</li>
+<li><p> 数组一旦定义好，其元素的类型也就确定了。就只能操作指定类型的数据了。</p>
+</li>
+</ul>
+<p> <strong>数组在存储多个数据方面的缺点：</strong></p>
+<ul>
+<li> 一旦初始化以后，其长度就不可修改。</li>
+<li>数组中提供的方法非常有限，对于删除、插入数据等操作，非常不便，同时效率不高。</li>
+<li>获取数组中实际元素的个数，数组没有现成的属性或方法可用。</li>
+<li>数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。</li>
+</ul>
+<h2 id="1-1-集合框架"><a href="#1-1-集合框架" class="headerlink" title="1.1 集合框架"></a>1.1 集合框架</h2><p><img src="https://snailclimb.gitee.io/javaguide/docs/java/collection/images/Java-Collections.jpeg" alt="img"></p>
+<ul>
+<li>Collection接口：单列数据，定义了存取一组对象的方法的集合<ul>
+<li><input checked="" disabled="" type="checkbox"> List接口：元素有序、可重复的集合<ul>
+<li><input checked="" disabled="" type="checkbox"> <code>ArrayList</code>、<code>LinkedList</code>、<code>Vector</code></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> Set接口：元素无序、不可重复的集合<ul>
+<li><input checked="" disabled="" type="checkbox"> <code>HashSet</code>、<code>LinkedHashSet</code>、<code>TreeSet</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Map接口：双列集合，保存具有映射关系“key-value对”的数据<ul>
+<li><input checked="" disabled="" type="checkbox"> <code>HashMap</code>、<code>LinkedHashMap</code>、<code>TreeMap</code>、<code>HashTable</code>、<code>Properties</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-Collection接口中的方法的使用"><a href="#1-2-Collection接口中的方法的使用" class="headerlink" title="1.2 Collection接口中的方法的使用"></a>1.2 Collection接口中的方法的使用</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/30/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%92%8C%E6%B3%A8%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/30/%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="post-title-link" itemprop="url">枚举类和注解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-30 20:35:29" itemprop="dateCreated datePublished" datetime="2020-11-30T20:35:29+08:00">2020-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-01 13:15:13" itemprop="dateModified" datetime="2020-12-01T13:15:13+08:00">2020-12-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-枚举类"><a href="#1-枚举类" class="headerlink" title="1 枚举类"></a>1 枚举类</h1><h2 id="1-1-如何自定义枚举类"><a href="#1-1-如何自定义枚举类" class="headerlink" title="1.1 如何自定义枚举类"></a>1.1 如何自定义枚举类</h2><h2 id="1-2-如何使用关键字enum定义枚举类"><a href="#1-2-如何使用关键字enum定义枚举类" class="headerlink" title="1.2 如何使用关键字enum定义枚举类"></a>1.2 如何使用关键字<code>enum</code>定义枚举类</h2><h2 id="1-3-Enum类的主要方法"><a href="#1-3-Enum类的主要方法" class="headerlink" title="1.3 Enum类的主要方法"></a>1.3 <code>Enum</code>类的主要方法</h2><h2 id="1-4-实现接口的枚举类"><a href="#1-4-实现接口的枚举类" class="headerlink" title="1.4 实现接口的枚举类"></a>1.4 实现接口的枚举类</h2><h1 id="2-注解"><a href="#2-注解" class="headerlink" title="2 注解"></a>2 注解</h1><h2 id="2-1-元注解"><a href="#2-1-元注解" class="headerlink" title="2.1 元注解"></a>2.1 元注解</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/30/Spring5%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/30/Spring5%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">Spring5</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-30 09:51:12 / 修改时间：11:03:42" itemprop="dateCreated datePublished" datetime="2020-11-30T09:51:12+08:00">2020-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">JavaEE框架</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-Spring框架"><a href="#1-Spring框架" class="headerlink" title="1 Spring框架"></a>1 Spring框架</h1><p>Spring是轻量级的开源的JavaEE的框架</p>
+<p>有两个核心部分：IOC和Aop</p>
+<p>​        1️⃣ IOC：控制反转，把创建对象的过程交给Spring进行管理</p>
+<p>​        2️⃣ Aop：面向切面，不修改源代码的情况下进行功能增强</p>
+<p><strong>Spring特点：</strong></p>
+<p>1️⃣ 方便解耦，简化开发</p>
+<p>2️⃣ AOP编程的支持</p>
+<p>3️⃣ 方便程序的测试</p>
+<p>4️⃣ 方便和其他框架进行整合</p>
+<p>5️⃣ 方便进行事务操作</p>
+<p>6️⃣ 降低API开发</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/30/%E5%B8%B8%E7%94%A8%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/30/%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="post-title-link" itemprop="url">常用类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-30 09:47:57 / 修改时间：20:28:20" itemprop="dateCreated datePublished" datetime="2020-11-30T09:47:57+08:00">2020-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-字符串相关的类"><a href="#1-字符串相关的类" class="headerlink" title="1 字符串相关的类"></a>1 字符串相关的类</h1><h2 id="1-1-String类及常用方法"><a href="#1-1-String类及常用方法" class="headerlink" title="1.1 String类及常用方法"></a>1.1 String类及常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br></pre></td></tr></table></figure>
+
+<p>String：字符串，使用” “引起来表示。</p>
+<ul>
+<li><p>String声明为final的，不可被继承</p>
+</li>
+<li><p>String实现了<code>Serializable</code>接口：表示字符串是支持序列化的</p>
+</li>
+</ul>
+<p>​                  实现了<code>Comparable</code>接口：表示String可以比较大小</p>
+<ul>
+<li>String内部定义了<code>final char value[]</code>用于存储字符串数据，代表String是不可变的字符序列，即不可变性。</li>
+</ul>
+<p><strong>体现：</strong></p>
+<p>​         当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值</p>
+<p>​         当对现有的字符串进行连接操作时，需要重新指定内存区域赋值，不能使用原有的value进行赋值</p>
+<p>​         当调用String的replace()方法 修改指定字符或字符串时，也需要重新指定内存区域</p>
+<ul>
+<li>通过字面量的方式(区别于new)给一个字符串赋值，此时的字符串值声明在字符串常量池中。</li>
+<li>字符串常量池中是不会存储相同内容的字符串的。</li>
+</ul>
+<hr>
+<p><strong>面试题：String s = new String(“abc”);方式创建对象，在内存中创建了几个对象?</strong></p>
+<p><strong>答案：</strong>两个，一个是堆空间中new结构，另一个是char[]对应的常量池中的数据: “abc”</p>
+<hr>
+<h2 id="1-2-StringBuffer-StringBuilder"><a href="#1-2-StringBuffer-StringBuilder" class="headerlink" title="1.2 StringBuffer/StringBuilder"></a>1.2 StringBuffer/StringBuilder</h2><h1 id="2-日期时间API"><a href="#2-日期时间API" class="headerlink" title="2 日期时间API"></a>2 日期时间API</h1><h2 id="2-1-java-lang-System类"><a href="#2-1-java-lang-System类" class="headerlink" title="2.1 java.lang.System类"></a>2.1 java.lang.System类</h2><p>System类提供的<code>public static long currentTimeMillis()</code>用来返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差。</p>
+<ul>
+<li><strong>此方法适于计算时间差。</strong></li>
+</ul>
+<h2 id="2-2-java-util-Date类"><a href="#2-2-java-util-Date类" class="headerlink" title="2.2 java.util.Date类"></a>2.2 java.util.Date类</h2><p>表示特定的瞬间，精确到毫秒</p>
+<p><strong>构造器</strong>:</p>
+<p>​    <code>Data()</code>    使用无参构造器创建的对象可以获取本地当前时间。</p>
+<p>​    <code>Date(long date)</code></p>
+<ul>
+<li><p><strong>常用方法</strong></p>
+<p>​    <code>getTime()</code>    返回自 1970年1月1日 00:00:00 GMT以来此Date对象表示的毫秒数。</p>
+<p>​    <code>toString()</code>    把此 Date 对象转换为以下形式的 String: dow mon ddhh:mm:ss zzz yyy 其中: dow 是一周中的某一天(Sun, Mon, Tue,Wed, Thu, Fri,                               Sat)，zzz 是时间标准。</p>
+</li>
+</ul>
+<hr>
+<p><strong>java.sql.Date</strong></p>
+<p>将java.util.Date对象转换为java.sql.Date对象</p>
+<p><strong>情况一：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Date date = <span class="keyword">new</span> java.sql.Date(<span class="number">54156465456131L</span>);</span><br><span class="line">java.sql.Date date1 = (java.sql.Date) date;</span><br></pre></td></tr></table></figure>
+
+<p><strong>情况二：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Date date2 = <span class="keyword">new</span> Date();</span><br><span class="line">java.sql.Date date3 = <span class="keyword">new</span> java.sql.Date(date2.getTime());</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-java-text-SimpleDateFormat类"><a href="#2-3-java-text-SimpleDateFormat类" class="headerlink" title="2.3 java.text.SimpleDateFormat类"></a>2.3 java.text.SimpleDateFormat类</h2><h2 id="2-4-java-util-Calendar-日历-类"><a href="#2-4-java-util-Calendar-日历-类" class="headerlink" title="2.4 java.util.Calendar(日历)类"></a>2.4 java.util.Calendar(日历)类</h2><h2 id="2-5-新时间日期API"><a href="#2-5-新时间日期API" class="headerlink" title="2.5 新时间日期API"></a>2.5 新时间日期API</h2><h1 id="3-Java比较器"><a href="#3-Java比较器" class="headerlink" title="3 Java比较器"></a>3 Java比较器</h1><ul>
+<li><p>在Java中经常会涉及到对象数组的排序问题，那么就涉及到对象之间的比较问题。</p>
+</li>
+<li><p>Java实现对象排序的方式有两种:</p>
+<p>​    自然排序: <strong>java.lang.Comparable</strong></p>
+<p>​                     </p>
+</li>
+</ul>
+<h1 id="4-System类"><a href="#4-System类" class="headerlink" title="4 System类"></a>4 System类</h1><h1 id="5-Math类"><a href="#5-Math类" class="headerlink" title="5 Math类"></a>5 Math类</h1><h1 id="6-BigInteger与BigDecimal"><a href="#6-BigInteger与BigDecimal" class="headerlink" title="6 BigInteger与BigDecimal"></a>6 BigInteger与BigDecimal</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/29/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -249,10 +982,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-29 09:41:11 / 修改时间：10:28:02" itemprop="dateCreated datePublished" datetime="2020-11-29T09:41:11+08:00">2020-11-29</time>
+              <time title="创建时间：2020-11-29 09:41:11" itemprop="dateCreated datePublished" datetime="2020-11-29T09:41:11+08:00">2020-11-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-30 16:55:09" itemprop="dateModified" datetime="2020-11-30T16:55:09+08:00">2020-11-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -288,6 +1027,44 @@
 <p>一个应用应该是一组小型服务；可以通过HTTP的方式进行互通；</p>
 <p>每一个功能元素最终都是一个可独立替换和独立升级的软件单元；</p>
 </blockquote>
+<h1 id="2-Spring-Boot-HelloWorld"><a href="#2-Spring-Boot-HelloWorld" class="headerlink" title="2 Spring Boot HelloWorld"></a>2 Spring Boot HelloWorld</h1><p>实现一个功能：</p>
+<p>浏览器发送hello请求，服务器接收请求并处理，响应Hello World字符串；</p>
+<p><strong>第一步 创建一个maven工程（jar）</strong></p>
+<p><strong>第二步 导入spring boot相关的依赖</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;parent&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.5.9.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/parent&gt;</span><br><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第三步 编写主程序启动Spring Boot应用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldMainApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(HelloWorldMainApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第四步 编写相关的Controller、Service</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第五步 运行主程序测试</strong></p>
+<p><strong>第六步 简化部署</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.5.9.RELEASE&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p>将这个应用打成jar包，直接使用java -jar的命令进行执行</p>
+<h1 id="3-Hello-World探究"><a href="#3-Hello-World探究" class="headerlink" title="3 Hello World探究"></a>3 Hello World探究</h1><h2 id="3-1-PMO文件"><a href="#3-1-PMO文件" class="headerlink" title="3.1 PMO文件"></a>3.1 PMO文件</h2><p>1️⃣ 父项目</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    &lt;parent&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;version&gt;1.5.9.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/parent&gt;</span><br><span class="line">        </span><br><span class="line">它的父项目是</span><br><span class="line">    &lt;parent&gt;</span><br><span class="line">		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">		&lt;version&gt;1.5.9.RELEASE&lt;/version&gt;</span><br><span class="line">		&lt;relativePath&gt;../../spring-boot-dependencies&lt;/relativePath&gt;</span><br><span class="line">	&lt;/parent&gt;</span><br><span class="line">它是真正管理Spring Boot应用里面的所有依赖版本；</span><br></pre></td></tr></table></figure>
+
+<p>Spring Boot版本仲裁中心；</p>
+<p>以后导入依赖是默认不需要写版本；（没有在dependencies里面管理的依赖，需要声明版本号）</p>
+<p>2️⃣ 代入的依赖</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>spring-boot-starter-web：</strong></p>
+<p>​        spring-boot-starter：Spring Boot场景启动器；帮组导入web模块正常运行所依赖的组件</p>
+<p>Spring Boot将所有的功能场景都抽取出来，做成一个个的starters(启动器)，只需要在项目里面引入这些starter相关场景的所有依赖，都会导入进来。要用什么功能就导入什么场景的启动器。</p>
+<h2 id="3-2-主程序类（主入口类）"><a href="#3-2-主程序类（主入口类）" class="headerlink" title="3.2 主程序类（主入口类）"></a>3.2 主程序类（主入口类）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldMainApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(HelloWorldMainApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@SpringBootApplication</code></p>
+<p>Spring Boot应用标注在某个类上，说明这个类是Spring Boot的主配置类，SpringBoot就应该运行这个类的<code>mian()</code>来启动Spring Boot应用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(</span></span><br><span class="line"><span class="meta">    excludeFilters = &#123;@Filter(</span></span><br><span class="line"><span class="meta">    type = FilterType.CUSTOM,</span></span><br><span class="line"><span class="meta">    classes = &#123;TypeExcludeFilter.class&#125;</span></span><br><span class="line"><span class="meta">), @Filter(</span></span><br><span class="line"><span class="meta">    type = FilterType.CUSTOM,</span></span><br><span class="line"><span class="meta">    classes = &#123;AutoConfigurationExcludeFilter.class&#125;</span></span><br><span class="line"><span class="meta">)&#125;</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br></pre></td></tr></table></figure>
+
+<p><code>@SpringBootConfiguration</code>：Spring Boot的配置类；标注在某个类上，表示这是一个SpringBoot的配置类；</p>
+<p>​        <code>@Configuration</code>：配置类（配置文件）上来标注这个注解</p>
+<p><code>@EnableAutoConfiguration</code>：开启自动配置功能</p>
+<p>​        以前需要配置的东西，Spring Boot帮我们自动配置；告诉Spring Boot开启自动配置功能</p>
 
       
     </div>
@@ -390,499 +1167,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/28/Struts2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/28/Struts2/" class="post-title-link" itemprop="url">Struts2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-11-28 21:06:36 / 修改时间：21:33:55" itemprop="dateCreated datePublished" datetime="2020-11-28T21:06:36+08:00">2020-11-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaEE%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">JavaEE框架</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaEE%E6%A1%86%E6%9E%B6/Strusts/" itemprop="url" rel="index"><span itemprop="name">Strusts</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/28/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/28/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">多线程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-28 15:08:25" itemprop="dateCreated datePublished" datetime="2020-11-28T15:08:25+08:00">2020-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 20:09:35" itemprop="dateModified" datetime="2020-11-29T20:09:35+08:00">2020-11-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java高级编程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">多线程</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-程序、进程、线程的概念"><a href="#1-程序、进程、线程的概念" class="headerlink" title="1 程序、进程、线程的概念"></a>1 程序、进程、线程的概念</h1><p><strong>程序（program）：</strong></p>
-<p>为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。</p>
-<p><strong>进程（process）：</strong></p>
-<p>程序的一次执行过程，或者正在运行的一个程序。是一个动态的过程：有它自身的产生、存在和消亡的过程。——生命周期</p>
-<ul>
-<li>程序是静态的，进程是动态的</li>
-<li>进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域。</li>
-</ul>
-<p><strong>线程（thread）：</strong></p>
-<p>进程可进一步细化为线程，是一个程序内部的一条执行路径。</p>
-<ul>
-<li>若一个进程同一时间并行执行多个线程，就是支持多线程的</li>
-<li>线程作为调度和执行的单位，每个线程拥有独立的运行栈和程序计数器（pc），线程切换的开销小</li>
-<li>一个进程中的多个线程共享相同的内存单元/内存地址空间→它们从同一堆中分配对象，可以访问相同的变量和对象。这就使得线程间的通讯更简洁、高效。d但多个线程操作共享的系统资源可能会带来安全隐患。</li>
-</ul>
-<h1 id="2-线程的创建和使用"><a href="#2-线程的创建和使用" class="headerlink" title="2 线程的创建和使用"></a>2 线程的创建和使用</h1><h2 id="2-1-创建方式一：继承于Thread类"><a href="#2-1-创建方式一：继承于Thread类" class="headerlink" title="2.1 创建方式一：继承于Thread类"></a>2.1 创建方式一：继承于<code>Thread</code>类</h2><p><strong>第一步</strong> 创建一个继承于<code>Thread</code>类的子类</p>
-<p><strong>第二步</strong> 重写<code>Thread</code>类中的<code>run()</code> → 将此线程执行的操作声明在<code>run()</code>方法中</p>
-<p><strong>第三步</strong> 创建<code>Thread</code>类的子类的对象</p>
-<p><strong>第四步</strong> 通过此对象调用<code>start()</code>，作用：① 启动当前线程 ② 调用当前线程的<code>run()</code></p>
-<p><strong>例如：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread t1 = <span class="keyword">new</span> MyThread();</span><br><span class="line">        t1.start(); </span><br><span class="line">        <span class="comment">//如下的操作仍然在main线程中执行</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            	System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Thread中的常用方法</strong></p>
-<p>1️⃣  <code>start()</code>：启动当前线程；调用当前线程的<code>run()</code></p>
-<p>2️⃣ <code>run()</code>：通常需要重写<code>Thread</code>类中的此方法，将创建的线程要执行的操作声明在此方法中。</p>
-<p>3️⃣ <code>currentThread()</code>：静态方法，返回执行当前代码的线程。</p>
-<p>4️⃣ <code>getName()</code>：获取当前线程的名字</p>
-<p>5️⃣ <code>setName()</code>：设置当前线程的名字</p>
-<p>6️⃣ <code>yield()</code>：释放当前cpu的执行权</p>
-<p>7️⃣ <code>join()</code> ：在线程a中调用线程b的<code>join()</code>，此时线程a进入阻塞状态，直到线程b完全执行完以后，线程a才结束阻塞状态。</p>
-<p>8️⃣ <code>sleep(long millitime)</code>：让当前线程“睡眠”指定的millitime毫秒数。在指定的millitime毫秒时间内，当前线程是阻塞状态。</p>
-<p>9️⃣ <code>isAlive()</code>：判断当前线程是否存活。</p>
-<p><strong>线程的调度</strong></p>
-<p>① 线程的优先级</p>
-<p>1️⃣ MAX_PRIORITY：10</p>
-<p>2️⃣ MIN_PRIORITY：1</p>
-<p>3️⃣ NORM_PRIORITY：5 → 默认的优先级</p>
-<p>② 如何来获取和设置当前线程的优先级</p>
-<p><code>getPriority()</code>：获取线程的优先级</p>
-<p><code>setPriority(int p)</code>：设置线程的优先级</p>
-<p><strong>说明：高优先级的线程要抢占低优先级线程cpu的执行权。但只是从概率上讲，高优先级的线程高概率的情况下别执行。并不意味着只有当高优先级的线程执行完以后，低优先级的线程才执行。</strong></p>
-<h2 id="2-2-创建方式二：实现Runnable接口"><a href="#2-2-创建方式二：实现Runnable接口" class="headerlink" title="2.2 创建方式二：实现Runnable接口"></a>2.2 创建方式二：实现<code>Runnable</code>接口</h2><p><strong>第一步</strong> 创建一个实现了<code>Runnable</code>接口的类</p>
-<p><strong>第二步</strong> 实现类去实现<code>Runnable</code>中的抽象方法：<code>run()</code></p>
-<p><strong>第三步</strong> 创建实现类的对象</p>
-<p><strong>第四步</strong> 将此对象作为参数传递到<code>Thread</code>类的构造器中，创建Thread类的对象</p>
-<p><strong>第五步</strong> 通过<code>Thread</code>类的对象调用<code>start()</code></p>
-<p><strong>例如：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MThread mThread = <span class="keyword">new</span> MThread();</span><br><span class="line">        Thread t1 = <span class="keyword">new</span> Thread(mThread);</span><br><span class="line">        t1.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-3-比较Thread方式和Runnable方式"><a href="#2-3-比较Thread方式和Runnable方式" class="headerlink" title="2.3 比较Thread方式和Runnable方式"></a>2.3 比较<code>Thread</code>方式和<code>Runnable</code>方式</h2><p>开发中优先选择，实现<code>Runnable</code>接口的方式</p>
-<p><strong>原因：</strong> </p>
-<p>1️⃣ 实现的方式没有类的单继承性的局限性</p>
-<p>2️⃣ 实现的方式更适合来处理多个线程有共享数据的情况</p>
-<p><strong>联系：</strong></p>
-<p>1️⃣ <code>Thread</code>类本身实现了<code>Runnable</code>接口</p>
-<p>2️⃣ 两种方式都需要重写<code>run()</code>，将线程要执行的逻辑声明在<code>run()</code>中</p>
-<h2 id="2-4-创建方式三：实现Callable接口"><a href="#2-4-创建方式三：实现Callable接口" class="headerlink" title="2.4 创建方式三：实现Callable接口"></a>2.4 创建方式三：实现<code>Callable</code>接口</h2><p><strong>第一步：</strong>创建一个实现<code>Callable</code>接口的实现类</p>
-<p><strong>第二步：</strong>实现<code>call</code>方法，将此线程需要执行的操作声明在call方法中</p>
-<p><strong>第三步：</strong>创建<code>Callable</code>接口实现类的对象</p>
-<p><strong>第四步：</strong>将此<code>Callable</code>接口实现类的对象作为参数传递到<code>FutureTask</code>构造器中，创建<code>FutureTask</code>的对象</p>
-<p><strong>第五步：</strong>将<code>FuterTask</code>的对象作为参数传递到<code>Thread</code>类的构造器中，创建<code>Thread</code>对象，并<code>start()</code>调用</p>
-<p><strong>第六步：</strong>获取<code>Callable</code>中的<code>call</code>方法的返回值</p>
-<hr>
-<p><strong>如何理解实现<code>Callable</code>接口的方式创建多线程比实现<code>Runnable</code>接口创建多线程要强大</strong></p>
-<p>1️⃣ <code>call()</code>可以有返回值的</p>
-<p>2️⃣ <code>call()</code>可以抛出异常，被外面的操作捕获，获取异常信息</p>
-<p>3️⃣ <code>Callable</code>支持泛型</p>
-<h2 id="2-5-创建方式四：使用线程池"><a href="#2-5-创建方式四：使用线程池" class="headerlink" title="2.5 创建方式四：使用线程池"></a>2.5 创建方式四：使用线程池</h2><p><strong>第一步：</strong>提供指定线程数量的线程池</p>
-<p><strong>第二步：</strong>执行指定的线程的操作。需要提高一个实现<code>Runnable</code>接口或<code>Callable</code>接口实现类的对象</p>
-<p><strong>第三步：</strong>关闭线程池</p>
-<hr>
-<p><strong>好处：</strong></p>
-<p>1️⃣ 提高响应速度</p>
-<p>2️⃣ 降低资源消耗</p>
-<p>3️⃣ 便于线程管理</p>
-<h1 id="3-线程的生命周期"><a href="#3-线程的生命周期" class="headerlink" title="3 线程的生命周期"></a>3 线程的生命周期</h1><p><img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%98%E8%BF%81.png" alt="Javaçº¿ç¨ç¶æåè¿"></p>
-<h1 id="4-线程的同步"><a href="#4-线程的同步" class="headerlink" title="4 线程的同步"></a>4 线程的同步</h1><p>用来解决线程的同步问题</p>
-<p><strong>方式一：同步代码块</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(同步监视器)&#123;</span><br><span class="line">    需要被同步的代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>说明：操作共享数据的代码，即为需要被同步的代码。</p>
-<p>​           共享数据：多个线程共同操作的变量。</p>
-<p>​           同步监视器：俗称锁，任何一个类的对象都可以充当锁。要求：多个线程必须要共用同一把锁。</p>
-<p>对于使用<code>Runnable()</code>接口创建多线程的方式中可以考虑使用<code>this</code>充当同步监视器。</p>
-<p>在继承<code>Thread</code>类创建多线程的方式中要慎用<code>this</code>充当同步监视器，可以考虑使用当前类充当同步监视器。</p>
-<p>同步方式解决了线程的安全问题，但是操作同步代码时只能有一个一个线程参与，其他线程等待，相当于是一个单线程的过程，效率低。</p>
-<p><strong>方式二：同步方法</strong></p>
-<p>如果操作共享数据的代码完整的声明在一个方法中，将此方法声明为同步的。</p>
-<p>1️⃣ 仍然涉及到同步监视器，但是不需要显示的声明。</p>
-<p>2️⃣ 非静态的同步方法，同步监视器是<code>this</code>，对于静态的同步方法，同步监视器是当前类本身</p>
-<p><strong>线程的死锁</strong></p>
-<p>死锁的理解：不同的线程分别占用对方需要的资源你放弃，都在等待对方放弃自己需要的同步资源，就形成了线程的死锁。</p>
-<p>说明：</p>
-<p>1️⃣ 出现死锁后，不会出现异常，不会出现提示，只是所有的线程都处于阻塞状态，无法继续</p>
-<p>2️⃣ 使用同步时，要避免出现死锁。</p>
-<p><strong>方法三：Lock锁</strong></p>
-<p>① 实例化<code>Reentrantlock</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br></pre></td></tr></table></figure>
-
-<p>② 调用锁定方法<code>lock()</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lock.lock();</span><br></pre></td></tr></table></figure>
-
-<p>③ 调用解锁的方法<code>unlock()</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lock.unlock();</span><br></pre></td></tr></table></figure>
-
-<p><strong>例如：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">if</span> (ticket &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">100</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">&quot;：售票，票号为：&quot;</span> + ticket);</span><br><span class="line">        ticket--;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    lock.unlock();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong><code>synchronized</code>和<code>Lock</code>方法的异同</strong></p>
-<p>相同：二者都是用来解决线程安全问题</p>
-<p>不同：<code>synchronized</code>机制在执行完相应的代码逻辑以后自动释放同步监视器</p>
-<p>​            <code>Lock</code>需要手动启动同步，手动结束同步。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/28/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/28/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">异常处理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-11-28 10:54:55 / 修改时间：15:12:01" itemprop="dateCreated datePublished" datetime="2020-11-28T10:54:55+08:00">2020-11-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java基础编程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">Java异常处理</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-Java中的异常分类"><a href="#1-Java中的异常分类" class="headerlink" title="1 Java中的异常分类"></a>1 Java中的异常分类</h1><p>在 Java 中，所有的异常都有一个共同的祖先 <strong>java.lang</strong> 包中的 <strong>Throwable 类</strong>。<strong>Throwable</strong>： 有两个重要的子类：<strong>Exception（异常）</strong> 和 <strong>Error（错误）</strong> ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。</p>
-<p><img src="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="img"></p>
-<h2 id="1-1-Error"><a href="#1-1-Error" class="headerlink" title="1.1 Error"></a>1.1 Error</h2><p>Java虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况。比如<code>StackOverflowError</code>和<code>OutOfMemoryError</code>。一般不编写针对性的代码进行处理。</p>
-<p>例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//栈溢出：java.lang.StackOverflowError	</span></span><br><span class="line">        main(args);</span><br><span class="line">        <span class="comment">//堆溢出：java.lang.OutOfMemoryError</span></span><br><span class="line">        Interger[] arr = <span class="keyword">new</span> Interger[<span class="number">1024</span>*<span class="number">1024</span>*<span class="number">1024</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-2-Exception"><a href="#1-2-Exception" class="headerlink" title="1.2 Exception"></a>1.2 Exception</h2><p>其他因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理。</p>
-<p>分为<strong>CheckException</strong>(编译时异常)和<strong>UncheckException</strong>(运行时异常)。</p>
-<h1 id="2-异常处理"><a href="#2-异常处理" class="headerlink" title="2 异常处理"></a>2 异常处理</h1><h2 id="2-1-抓抛模型"><a href="#2-1-抓抛模型" class="headerlink" title="2.1 抓抛模型"></a>2.1 抓抛模型</h2><p><strong>过程一：“抛”：</strong></p>
-<p>程序在正常执行的过程中，一旦出现异常，就会在异常代码处生成一个对于异常类的对象，并将此对象抛出。</p>
-<p>一旦抛出对象以后，其后得代码就不再执行。</p>
-<p><strong>过程二：“抓”：</strong></p>
-<p>可以理解为异常处理方式：</p>
-<p>1️⃣ <code>try-catch-finally</code></p>
-<p>2️⃣ <code>throws</code></p>
-<h2 id="2-2-异常处理机制一：try-catch-finally"><a href="#2-2-异常处理机制一：try-catch-finally" class="headerlink" title="2.2 异常处理机制一：try-catch-finally"></a>2.2 异常处理机制一：<code>try-catch-finally</code></h2><p><strong>语法结构：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">*<span class="keyword">try</span>&#123;</span><br><span class="line">*      可能出现异常的代码</span><br><span class="line">* &#125;<span class="keyword">catch</span>(异常类型<span class="number">1</span> 变量名<span class="number">1</span>)&#123;</span><br><span class="line">*        处理异常的方式<span class="number">1</span></span><br><span class="line">* &#125;</span><br><span class="line">* &#125;<span class="keyword">catch</span>(异常类型<span class="number">2</span> 变量名<span class="number">2</span>)&#123;</span><br><span class="line">*        处理异常的方式<span class="number">2</span></span><br><span class="line">* &#125;</span><br><span class="line">* ......</span><br><span class="line">* <span class="keyword">finally</span>&#123;</span><br><span class="line">*         一定会执行的代码</span><br><span class="line">* &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明：</strong></p>
-<p>1️⃣ <code>finally</code>是可选的。</p>
-<p>2️⃣ 使用<code>try</code>将可能出现异常的代码包装起来，在执行过程中一旦出现异常，就会生成一个对应异常类的对象，根据此对象的类型去<code>catch</code>中进行匹配。</p>
-<p>3️⃣ 当<code>try</code>中的异常对象匹配到某一个<code>catch</code>时，就进入<code>catch</code>中进行异常的处理，处理完成，就跳出当前的<code>try-catch</code>结构。（在没有写<code>finally</code>情况下），继续执行其后的代码。</p>
-<p>4️⃣ <code>catch</code>中的异常类型如果没有子父类关系，则声明顺序无所谓。如果满足子父类关系，则要求子类一定声明在父类的上面，否则报错。</p>
-<p>5️⃣ 常用的异常对象处理方式：① <code>String getMessage()</code> ② <code>printStrackTrace()</code> 。</p>
-<p>6️⃣ 在<code>try</code>结构中声明的变量，在出了<code>try</code>结构以后，就不能再被调用。</p>
-<p>7️⃣ <code>try-catch-finally</code>结构可以嵌套。</p>
-<p><strong>finally的使用：</strong></p>
-<p>1️⃣ <code>finally</code>中声明的是一定会被执行的代码。即使<code>catch</code>中又出现异常了，<code>try</code>中有<code>return</code>语句，<code>catch</code>中有<code>return</code>语句等情况。</p>
-<p>2️⃣ 像数据库连接、输入输出流、网络编程中的Socket等资源，<strong>JVM</strong>是不能自动回收的，我们需要自己手动的进行资源的释放。此时资源的释放，就要声明在<code>finally</code>中。</p>
-<h2 id="2-3-异常处理机制二：throws-异常类型"><a href="#2-3-异常处理机制二：throws-异常类型" class="headerlink" title="2.3 异常处理机制二：throws+异常类型"></a>2.3 异常处理机制二：<code>throws+异常类型</code></h2><p>1️⃣ <code>throws+异常类型</code>写在方法的声明处。指明此方法执行时，可能会抛出的异常类型。当方法体执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足<code>throws</code>后异常类型时，就会被抛出。异常代码后续的代码，不会再执行。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/27/OOP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/27/OOP/" class="post-title-link" itemprop="url">OOP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-11-27 16:41:26" itemprop="dateCreated datePublished" datetime="2020-11-27T16:41:26+08:00">2020-11-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-28 15:12:17" itemprop="dateModified" datetime="2020-11-28T15:12:17+08:00">2020-11-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Java基础编程</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/Java%E5%9F%BA%E7%A1%80%E7%BC%96%E7%A8%8B/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url" rel="index"><span itemprop="name">Java面向对象</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-static关键字"><a href="#1-static关键字" class="headerlink" title="1 static关键字"></a>1 static关键字</h1><p>​        static可以用来修饰：属性、方法、代码块、内部类。</p>
-<h2 id="1-1-使用static修饰属性"><a href="#1-1-使用static修饰属性" class="headerlink" title="1.1 使用static修饰属性"></a>1.1 使用static修饰属性</h2><p>​        按是否使用static修饰，分为：静态变量 vs 非静态变量（实例变量）</p>
-<h3 id="1-1-1-非静态变量"><a href="#1-1-1-非静态变量" class="headerlink" title="1.1.1 非静态变量"></a>1.1.1 非静态变量</h3><p>​        创建了类的多个对象，每个对象都独立的拥有一套类中的非静态变量。当修改其中一个对象中的非静态变量时，不会导致其他对象中同样的属性值的修改。</p>
-<h3 id="1-1-2-静态变量"><a href="#1-1-2-静态变量" class="headerlink" title="1.1.2 静态变量"></a>1.1.2 静态变量</h3><p>​        创建了类的多个对象，多个对象共享同一个静态变量。当通过某一个对象修改静态变量时，会导致其他对象调用此静态变量时，是修改过的。</p>
-<h3 id="1-1-3-static修饰变量的其他说明"><a href="#1-1-3-static修饰变量的其他说明" class="headerlink" title="1.1.3 static修饰变量的其他说明"></a>1.1.3 static修饰变量的其他说明</h3><p>​        ① 静态变量随着类的加载而加载。可以通过”类.静态变量” 的方式进行调用。</p>
-<p>​        ② 静态变量的加载要早于对象的创建。</p>
-<p>​        ③ 由于类只会加载一次，则静态变量在内存在也只会存在一份：存在方法区的静态域中。</p>
-<p>​        ④                 类变量                 实例变量</p>
-<p>​            类                 ✔                             ✖                </p>
-<p>​            对象             ✔                             ✔</p>
-<h3 id="1-1-4-静态属性的举例"><a href="#1-1-4-静态属性的举例" class="headerlink" title="1.1.4 静态属性的举例"></a>1.1.4 静态属性的举例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out;</span><br><span class="line">Math.PI;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-2-使用Static修饰方法"><a href="#1-2-使用Static修饰方法" class="headerlink" title="1.2 使用Static修饰方法"></a>1.2 使用Static修饰方法</h2><p>​        ① 随着类的加载而加载，可以通过”类.静态方法”的方式进行调用。</p>
-<p>​        ②                静态方法               非静态方法</p>
-<p>​            类                 ✔                             ✖                </p>
-<p>​            对象             ✔                             ✔</p>
-<p>​        ③ 静态方法中，只能调用静态的方法或属性。非静态方法中，既可以调用非静态的方法或属性也可以调用静态的方法或属性。</p>
-<h2 id="1-3-static的注意点"><a href="#1-3-static的注意点" class="headerlink" title="1.3 static的注意点"></a>1.3 static的注意点</h2><p>​        ① 在静态的方法内，不能使用this关键字、super关键字。</p>
-<p>​        ② 关于静态属性和静态方法的使用，从生命周期的角度去理解。</p>
-<h2 id="1-4-单例设计模式"><a href="#1-4-单例设计模式" class="headerlink" title="1.4 单例设计模式"></a>1.4 单例设计模式</h2><p>​        所谓单例设计模式，就是采取一定的方法保证在整个软件系统中，对某个类只能存在一个对象实例。</p>
-<h3 id="1-4-1-实现步骤"><a href="#1-4-1-实现步骤" class="headerlink" title="1.4.1 实现步骤"></a>1.4.1 实现步骤</h3><h4 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h4><p>​        1️⃣私有化构造器        </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">Bank</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​        2️⃣内部创建类的对象</p>
-<p>​        4️⃣要求此对象也声明为静态的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Bank instance = <span class="keyword">new</span> Bank();</span><br></pre></td></tr></table></figure>
-
-<p>​        3️⃣提供公共的静态的方法，返回类的对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bank <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h4><p>​        1️⃣私有化构造器        </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">Bank</span><span class="params">()</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>​        2️⃣声明当前类对象，没有初始化</p>
-<p>​        4️⃣要求此对象也声明为静态的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Bank instance = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure>
-
-<p>​        3️⃣声明public、static的返回当前类对象的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bank <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">        instance = <span class="keyword">new</span> Bank();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="2-类的成员：代码块"><a href="#2-类的成员：代码块" class="headerlink" title="2 类的成员：代码块"></a>2 类的成员：代码块</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -949,7 +1238,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
