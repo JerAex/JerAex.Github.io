@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="1 Java中的异常分类在 Java 中，所有的异常都有一个共同的祖先 java.lang 包中的 Throwable 类。 Throwable： 有两个重要的子类：Exception（异常） 和 Error（错误） ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。  1.1 ErrorJava虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况。比如StackOve">
+  <meta name="description" content="1 异常体系结构在 Java 中，所有的异常都有一个共同的祖先 java.lang 包中的 Throwable 类。 Throwable： 有两个重要的子类：Exception（异常） 和 Error（错误） ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。  1.1 ErrorJava虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况。比如StackOverflo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="异常处理">
 <meta property="og:url" content="http://example.com/2020/11/28/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="JerAex">
-<meta property="og:description" content="1 Java中的异常分类在 Java 中，所有的异常都有一个共同的祖先 java.lang 包中的 Throwable 类。 Throwable： 有两个重要的子类：Exception（异常） 和 Error（错误） ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。  1.1 ErrorJava虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况。比如StackOve">
+<meta property="og:description" content="1 异常体系结构在 Java 中，所有的异常都有一个共同的祖先 java.lang 包中的 Throwable 类。 Throwable： 有两个重要的子类：Exception（异常） 和 Error（错误） ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。  1.1 ErrorJava虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况。比如StackOverflo">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta property="og:image" content="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE2.png">
 <meta property="article:published_time" content="2020-11-28T02:54:55.000Z">
-<meta property="article:modified_time" content="2020-12-05T03:22:12.328Z">
+<meta property="article:modified_time" content="2020-12-05T04:10:24.453Z">
 <meta property="article:author" content="JerAexChen">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png">
+<meta name="twitter:image" content="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE2.png">
 
 <link rel="canonical" href="http://example.com/2020/11/28/%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
 
@@ -197,7 +197,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-05 11:22:12" itemprop="dateModified" datetime="2020-12-05T11:22:12+08:00">2020-12-05</time>
+                <time title="修改时间：2020-12-05 12:10:24" itemprop="dateModified" datetime="2020-12-05T12:10:24+08:00">2020-12-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,9 +220,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-Java中的异常分类"><a href="#1-Java中的异常分类" class="headerlink" title="1 Java中的异常分类"></a>1 Java中的异常分类</h1><p>在 Java 中，所有的异常都有一个共同的祖先 <strong>java.lang</strong> 包中的 <strong>Throwable 类</strong>。</p>
+        <h1 id="1-异常体系结构"><a href="#1-异常体系结构" class="headerlink" title="1 异常体系结构"></a>1 异常体系结构</h1><p>在 Java 中，所有的异常都有一个共同的祖先 <strong>java.lang</strong> 包中的 <strong>Throwable 类</strong>。</p>
 <p><strong>Throwable</strong>： 有两个重要的子类：<strong>Exception（异常）</strong> 和 <strong>Error（错误）</strong> ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。</p>
-<p><img src="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="img"></p>
+<p><img src="https://snailclimb.gitee.io/javaguide/docs/java/basis/images/Java%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%9B%BE2.png" alt="img"></p>
 <h2 id="1-1-Error"><a href="#1-1-Error" class="headerlink" title="1.1 Error"></a>1.1 Error</h2><p>Java虚拟机无法解决的严重问题。如：JVM系统内部错误、资源耗尽等严重情况。比如<code>StackOverflowError</code>和<code>OutOfMemoryError</code>。一般不编写针对性的代码进行处理。</p>
 <p>例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//栈溢出：java.lang.StackOverflowError	</span></span><br><span class="line">        main(args);</span><br><span class="line">        <span class="comment">//堆溢出：java.lang.OutOfMemoryError</span></span><br><span class="line">        Interger[] arr = <span class="keyword">new</span> Interger[<span class="number">1024</span>*<span class="number">1024</span>*<span class="number">1024</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -335,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Java%E4%B8%AD%E7%9A%84%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB"><span class="nav-text">1 Java中的异常分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Error"><span class="nav-text">1.1 Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Exception"><span class="nav-text">1.2 Exception</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">2 异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E6%8A%93%E6%8A%9B%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.1 抓抛模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B8%80%EF%BC%9Atry-catch-finally"><span class="nav-text">2.2 异常处理机制一：try-catch-finally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%BA%8C%EF%BC%9Athrows-%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B"><span class="nav-text">2.3 异常处理机制二：throws+异常类型</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-text">1 异常体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Error"><span class="nav-text">1.1 Error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Exception"><span class="nav-text">1.2 Exception</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">2 异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E6%8A%93%E6%8A%9B%E6%A8%A1%E5%9E%8B"><span class="nav-text">2.1 抓抛模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%B8%80%EF%BC%9Atry-catch-finally"><span class="nav-text">2.2 异常处理机制一：try-catch-finally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6%E4%BA%8C%EF%BC%9Athrows-%E5%BC%82%E5%B8%B8%E7%B1%BB%E5%9E%8B"><span class="nav-text">2.3 异常处理机制二：throws+异常类型</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -351,14 +351,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
