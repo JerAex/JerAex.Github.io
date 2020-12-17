@@ -28,7 +28,7 @@
 <meta property="og:description" content="一、Java集合框架概述集合和数组都是对多个数据进行存储操作的结构，简称为Java容器   数组在存储多个数据方面的特点：   一旦初始化以后，其长度就确定了   数组一旦定义好，其元素的类型也就确定了。就只能操作指定类型的数据了。    数组在存储多个数据方面的缺点：   一旦初始化以后，其长度就不可修改。 数组中提供的方法非常有限，对于删除、插入数据等操作，非常不便，同时效率不高。 获取数组中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-01T05:16:17.000Z">
-<meta property="article:modified_time" content="2020-12-16T01:01:58.664Z">
+<meta property="article:modified_time" content="2020-12-17T08:14:39.625Z">
 <meta property="article:author" content="JerAexChen">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-16 09:01:58" itemprop="dateModified" datetime="2020-12-16T09:01:58+08:00">2020-12-16</time>
+                <time title="修改时间：2020-12-17 16:14:39" itemprop="dateModified" datetime="2020-12-17T16:14:39+08:00">2020-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,9 +235,9 @@
 <li>数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。</li>
 </ul>
 <h2 id="1-1-集合框架"><a href="#1-1-集合框架" class="headerlink" title="1.1 集合框架"></a>1.1 集合框架</h2><ul>
-<li>Collection接口：单列数据，定义了存取一组对象的方法的集合<ul>
-<li>List接口：存储有序、可重复的集合<ul>
-<li><code>ArrayList</code>：作为List接口的主要实现类， 线程不安全，效率高，底层使用<code>Object[]</code> <code>elementData</code>存储</li>
+<li><code>Collection</code>接口：单列数据，定义了存取一组对象的方法的集合<ul>
+<li><strong><code>List</code>接口：存储有序、可重复的集合</strong><ul>
+<li><code>ArrayList</code>：作为<code>List</code>接口的主要实现类， 线程不安全，效率高，底层使用<code>Object[]</code> <code>elementData</code>存储</li>
 <li><code>LinkedList</code>：对于频繁的插入、删除操作，使用此类效率比<code>ArrayList</code>高，底层使用双向链表存储，</li>
 <li><code>Vector</code>：作为List接口的古老实现类，线程安全，效率低，底层使用<code>Object[]</code> <code>elementData</code>存储</li>
 <li>面试题：<code>ArrayList</code>、<code>LinkedList</code>、<code>Vector</code>三者的异同<ul>
@@ -247,15 +247,17 @@
 </li>
 </ul>
 </li>
-<li>Set接口：元素无序、不可重复的集合<ul>
-<li><code>HashSet</code></li>
-<li><code>LinkedHashSet</code></li>
-<li><code>TreeSet</code></li>
+<li><strong><code>Set</code>接口：存储无序、不可重复的元素</strong><ul>
+<li><code>HashSet</code>：作为Set接口的主要实现类；线程不安全；可以存储null值<ul>
+<li><code>LinkedHashSet</code>：作为<code>HashSet</code>的子类；遍历其内部数据时，可以按照添加的顺序遍历</li>
+</ul>
+</li>
+<li><code>TreeSet</code>：可以按照添加的对象的指定属性，进行排序。</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>Map接口：双列集合，保存具有映射关系“key-value对”的数据<ul>
+<li><code>Map</code>接口：双列集合，保存具有映射关系“key-value对”的数据<ul>
 <li><code>HashMap</code></li>
 <li><code>LinkedHashMap</code></li>
 <li><code>TreeMap</code></li>
@@ -267,8 +269,67 @@
 <h2 id="1-2-Collection接口中的方法的使用"><a href="#1-2-Collection接口中的方法的使用" class="headerlink" title="1.2 Collection接口中的方法的使用"></a>1.2 Collection接口中的方法的使用</h2><ul>
 <li>contains()</li>
 </ul>
-<h1 id="二、Collection子接口：List接口"><a href="#二、Collection子接口：List接口" class="headerlink" title="二、Collection子接口：List接口"></a>二、Collection子接口：List接口</h1><h2 id="2-1-ArrayList源码分析"><a href="#2-1-ArrayList源码分析" class="headerlink" title="2.1 ArrayList源码分析"></a>2.1 ArrayList源码分析</h2><ul>
-<li></li>
+<h1 id="二、Collection子接口：List接口"><a href="#二、Collection子接口：List接口" class="headerlink" title="二、Collection子接口：List接口"></a>二、Collection子接口：List接口</h1><h2 id="2-1-ArrayList源码分析：jdk7情况下"><a href="#2-1-ArrayList源码分析：jdk7情况下" class="headerlink" title="2.1 ArrayList源码分析：jdk7情况下"></a>2.1 ArrayList源码分析：jdk7情况下</h2><ul>
+<li> <code>ArrayList list = new ArrayList()</code>：底层创建了长度为10的Object[]数组elementData</li>
+</ul>
+<h2 id="2-4-List接口中的常用方法"><a href="#2-4-List接口中的常用方法" class="headerlink" title="2.4 List接口中的常用方法"></a>2.4 List接口中的常用方法</h2><ul>
+<li><p><code>void add(int index, E element)</code>：在index位置插入element</p>
+</li>
+<li><p><code>boolean addAll(int index, Collection&lt;? extends E&gt; c)</code>：从index位置开始将c中的所有元素添加进来</p>
+</li>
+<li><p><code>E get(int index)</code>：获取指定index位置的元素</p>
+</li>
+<li><p><code>int indexOf(Object o)</code>：返回o在集合中首次出现的位置</p>
+</li>
+<li><p><code>int lastIndexOf(Object o)</code>：返回o在集合中末次出现的位置</p>
+</li>
+<li><p><code>E remove(int index)</code>：移除指定index位置的元素，并返回此元素</p>
+</li>
+<li><p><code>E set(int index, E element)</code>：设置指定index位置的元素element</p>
+</li>
+<li><p><code>List&lt;E&gt; subList(int fromIndex, int toIndex)</code>：返回从<code>fromIndex</code>到<code>toIndex</code>位置的子集合</p>
+</li>
+<li><p><strong>总结：常用方法</strong></p>
+<ul>
+<li><p>增：<code>add(object obj)</code></p>
+</li>
+<li><p>删：<code>remove(int index) / remove(Object obj)</code></p>
+</li>
+<li><p>改：<code>E set(int index, E element)</code></p>
+</li>
+<li><p>查：<code>get(int index)</code></p>
+</li>
+<li><p>插：<code>add(int index, E element)</code></p>
+</li>
+<li><p>长度：<code>size()</code></p>
+</li>
+<li><p>遍历</p>
+<ul>
+<li><p>Iterator迭代器方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>增强for循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Object obj: list)&#123;</span><br><span class="line">    System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>普通的循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">    System.out.println(list.get(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、Collection子接口：Set接口"><a href="#三、Collection子接口：Set接口" class="headerlink" title="三、Collection子接口：Set接口"></a>三、<code>Collection</code>子接口：<code>Set</code>接口</h1><ul>
+<li>Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法</li>
+</ul>
+<h2 id="3-3-LinkedHashSet"><a href="#3-3-LinkedHashSet" class="headerlink" title="3.3 LinkedHashSet"></a>3.3 <code>LinkedHashSet</code></h2><h2 id="3-4-TreeSet"><a href="#3-4-TreeSet" class="headerlink" title="3.4 TreeSet"></a>3.4 <code>TreeSet</code></h2><ul>
+<li>向<code>TreeSet</code>添加的数据，要求是相同类的对象</li>
+<li>两种排序方式<ul>
+<li>自然排序</li>
+<li>定制排序</li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -353,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0"><span class="nav-text">一、Java集合框架概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-text">1.1 集合框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Collection%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">1.2 Collection接口中的方法的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Collection%E5%AD%90%E6%8E%A5%E5%8F%A3%EF%BC%9AList%E6%8E%A5%E5%8F%A3"><span class="nav-text">二、Collection子接口：List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"><span class="nav-text">2.1 ArrayList源码分析</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0"><span class="nav-text">一、Java集合框架概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6"><span class="nav-text">1.1 集合框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Collection%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">1.2 Collection接口中的方法的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Collection%E5%AD%90%E6%8E%A5%E5%8F%A3%EF%BC%9AList%E6%8E%A5%E5%8F%A3"><span class="nav-text">二、Collection子接口：List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-ArrayList%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%EF%BC%9Ajdk7%E6%83%85%E5%86%B5%E4%B8%8B"><span class="nav-text">2.1 ArrayList源码分析：jdk7情况下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-List%E6%8E%A5%E5%8F%A3%E4%B8%AD%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">2.4 List接口中的常用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Collection%E5%AD%90%E6%8E%A5%E5%8F%A3%EF%BC%9ASet%E6%8E%A5%E5%8F%A3"><span class="nav-text">三、Collection子接口：Set接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-LinkedHashSet"><span class="nav-text">3.3 LinkedHashSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-TreeSet"><span class="nav-text">3.4 TreeSet</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,20 +430,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
