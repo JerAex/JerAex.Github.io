@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一、值传递机制如果参数是基本数据类型，此时实参赋给形参的是实参真实存储的数据值">
+  <meta name="description" content="一、this this可以用来修饰、调用： 属性、方法 this理解为：当前对象或当前正在创建的对象 在类的方法中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果方法的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参 在类的构造器中，可以使用 this.属性 或 this.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象上">
-<meta property="og:url" content="http://example.com/2020/12/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8A/index.html">
+<meta property="og:title" content="面向对象关键字">
+<meta property="og:url" content="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/index.html">
 <meta property="og:site_name" content="JerAex">
-<meta property="og:description" content="一、值传递机制如果参数是基本数据类型，此时实参赋给形参的是实参真实存储的数据值">
+<meta property="og:description" content="一、this this可以用来修饰、调用： 属性、方法 this理解为：当前对象或当前正在创建的对象 在类的方法中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果方法的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参 在类的构造器中，可以使用 this.属性 或 this.">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-05T10:51:41.000Z">
-<meta property="article:modified_time" content="2020-12-08T04:17:53.759Z">
+<meta property="article:published_time" content="2020-12-11T13:59:21.000Z">
+<meta property="article:modified_time" content="2020-12-16T12:05:13.157Z">
 <meta property="article:author" content="JerAexChen">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2020/12/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8A/">
+<link rel="canonical" href="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>面向对象上 | JerAex</title>
+  <title>面向对象关键字 | JerAex</title>
   
 
 
@@ -165,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8A/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -178,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          面向对象上
+          面向对象关键字
         </h1>
 
         <div class="post-meta">
@@ -188,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-05 18:51:41" itemprop="dateCreated datePublished" datetime="2020-12-05T18:51:41+08:00">2020-12-05</time>
+              <time title="创建时间：2020-12-11 21:59:21" itemprop="dateCreated datePublished" datetime="2020-12-11T21:59:21+08:00">2020-12-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-08 12:17:53" itemprop="dateModified" datetime="2020-12-08T12:17:53+08:00">2020-12-08</time>
+                <time title="修改时间：2020-12-16 20:05:13" itemprop="dateModified" datetime="2020-12-16T20:05:13+08:00">2020-12-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,7 +218,129 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="一、值传递机制"><a href="#一、值传递机制" class="headerlink" title="一、值传递机制"></a>一、值传递机制</h1><p>如果参数是基本数据类型，此时实参赋给形参的是实参真实存储的数据值</p>
+        <h1 id="一、this"><a href="#一、this" class="headerlink" title="一、this"></a>一、this</h1><ul>
+<li>this可以用来修饰、调用：<ul>
+<li>属性、方法<ul>
+<li>this理解为：当前对象或当前正在创建的对象</li>
+<li>在类的方法中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果方法的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参</li>
+<li>在类的构造器中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果构造器的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参</li>
+</ul>
+</li>
+<li>构造器<ul>
+<li>在类的构造器中，可以显式的使用 this(形参列表) 方式，调用本类中指定的类的其他构造器</li>
+<li>构造器中不能通过 this(形参列表) 方式调用自己</li>
+<li>如果一个类中有n个构造器，则最多有n-1个构造器中使用了 this(形参列表)</li>
+<li>规定： this(形参列表) 必须声明在当前构造器的首行</li>
+<li>构造器内部，最多只能声明一个 this(形参列表) ，用来调用其他的构造器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、package"><a href="#二、package" class="headerlink" title="二、package"></a>二、package</h1><ul>
+<li>为了更好的实现项目中类的管理，提供包的概念</li>
+<li>MVC设计模式<ul>
+<li>model（数据模型层）</li>
+<li>view（视图模型层）</li>
+<li>controller（控制器层）</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、super"><a href="#三、super" class="headerlink" title="三、super"></a>三、super</h1><ul>
+<li><p>理解为父类的。。。</p>
+</li>
+<li><p>super的使用：调用属性和方法</p>
+<ul>
+<li>可以在子类的方法或构造器中，通过使用 super.属性或 super.方法的方式显式的调用父类中声明的属性或方法，但是通常情况下省略 super.</li>
+<li>特殊情况：当子类和父类中定义了同名的属性时，要想再子类中调用父类声明的属性，则必须显式的使用 super.属性 的方式，表面调用的是父类中的属性</li>
+</ul>
+</li>
+<li><p>特殊情况：当子类重写父类中的方法以后，如果想在子类的方法中调用父类中重写的方法时，则必须显式的使用 super.方法 的方式，表面调用的是父类中被重写的方法</p>
+</li>
+<li><p>super的使用：构造器</p>
+<ul>
+<li>可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器</li>
+<li>“super(形参列表)”的使用，必须声明在子类构造器的首行</li>
+<li>在类的构造器中，针对于”this(形参列表)”或者”super(形参列表)”只能二选一，不能同时出现</li>
+<li>在构造器的首行，没有显式的声明”this(形参列表)”或者”super(形参列表)”，则默认调用的是父类中空参的构造器：”super()”</li>
+<li>在类的多个构造器中，至少有一个类的构造器中使用了”super(形参列表)”，调用父类中的构造器</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、instanceof"><a href="#四、instanceof" class="headerlink" title="四、instanceof"></a>四、instanceof</h1><ul>
+<li><code>a instanceof A</code>：判断对象a是否是类A的实例。如果是，返回true；如果不是，返回false</li>
+<li>使用情景：为了避免在向下转型时出现ClassCastException异常，在向下转型之前先进行<code>instanceof</code>的判断</li>
+</ul>
+<h1 id="五、static"><a href="#五、static" class="headerlink" title="五、static"></a>五、static</h1><ul>
+<li>不能用了修饰构造器</li>
+<li>使用static来修饰属性<ul>
+<li>属性按是否static修饰，分为：静态属性（类变量）    vs    非静态属性</li>
+<li>多个对象共享一个静态属性。当通过某一个对象修改静态变量，会导致其他对象调用此静态变量时是修改过的。</li>
+<li>静态变量随着类的加载而加载。</li>
+<li>静态变量的加载要早于对象的创建</li>
+<li>由于类只加载一次，则静态变量在内存中也只会存在一份：存在方法区的静态域中。</li>
+</ul>
+</li>
+<li>使用static来修饰方法：静态方法<ul>
+<li>随着类的加载而加载，可以通过”类.静态方法”的方式进行调用</li>
+<li>静态方法中，只能调用静态的方法或属性，非静态方法中，既可以调用非静态的方法或属性，也可以调用静态的方法或属性</li>
+</ul>
+</li>
+<li>注意点<ul>
+<li>在静态的方法中，不能使用this关键字，super关键字</li>
+<li>关于静态属性和静态方法的使用，从生命周期的角度去理解</li>
+</ul>
+</li>
+</ul>
+<h1 id="六、final"><a href="#六、final" class="headerlink" title="六、final"></a>六、final</h1><ul>
+<li>可以用来修饰的结构：类、方法、变量</li>
+<li>final用来修饰类：此类不能被其他类所继承</li>
+<li>final用来修饰方法：表明此方法不可以被重写</li>
+<li>final用来修饰变量：此时的“变量”就称为一个常量<ul>
+<li>final修饰属性：可以考虑赋值的位置有<ul>
+<li>显示初始化</li>
+<li>代码块中初始化</li>
+<li>构造器中初始化</li>
+</ul>
+</li>
+<li>final修饰局部变量：<ul>
+<li>使用final修饰形参时，表明此形参是一个常量。当调用此方法时，给常量形参赋一个实参</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>static final：用来修饰属性：全局常量</li>
+</ul>
+<h1 id="七、abstract"><a href="#七、abstract" class="headerlink" title="七、abstract"></a>七、abstract</h1><h2 id="7-1-abstract修饰类"><a href="#7-1-abstract修饰类" class="headerlink" title="7.1 abstract修饰类"></a>7.1 abstract修饰类</h2><ul>
+<li>此类不能实例化</li>
+<li>抽象类中一定有构造器，便于子类实例化的时候调用</li>
+<li>开发中，提供抽象类的子类，提供子类对象实例化，完成相关的操作</li>
+</ul>
+<h2 id="7-2-abstract修饰方法"><a href="#7-2-abstract修饰方法" class="headerlink" title="7.2 abstract修饰方法"></a>7.2 abstract修饰方法</h2><ul>
+<li>抽象方法只有方法的声明，没有方法体</li>
+<li>包含抽象方法的类一定是一个抽象类。反之，抽象类中可以没有抽象方法</li>
+<li>若子类重写了父类中的所有的抽象方法以后，此子类方可实例化，若子类没有重写了父类中的所有的抽象方法，则此子类也是一个抽象类</li>
+</ul>
+<h2 id="7-3-abstract使用注意点"><a href="#7-3-abstract使用注意点" class="headerlink" title="7.3 abstract使用注意点"></a>7.3 abstract使用注意点</h2><ul>
+<li>abstract不能用来修饰：属性，构造器等结构</li>
+<li>abstract不能用来装饰似有方法、静态方法、final的方法、final的类</li>
+</ul>
+<h1 id="八、interface"><a href="#八、interface" class="headerlink" title="八、interface"></a>八、interface</h1><ul>
+<li>Java中，接口和类是并列的结构</li>
+<li>如何定义接口：定义接口中的成员<ul>
+<li>JDK7及以前：只能定义全局常量和抽象方法<ul>
+<li>全局常量：public static final的，可以省略不写</li>
+<li>抽象方法：public abstract的</li>
+</ul>
+</li>
+<li>JDK8：还可以定义静态方法、和默认方法</li>
+</ul>
+</li>
+<li>接口中不能定义构造器，意味着接口不可以实例化</li>
+<li>如果实现类覆盖了接口中的所有抽象方法，则此实现类就可以实例化</li>
+<li>Java类可以实现多个接口</li>
+<li>接口与接口之间可以继承，而且可以多继承</li>
+</ul>
 
     </div>
 
@@ -237,12 +359,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/12/04/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" rel="prev" title="Java8新特性">
-      <i class="fa fa-chevron-left"></i> Java8新特性
+    <a href="/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81/" rel="prev" title="面向对象三大特征">
+      <i class="fa fa-chevron-left"></i> 面向对象三大特征
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/12/06/JDBC/" rel="next" title="JDBC">
-      JDBC <i class="fa fa-chevron-right"></i>
+    <a href="/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%89/" rel="next" title="在线教育项目三">
+      在线教育项目三 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -302,7 +424,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%80%BC%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6"><span class="nav-text">一、值传递机制</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81this"><span class="nav-text">一、this</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81package"><span class="nav-text">二、package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81super"><span class="nav-text">三、super</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81instanceof"><span class="nav-text">四、instanceof</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81static"><span class="nav-text">五、static</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81final"><span class="nav-text">六、final</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81abstract"><span class="nav-text">七、abstract</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-abstract%E4%BF%AE%E9%A5%B0%E7%B1%BB"><span class="nav-text">7.1 abstract修饰类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-abstract%E4%BF%AE%E9%A5%B0%E6%96%B9%E6%B3%95"><span class="nav-text">7.2 abstract修饰方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-abstract%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-text">7.3 abstract使用注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81interface"><span class="nav-text">八、interface</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -318,20 +440,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

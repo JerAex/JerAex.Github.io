@@ -159,7 +159,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/09/%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%E5%90%8E%E7%AB%AF/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -173,7 +173,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/09/%E8%AE%B2%E5%B8%88%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9D%97%E5%90%8E%E7%AB%AF/" class="post-title-link" itemprop="url">讲师管理模块后端</a>
+            <a href="/2020/12/15/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80/" class="post-title-link" itemprop="url">在线教育项目十一</a>
         </h2>
 
         <div class="post-meta">
@@ -183,14 +183,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-09 15:42:09" itemprop="dateCreated datePublished" datetime="2020-12-09T15:42:09+08:00">2020-12-09</time>
+              <time title="创建时间：2020-12-15 17:24:19" itemprop="dateCreated datePublished" datetime="2020-12-15T17:24:19+08:00">2020-12-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-10 18:43:02" itemprop="dateModified" datetime="2020-12-10T18:43:02+08:00">2020-12-10</time>
+                <time title="修改时间：2020-12-17 10:11:29" itemprop="dateModified" datetime="2020-12-17T10:11:29+08:00">2020-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,86 +217,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、开发讲师管理模块后端"><a href="#一、开发讲师管理模块后端" class="headerlink" title="一、开发讲师管理模块后端"></a>一、开发讲师管理模块后端</h1><h2 id="1-1-准备工作"><a href="#1-1-准备工作" class="headerlink" title="1.1 准备工作"></a>1.1 准备工作</h2><p><strong>① 创建数据库，创建讲师数据库表</strong></p>
-<p>​        数据库设计规约：《阿里巴巴Java开发手册》</p>
-<p>​                                        1、库名与应用名称尽量一致</p>
-<p>​                                        2、表名、字段名必须使用小写字母或数字，禁止出现数字开头</p>
-<p>​                                        3、表名字不使用复数名词</p>
-<p>​                                        4、表的命名最好加上“业务名称_表的作用”。如，edu_teacher</p>
-<p>​                                        5、表必备三字段：id，gmt_create，gmt_modified</p>
-<p><strong>② 创建项目结构</strong></p>
-<ul>
-<li>创建父工程：pom类型，用来管理依赖版本和放公共的依赖，比如Springboot工程<ul>
-<li>子模块一、二 ……：比如maven工程<ul>
-<li>子子模块一、二 ……：讲师管理模块、统计分析模块等，比如maven工程    </li>
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>搭建项目前台系统环境<ul>
+<li>NUXT</li>
 </ul>
 </li>
+<li>整合前台系统页面</li>
+<li>首页显示banner数据</li>
+<li>首页显示热门课程和名师</li>
+<li>把首页数据使用redis缓存</li>
 </ul>
-</li>
-</ul>
-<h2 id="1-2-开发讲师管理模块"><a href="#1-2-开发讲师管理模块" class="headerlink" title="1.2 开发讲师管理模块"></a>1.2 开发讲师管理模块</h2><p><strong>① 创建application.properties配置文件</strong></p>
-<p><strong>② 编写controller service mapper内容</strong></p>
-<ul>
-<li>mp提供代码生成器，生成相关代码，需要修改的地方</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gc.setOutputDir(<span class="string">&quot;D:\\Java\\guli_parent\\service\\service_edu&quot;</span> + <span class="string">&quot;/src/main/java&quot;</span>);</span><br><span class="line">gc.setIdType(IdType.ID_WORKER_STR); </span><br><span class="line"></span><br><span class="line">dsc.setUrl(<span class="string">&quot;jdbc:mysql://localhost:3306/guli?serverTimezone=GMT%2B8&quot;</span>);</span><br><span class="line">dsc.setDriverName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line">pc.setParent(<span class="string">&quot;com.JerAex&quot;</span>);</span><br><span class="line">pc.setModuleName(<span class="string">&quot;eduservice&quot;</span>);</span><br><span class="line"></span><br><span class="line">strategy.setInclude(<span class="string">&quot;edu_teacher&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建controller</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/eduservice/edu-teacher&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EduTeacherController</span> </span>&#123;</span><br><span class="line">    <span class="comment">//把service注入</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> EduTeacherService teacherService;</span><br><span class="line">    <span class="comment">//查询讲师表中的所有数据</span></span><br><span class="line">    <span class="comment">//使用rest风格</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;findAll&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;EduTeacher&gt; <span class="title">findAllTeacher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//调用service的方法实现查询所有的操作</span></span><br><span class="line">        List&lt;EduTeacher&gt; list = teacherService.list(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建启动类（在com.JerAex.eduservice中创建）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EduApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(EduApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>因为mapper只有一个接口类，所以要创建配置类，配置MapperScan注解和其他内容</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan(&quot;com.JerAex.eduservice.mapper&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EduConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>最终测试：通过启动类直接启动，在配置的本地8001端口查看，访问地址：<a target="_blank" rel="noopener" href="http://localhost:8001/eduservice/edu-teacher/findAll%EF%BC%8C%E5%BE%97%E5%88%B0json%E6%A0%BC%E5%BC%8F%E6%95%B0%E6%8D%AE">http://localhost:8001/eduservice/edu-teacher/findAll，得到json格式数据</a></li>
-</ul>
-<h2 id="1-3-整合swagger进行接口测试"><a href="#1-3-整合swagger进行接口测试" class="headerlink" title="1.3 整合swagger进行接口测试"></a>1.3 整合swagger进行接口测试</h2><p>使用swagger的优势：① 生成在线接口文档 ② 方便接口测试</p>
-<ul>
-<li><p>创建一个公共模块，整合swagger，为了所有的模块都能进行使用</p>
-<ul>
-<li><code>guli_parent</code>创建子模块<code>common</code>包，在<code>common</code>包中的<code>pom.xml</code>文件添加依赖，下载包。</li>
-<li>在<code>common.service_base.src.main.java</code>包中创建包<code>com.JerAex.servicebase</code></li>
-<li>在<code>com.JerAex.servicebase</code>包中创建子模块<code>SwaggerConfig</code>配置类，需要添加一下两个注解</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>servie_edu</code>中使用的方法</p>
-<ul>
-<li>在<code>service_edu</code>包中的<code>pom.xml</code>引入对<code>service_base</code>包的依赖</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.JerAex<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>service_base<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>service_edu.src.main.java</code>包下的<code>EduApplication</code>启动类添加注解，设置包扫描规则</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ComponentScan(basePackages = &#123;&quot;com.JerAex&quot;&#125;)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>访问Swagger</p>
-<ul>
-<li>访问地址<a target="_blank" rel="noopener" href="http://localhost:8001/swagger-ui.html">http://localhost:8001/swagger-ui.html</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="二、注解"><a href="#二、注解" class="headerlink" title="二、注解"></a>二、注解</h1><ul>
-<li><code>@RestController</code><ul>
-<li><code>@Controller </code>：将创建交给Spring管理</li>
-<li><code>@ResponseBody</code>：返回一个json格式的数据</li>
-</ul>
-</li>
-<li><code>@RequestMapping()</code>：访问括号中的路径</li>
-<li><code>@Autowired</code>：注入一个定义好的 bean</li>
-<li><code>@TableLogic</code>：表逻辑删除注解，在逻辑删除属性上面添加注解</li>
-</ul>
-
+<h1 id="五、把首页数据使用redis缓存"><a href="#五、把首页数据使用redis缓存" class="headerlink" title="五、把首页数据使用redis缓存"></a>五、把首页数据使用redis缓存</h1>
       
     </div>
 
@@ -315,7 +246,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/08/hadoop/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/15/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%8D%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -329,7 +260,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/08/hadoop/" class="post-title-link" itemprop="url">hadoop</a>
+            <a href="/2020/12/15/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%8D%81/" class="post-title-link" itemprop="url">在线教育项目十</a>
         </h2>
 
         <div class="post-meta">
@@ -338,17 +269,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-08 19:43:26 / 修改时间：21:51:13" itemprop="dateCreated datePublished" datetime="2020-12-08T19:43:26+08:00">2020-12-08</time>
+              <time title="创建时间：2020-12-15 11:05:48" itemprop="dateCreated datePublished" datetime="2020-12-15T11:05:48+08:00">2020-12-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-16 19:38:04" itemprop="dateModified" datetime="2020-12-16T19:38:04+08:00">2020-12-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
                 </span>
             </span>
 
@@ -363,44 +304,75 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、Hadoop组成"><a href="#一、Hadoop组成" class="headerlink" title="一、Hadoop组成"></a>一、Hadoop组成</h1><h2 id="1-1-HDFS架构概述"><a href="#1-1-HDFS架构概述" class="headerlink" title="1.1 HDFS架构概述"></a>1.1 HDFS架构概述</h2><ul>
-<li>NameNode(nn)：存储文件的元数据，如w文件名，文件目录结构，文件属性（生成时间、副本数、文件权限），以及每个文件的块列表和块所在的DataNode等。</li>
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>添加小节删除视频</li>
+<li>springcloud<ul>
+<li>删除小节删除视频</li>
+<li>删除课程删除视频</li>
 </ul>
+</li>
+</ul>
+<h1 id="一、删除阿里云视频接口"><a href="#一、删除阿里云视频接口" class="headerlink" title="一、删除阿里云视频接口"></a>一、删除阿里云视频接口</h1><h1 id="二、SpringCloud"><a href="#二、SpringCloud" class="headerlink" title="二、SpringCloud"></a>二、SpringCloud</h1><h2 id="2-1-微服务"><a href="#2-1-微服务" class="headerlink" title="2.1 微服务"></a>2.1 微服务</h2><ul>
+<li>微服务是一种架构风格</li>
+<li>有多个服务，多个服务是独立运行，每个服务占用独立进程</li>
+</ul>
+<h2 id="2-2-SpringCloud简介"><a href="#2-2-SpringCloud简介" class="headerlink" title="2.2 SpringCloud简介"></a>2.2 SpringCloud简介</h2><ul>
+<li>SpringCloud并不是一种机制，是很多技术的集合</li>
+<li>SpringCloud里面有很多框架，使用SpringCloud里面这些框架实现微服务操作</li>
+<li>使用SpringCloud，需要依赖技术Springboot</li>
+</ul>
+<h2 id="2-3-SpringCloud相关基础服务组件"><a href="#2-3-SpringCloud相关基础服务组件" class="headerlink" title="2.3 SpringCloud相关基础服务组件"></a>2.3 SpringCloud相关基础服务组件</h2><ul>
+<li>服务发现：Netflix Eureka（Nacos）</li>
+<li>服务调用：Netflix Feign</li>
+<li>熔断器：Netflix Hystrix</li>
+<li>服务网关：Spring Cloud GateWay</li>
+<li>分布式配置：Spring Cloud Config（Nacos）</li>
+<li>消息总线：Spring Cloud Bus（Nacos）</li>
+</ul>
+<h2 id="2-4-SpringCloud调用接口过程"><a href="#2-4-SpringCloud调用接口过程" class="headerlink" title="2.4 SpringCloud调用接口过程"></a>2.4 SpringCloud调用接口过程</h2><p>Feign        Hystrix        Ribbon        Http Client        </p>
+<h1 id="三、注册和调用"><a href="#三、注册和调用" class="headerlink" title="三、注册和调用"></a>三、注册和调用</h1><h2 id="3-1-在nacos注册service-edu服务"><a href="#3-1-在nacos注册service-edu服务" class="headerlink" title="3.1 在nacos注册service_edu服务"></a>3.1 在nacos注册service_edu服务</h2><ul>
+<li><p>引入相关依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在要注册的服务的配置文件中进行配置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.cloud.nacos.discovery.server-addr</span>=<span class="string">127.0.0.1:8848</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在启动类添加注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="3-2-使用Feign实现服务调用"><a href="#3-2-使用Feign实现服务调用" class="headerlink" title="3.2 使用Feign实现服务调用"></a>3.2 使用Feign实现服务调用</h2><ul>
+<li><p>引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在调用端的启动类添加注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableFeignClients</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在调用端，创建接口，使用注解指定要调用的服务的名称，定义调用的方法的路径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient(&quot;service-vod&quot;)</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">VodClient</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义调用的方法的路径</span></span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/eduvod/video/removeAlyVideo/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">removeAlyVideo</span><span class="params">(<span class="meta">@PathVariable(&quot;id&quot;)</span> String id)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现代码删除小节删除阿里云视频</p>
+</li>
+</ul>
+<h1 id="四、Hystrix熔断器"><a href="#四、Hystrix熔断器" class="headerlink" title="四、Hystrix熔断器"></a>四、Hystrix熔断器</h1><h2 id="4-1-Feign结合Hystrix使用"><a href="#4-1-Feign结合Hystrix使用" class="headerlink" title="4.1 Feign结合Hystrix使用"></a>4.1 Feign结合Hystrix使用</h2><ul>
+<li><p>改造service_edu模块</p>
 <ul>
-<li>DataNode(dn)：在本地文件系统存储文件块数据，以及块数据的校验和。</li>
-</ul>
-<ul>
-<li>SecondaryNameNode(2nn)：用来监控HDFS状态的辅助后台程序，每隔一段时间获取HDFS元数据的快照</li>
-</ul>
-<h2 id="1-2-YARN架构概述"><a href="#1-2-YARN架构概述" class="headerlink" title="1.2 YARN架构概述"></a>1.2 YARN架构概述</h2><ul>
-<li>ResourceManager(RM)主要作用<ul>
-<li>处理客户端的请求</li>
-<li>监控NodeManager</li>
-<li>启动或监控ApplicantionMaster</li>
-<li>资源的分配与调度</li>
-</ul>
+<li><p>在service的pom中添加依赖</p>
 </li>
-<li>NodeManager(NM)主要作用<ul>
-<li>管理单个节点上的资源</li>
-<li>处理来自ResourceManager的命令</li>
-<li>处理来自ApplicantionMaster的命令</li>
-</ul>
+<li><p>在配置文件中添加Hystrix配置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开启熔断机制</span></span><br><span class="line"><span class="meta">feign.hystrix.enabled</span>=<span class="string">true</span></span><br><span class="line"><span class="comment"># 设置hystrix超时时间，默认1000ms</span></span><br><span class="line"><span class="meta">hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds</span>=<span class="string">6000</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>ApplicationMaster(AM)作用<ul>
-<li>负责数据的切分</li>
-<li>为应用程序申请资源并分配给内部的任务</li>
-<li>任务的监控和容错</li>
-</ul>
+<li><p>在service_edu的client包里面创建熔断器的实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VodFileDegradeFeignClient</span> <span class="keyword">implements</span> <span class="title">VodClient</span> </span>&#123;</span><br><span class="line">    <span class="comment">//出错之后会执行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">removeAlyVideo</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error().message(<span class="string">&quot;删除视频出错&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">deleteBatch</span><span class="params">(List&lt;String&gt; videoIdList)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error().message(<span class="string">&quot;删除多个视频出错&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>Container<ul>
-<li>Contiainer是YARN中的资源抽象，它封装了某个节点上的多维度资源，如内存、CPU、磁盘、网络等。</li>
+<li><p>修改VodClient接口的注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient(name = &quot;service-vod&quot;, fallback = VodFileDegradeFeignClient.class)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
 </ul>
 </li>
 </ul>
-<h2 id="1-3-MapReduce架构概述"><a href="#1-3-MapReduce架构概述" class="headerlink" title="1.3 MapReduce架构概述"></a>1.3 MapReduce架构概述</h2><p>MapReduce将计算过程分为两个阶段：Map和Reduce。</p>
-<p>① Map阶段并行处理输入数据</p>
-<p>② Reduce阶段对Map结果进行汇总</p>
-<h1 id="二、大数据技术生态体系"><a href="#二、大数据技术生态体系" class="headerlink" title="二、大数据技术生态体系"></a>二、大数据技术生态体系</h1><p><img src="https://img-blog.csdnimg.cn/20181203131639560.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5NjU3OTA5,size_16,color_FFFFFF,t_70" alt="å¨è¿éæå¥å¾çæè¿°"></p>
 
       
     </div>
@@ -420,7 +392,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/08/shell/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/14/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B9%9D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -434,7 +406,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/08/shell/" class="post-title-link" itemprop="url">Shell</a>
+            <a href="/2020/12/14/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B9%9D/" class="post-title-link" itemprop="url">在线教育项目九</a>
         </h2>
 
         <div class="post-meta">
@@ -443,17 +415,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-08 19:18:23 / 修改时间：19:43:06" itemprop="dateCreated datePublished" datetime="2020-12-08T19:18:23+08:00">2020-12-08</time>
+              <time title="创建时间：2020-12-14 10:55:07" itemprop="dateCreated datePublished" datetime="2020-12-14T10:55:07+08:00">2020-12-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-15 11:08:13" itemprop="dateModified" datetime="2020-12-15T11:08:13+08:00">2020-12-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
                 </span>
             </span>
 
@@ -468,8 +450,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、Shell概述"><a href="#一、Shell概述" class="headerlink" title="一、Shell概述"></a>一、Shell概述</h1><p>Shell是一个命令行解释器，它接受应用程序/用户命令，然后调用操作系统内核</p>
-<h1 id="二、Shell解析器"><a href="#二、Shell解析器" class="headerlink" title="二、Shell解析器"></a>二、Shell解析器</h1>
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><h1 id="二、阿里云视频点播"><a href="#二、阿里云视频点播" class="headerlink" title="二、阿里云视频点播"></a>二、阿里云视频点播</h1><ul>
+<li><p>在<code>service</code>下创建子模块<code>service_vod</code>，引入相关依赖</p>
+</li>
+<li><p>初始化操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InitObject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DefaultAcsClient <span class="title">initVodClient</span><span class="params">(String accessKeyId, String accessKeySecret)</span> <span class="keyword">throws</span> ClientAbortException </span>&#123;</span><br><span class="line">        String regionId = <span class="string">&quot;cn-shanghai&quot;</span>;</span><br><span class="line">        DefaultProfile profile = DefaultProfile.getProfile(regionId, accessKeyId, accessKeySecret);</span><br><span class="line">        DefaultAcsClient client = <span class="keyword">new</span> DefaultAcsClient(profile);</span><br><span class="line">        <span class="keyword">return</span> client;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现功能</p>
+<ul>
+<li><p>根据视频id获取视频播放地址</p>
+</li>
+<li><p>通过官方代码改造实现上传</p>
+</li>
+<li><p>创建启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &#123;&quot;com.JerAex&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VodApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(VodApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建controller service</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、添加小节上传视频"><a href="#三、添加小节上传视频" class="headerlink" title="三、添加小节上传视频"></a>三、添加小节上传视频</h1><ul>
+<li>引入依赖</li>
+<li>创建application配置文件</li>
+</ul>
+
       
     </div>
 
@@ -488,7 +493,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/08/MySQL/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/13/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%85%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -502,7 +507,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/08/MySQL/" class="post-title-link" itemprop="url">MySQL</a>
+            <a href="/2020/12/13/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%85%AB/" class="post-title-link" itemprop="url">在线教育项目八</a>
         </h2>
 
         <div class="post-meta">
@@ -511,17 +516,27 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-08 12:30:02 / 修改时间：18:53:22" itemprop="dateCreated datePublished" datetime="2020-12-08T12:30:02+08:00">2020-12-08</time>
+              <time title="创建时间：2020-12-13 17:19:47" itemprop="dateCreated datePublished" datetime="2020-12-13T17:19:47+08:00">2020-12-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-14 10:54:08" itemprop="dateModified" datetime="2020-12-14T10:54:08+08:00">2020-12-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
                 </span>
             </span>
 
@@ -536,86 +551,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、DQL语言"><a href="#一、DQL语言" class="headerlink" title="一、DQL语言"></a>一、DQL语言</h1><h2 id="1-1-基础查询"><a href="#1-1-基础查询" class="headerlink" title="1.1 基础查询"></a>1.1 基础查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;语法</span><br><span class="line">SELECT</span><br><span class="line">	查询列表 </span><br><span class="line">FROM</span><br><span class="line">	表名；</span><br></pre></td></tr></table></figure>
-
-<p>查询列表可以是：表中的字段、常量值、表达式、函数</p>
-<p>查询的结果是一个虚拟的表格</p>
-<p><strong>① 查询表中的单个字段</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	last_name </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
-
-<p><strong>② 查询表中的多个字段</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	salary,</span><br><span class="line">	email </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
-
-<p><strong>③ 查询表中所有字段</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
-
-<p><strong>④ 查询常量值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT 100;</span><br><span class="line">SELECT &#39;john&#39;;</span><br></pre></td></tr></table></figure>
-
-<p><strong>⑤ 查询表达式</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT 100*98;</span><br><span class="line">SELECT 100%98;</span><br></pre></td></tr></table></figure>
-
-<p><strong>⑥ 查询函数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT VERSION();</span><br></pre></td></tr></table></figure>
-
-<p><strong>⑦ 起别名</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	100 % 98 AS 结果；</span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line">SELECT</span><br><span class="line">	100 % 98 结果；</span><br></pre></td></tr></table></figure>
-
-<p><strong>⑧ 去重</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT</span><br><span class="line">	department_id </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br></pre></td></tr></table></figure>
-
-<p><strong>⑨ +号的作用</strong></p>
-<p>只是运算法，加号两边都为数值型，则做加法运算，如果其中一方为字符型，试图将字符型数值转换为数值型，如果转换成果，则继续做加法运算。如果转换失败，则将字符型的数值转换为0；只要其中一方为null，则结果肯定为null。</p>
-<h2 id="1-2-条件查询"><a href="#1-2-条件查询" class="headerlink" title="1.2 条件查询"></a>1.2 条件查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;语法</span><br><span class="line">SELECT</span><br><span class="line">	查询列表 </span><br><span class="line">FROM</span><br><span class="line">	表名 </span><br><span class="line">WHERE</span><br><span class="line">	筛选条件</span><br></pre></td></tr></table></figure>
-
-<p><strong>① 按条件条件表达式筛选</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	department_id </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	department_id &lt;&gt; 90;</span><br></pre></td></tr></table></figure>
-
-<p><strong>② 按逻辑运表达式筛选</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	salary,</span><br><span class="line">	commission_pct </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	salary &gt;&#x3D; 10000 </span><br><span class="line">	AND salary &lt;&#x3D; 20000;</span><br></pre></td></tr></table></figure>
-
-<p><strong>③ 模糊查询</strong></p>
-<ul>
-<li><p>like</p>
-<p>一般和通配符搭配使用。通配符：%任意多个字符    _ 任意单个字符    </p>
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>添加课程基本信息完善<ul>
+<li>整合文本编辑器</li>
+</ul>
+</li>
+<li>课程大纲管理<ul>
+<li>课程大纲的列表显示</li>
+<li>章节添加修改删除</li>
+<li>小节添加修改删除</li>
+</ul>
+</li>
+<li>课程信息确认<ul>
+<li>编写sql语句实现</li>
+<li>课程最终发布</li>
+</ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查询员工名中包含字符a员工信息</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	last_name LIKE &#39;%a%&#39;;</span><br><span class="line">&#x2F;&#x2F;查询员工名中第三个字符为n，第五个字符为l的员工信息</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	last_name LIKE &#39;__n_l%&#39;;</span><br><span class="line">&#x2F;&#x2F;查询员工名中第二个字符为_的员工信息</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	last_name LIKE &#39;_\_%&#39;;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>between and</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查询员工编号在100到120之间的员工信息</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	employee_id BETWEEN 100 </span><br><span class="line">	AND 120;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>in</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查询员工的编号是 IT_PROG、AD_VP、AD_PRES中的一个员工名和工种编号</span><br><span class="line">SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	job_id </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	job_id IN ( &#39;IT_PROT&#39;, &#39;AD_VP&#39;, &#39;AD_PRES&#39; );</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>is null</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查询没有奖金的员工名和奖金率</span><br><span class="line">SELECT</span><br><span class="line">	last_name,</span><br><span class="line">	commission_pct </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	commission_pct IS NULL;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-3-排序查询"><a href="#1-3-排序查询" class="headerlink" title="1.3 排序查询"></a>1.3 排序查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;语法</span><br><span class="line">SELECT</span><br><span class="line">	查询列表 </span><br><span class="line">FROM</span><br><span class="line">	表名 </span><br><span class="line">WHERE</span><br><span class="line">	筛选条件 </span><br><span class="line">ORDER BY</span><br><span class="line">	排序列表 DESC&#x2F;ASC</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;查询员工信息，要求工资从高到低排序</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">ORDER BY</span><br><span class="line">	salary DESC;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;查询部门编号&gt;&#x3D;90的员工信息，按入职时间的先后进行排序</span><br><span class="line">SELECT</span><br><span class="line">	* </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">WHERE</span><br><span class="line">	department_id &gt;&#x3D; 90 </span><br><span class="line">ORDER BY</span><br><span class="line">	hiredate;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;按年薪的高低显示员工的信息和年薪</span><br><span class="line">SELECT</span><br><span class="line">	*,</span><br><span class="line">	salary * 12 *(</span><br><span class="line">	1 + IFNULL( commission_pct, 0 )) 年薪 </span><br><span class="line">FROM</span><br><span class="line">	employees </span><br><span class="line">ORDER BY</span><br><span class="line">	年薪 DESC</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-4-常见函数"><a href="#1-4-常见函数" class="headerlink" title="1.4 常见函数"></a>1.4 常见函数</h2><p><strong>① 字符函数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;length 一个汉字占三个字节</span><br><span class="line">SELECT</span><br><span class="line">	LENGTH( &#39;john&#39; );&#x2F;&#x2F;4</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;concat 拼接字符串</span><br><span class="line">SELECT</span><br><span class="line">	CONCAT( last_name, &#39;_&#39;, first_name ) </span><br><span class="line">FROM</span><br><span class="line">	employees;</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;upper、lower</span><br><span class="line">SELECT UPPER(&#39;john&#39;);</span><br><span class="line">SELECT LOWER(&#39;JoHn&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;substr 索引从1开始</span><br><span class="line">SELECT</span><br><span class="line">	SUBSTR( &#39;李莫愁爱上了陆展元&#39;, 7 );&#x2F;&#x2F;陆展元</span><br><span class="line">SELECT</span><br><span class="line">	SUBSTR( &#39;李莫愁爱上了陆展元&#39;, 1, 3 );&#x2F;&#x2F;李莫愁</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;instr：返回子串di一次出现的索引，如果找不到返回0</span><br><span class="line">SELECT</span><br><span class="line">	INSTR(</span><br><span class="line">	&#39;杨不悔爱上了殷六侠&#39;,</span><br><span class="line">	&#39;殷六侠&#39;)&#x2F;&#x2F;7</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;trim</span><br><span class="line">SELECT</span><br><span class="line">	LENGTH(</span><br><span class="line">	TRIM( &#39;    abc   &#39; ));&#x2F;&#x2F;3</span><br><span class="line">SELECT</span><br><span class="line">	TRIM(</span><br><span class="line">		&#39;a&#39; </span><br><span class="line">	FROM</span><br><span class="line">	&#39;aaaaaaaabaaaaaaab&#39; </span><br><span class="line">	)&#x2F;&#x2F;baaaaaaab</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;lpad：用指定的字符实现左填充指定长度</span><br><span class="line">&#x2F;&#x2F;rpad：用指定的字符实现右填充指定长度</span><br><span class="line">SELECT</span><br><span class="line">	LPAD(</span><br><span class="line">		&#39;殷素素&#39;,</span><br><span class="line">	10,</span><br><span class="line">	&#39;*&#39;)&#x2F;&#x2F;*******殷素素</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;replace</span><br><span class="line">SELECT REPLACE</span><br><span class="line">	(</span><br><span class="line">		&#39;张无忌爱上周芷若&#39;,</span><br><span class="line">	&#39;周芷若&#39;,</span><br><span class="line">	&#39;赵敏&#39;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>② 数学函数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;round 四舍五入</span><br><span class="line">&#x2F;&#x2F;ceil 向上取整</span><br><span class="line">&#x2F;&#x2F;floor 向下取整</span><br><span class="line">&#x2F;&#x2F;truncate 截断</span><br><span class="line">&#x2F;&#x2F;mod 取余(a-a&#x2F;b*b)</span><br></pre></td></tr></table></figure>
-
-<p><strong>③ 日期函数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;now 返回当前系统日期+时间</span><br><span class="line">&#x2F;&#x2F;curdate 返回当前系统日期，不包含时间</span><br><span class="line">&#x2F;&#x2F;curtime 返回当前的时间，不包含日期</span><br><span class="line">&#x2F;&#x2F;可以获取指定的部分 year	month、monthname		day		hour		minute</span><br><span class="line">&#x2F;&#x2F;str_to_date 将日期格式的字符转换为指定格式的日期</span><br><span class="line">&#x2F;&#x2F;data_format 将日期转换为字符</span><br></pre></td></tr></table></figure>
-
-<p><strong>④ 其他函数：version    database    user</strong></p>
-<p><strong>⑤ 流程控制函数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;if函数</span><br><span class="line">SELECT</span><br><span class="line">IF</span><br><span class="line">	(</span><br><span class="line">		10 &gt; 5,</span><br><span class="line">	&#39;大&#39;,</span><br><span class="line">	&#39;小&#39;)</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;case函数的使用一</span><br><span class="line">&#x2F;&#x2F;查询员工的工资，要求部门号&#x3D;30，显示的工资为1.1倍，部门号&#x3D;40，显示的工资为1.2倍，部门号&#x3D;50，显示的工资为1.3倍，其他部门显示为原工资</span><br><span class="line">SELECT</span><br><span class="line">	salary,</span><br><span class="line">	department_id,</span><br><span class="line">CASE</span><br><span class="line">		department_id </span><br><span class="line">		WHEN 30 THEN</span><br><span class="line">		salary * 1.1 </span><br><span class="line">		WHEN 40 THEN</span><br><span class="line">		salary * 1.2 </span><br><span class="line">		WHEN 50 THEN</span><br><span class="line">		salary * 1.3 ELSE salary </span><br><span class="line">	END </span><br><span class="line">FROM</span><br><span class="line">	employees</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;case函数的使用二</span><br><span class="line">&#x2F;&#x2F;查询员工的工资，如果工资&gt;20000，显示A级别，如果工资&gt;15000，显示B级别，如果工资&gt;10000，显示C级别，否则显示D级别</span><br><span class="line">SELECT</span><br><span class="line">	salary,</span><br><span class="line">CASE</span><br><span class="line">		</span><br><span class="line">		WHEN salary &gt; 20000 THEN</span><br><span class="line">		&#39;A&#39; </span><br><span class="line">		WHEN salary &gt; 15000 THEN</span><br><span class="line">		&#39;B&#39; </span><br><span class="line">		WHEN salary &gt; 10000 THEN</span><br><span class="line">		&#39;C&#39; ELSE &#39;D&#39; </span><br><span class="line">	END </span><br><span class="line">FROM</span><br><span class="line">	employees</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-5-分组函数"><a href="#1-5-分组函数" class="headerlink" title="1.5 分组函数"></a>1.5 分组函数</h2><p>sum、avg一般用于处理数值类型</p>
-<p>max、min、count可以处理任何类型</p>
-<p>都忽略null值</p>
-<h2 id="1-6-分组查询"><a href="#1-6-分组查询" class="headerlink" title="1.6 分组查询"></a>1.6 分组查询</h2><h2 id="1-7-连接查询"><a href="#1-7-连接查询" class="headerlink" title="1.7 连接查询"></a>1.7 连接查询</h2><h2 id="1-8-子查询"><a href="#1-8-子查询" class="headerlink" title="1.8 子查询"></a>1.8 子查询</h2><h2 id="1-9-分页查询"><a href="#1-9-分页查询" class="headerlink" title="1.9 分页查询"></a>1.9 分页查询</h2><h2 id="1-10-union联合查询"><a href="#1-10-union联合查询" class="headerlink" title="1.10 union联合查询"></a>1.10 union联合查询</h2><h1 id="二、DML语言"><a href="#二、DML语言" class="headerlink" title="二、DML语言"></a>二、DML语言</h1><h2 id="2-1-插入语句"><a href="#2-1-插入语句" class="headerlink" title="2.1 插入语句"></a>2.1 插入语句</h2><h2 id="2-2-修改语句"><a href="#2-2-修改语句" class="headerlink" title="2.2 修改语句"></a>2.2 修改语句</h2><h2 id="2-3-删除语句"><a href="#2-3-删除语句" class="headerlink" title="2.3 删除语句"></a>2.3 删除语句</h2><h1 id="三、DDL语言"><a href="#三、DDL语言" class="headerlink" title="三、DDL语言"></a>三、DDL语言</h1><h2 id="3-1-库和表的管理"><a href="#3-1-库和表的管理" class="headerlink" title="3.1 库和表的管理"></a>3.1 库和表的管理</h2><h2 id="3-2-常见数据类型"><a href="#3-2-常见数据类型" class="headerlink" title="3.2 常见数据类型"></a>3.2 常见数据类型</h2><h2 id="3-3-常见约束"><a href="#3-3-常见约束" class="headerlink" title="3.3 常见约束"></a>3.3 常见约束</h2><h1 id="四、TCL语言"><a href="#四、TCL语言" class="headerlink" title="四、TCL语言"></a>四、TCL语言</h1><h2 id="4-1-事务和事务的处理"><a href="#4-1-事务和事务的处理" class="headerlink" title="4.1 事务和事务的处理"></a>4.1 事务和事务的处理</h2><h1 id="五、视图"><a href="#五、视图" class="headerlink" title="五、视图"></a>五、视图</h1><h1 id="六、存储过程和函数"><a href="#六、存储过程和函数" class="headerlink" title="六、存储过程和函数"></a>六、存储过程和函数</h1><h1 id="七、流程控制结构"><a href="#七、流程控制结构" class="headerlink" title="七、流程控制结构"></a>七、流程控制结构</h1>
       
     </div>
 
@@ -634,7 +587,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/08/Spring%E6%A1%86%E6%9E%B6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/13/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -648,7 +601,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/08/Spring%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">Spring框架</a>
+            <a href="/2020/12/13/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%83/" class="post-title-link" itemprop="url">在线教育项目七</a>
         </h2>
 
         <div class="post-meta">
@@ -659,7 +612,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-12-08 12:18:23 / 修改时间：19:13:02" itemprop="dateCreated datePublished" datetime="2020-12-08T12:18:23+08:00">2020-12-08</time>
+              <time title="创建时间：2020-12-13 15:00:53 / 修改时间：17:20:07" itemprop="dateCreated datePublished" datetime="2020-12-13T15:00:53+08:00">2020-12-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -667,7 +620,384 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaEE/" itemprop="url" rel="index"><span itemprop="name">JavaEE</span></a>
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>添加课程分类前端实现</li>
+<li>课程分类的列表显示功能（树形）</li>
+<li>课程管理模块需求<ul>
+<li>添加课程基本信息功能</li>
+</ul>
+</li>
+</ul>
+<h1 id="一、课程管理"><a href="#一、课程管理" class="headerlink" title="一、课程管理"></a>一、课程管理</h1><h2 id="1-1-添加课程基本信息"><a href="#1-1-添加课程基本信息" class="headerlink" title="1.1 添加课程基本信息"></a>1.1 添加课程基本信息</h2><ul>
+<li>使用代码生成器生成课程相关的代码</li>
+<li>创建vo类封装表单提交的数据</li>
+<li>编写controller和service部分</li>
+<li>课程添加<ul>
+<li>创建vo实体类用于表单数据封装</li>
+<li>把表单提交的数据添加到数据库（向两张表添加数据：课程表和课程描述表）</li>
+<li>把讲师和分类使用下拉列表显示（课程分类做成二级联动效果）</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%85%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E5%85%AD/" class="post-title-link" itemprop="url">在线教育项目六</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-12 14:41:03" itemprop="dateCreated datePublished" datetime="2020-12-12T14:41:03+08:00">2020-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-14 12:43:14" itemprop="dateModified" datetime="2020-12-14T12:43:14+08:00">2020-12-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>添加讲师头像上传功能<ul>
+<li>阿里云oss存储服务</li>
+</ul>
+</li>
+<li>添加课程分类功<ul>
+<li>使用EasyExcel读取excel内容添加到数据库</li>
+</ul>
+</li>
+<li>课程分类列表<ul>
+<li>树形结构显示</li>
+</ul>
+</li>
+</ul>
+<h1 id="一、添加讲师头像上传功能"><a href="#一、添加讲师头像上传功能" class="headerlink" title="一、添加讲师头像上传功能"></a>一、添加讲师头像上传功能</h1><h2 id="1-1-阿里云存储oss"><a href="#1-1-阿里云存储oss" class="headerlink" title="1.1 阿里云存储oss"></a>1.1 阿里云存储oss</h2><h2 id="1-2-Java代码操作阿里云oss"><a href="#1-2-Java代码操作阿里云oss" class="headerlink" title="1.2 Java代码操作阿里云oss"></a>1.2 Java代码操作阿里云oss</h2><ul>
+<li><p>准备工作：创建操作阿里云oss许可证</p>
+</li>
+<li><p>在包<code>service</code>下创建子模块<code>service_oss</code></p>
+<ul>
+<li><p>在<code>service_oss</code>引入相关的oss依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun.oss<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-sdk-oss<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在包<code>resources</code>下创建配置文件<code>application.properties</code></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">server.port</span>=<span class="string">8002</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.application.name</span>=<span class="string">service-oss</span></span><br><span class="line"></span><br><span class="line"><span class="meta">spring.profiles.active</span>=<span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">aliyun.oss.file.endpoint</span>=<span class="string">oss-cn-shanghai.aliyuncs.com</span></span><br><span class="line"><span class="meta">aliyun.oss.file.keyid</span>=<span class="string">LTAI4G4TbUd211N8QqMjnH1u</span></span><br><span class="line"><span class="meta">aliyun.oss.file.key.secret</span>=<span class="string">I3P8WXb00eWprcczvjlAPZGjW9oN8z</span></span><br><span class="line"><span class="meta">aliyun.oss.file.bucketname</span>=<span class="string">edu-jeraex</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在包<code>java</code>下创建包<code>com.JerAex.oss</code>，在包<code>com.JerAex.oss</code>下创建启动类<code>OssApplication</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &#123;&quot;com.JerAex&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OssApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(OssApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动类出现问题：启动时，找数据库配置，但是现在模块因为不需要操作数据库，只是做上传到oss功能，没有配置数据库</p>
+<ul>
+<li><p>解决方式：1、添加上数据库的配置。2、在启动类添加属性，默认不去加载数据配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = DataSourceAutoConfiguration.class</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-上传操作"><a href="#1-3-上传操作" class="headerlink" title="1.3 上传操作"></a>1.3 上传操作</h2><ul>
+<li><p>创建常量类，读取配置文件中的相关内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConstantPropertiesUtils</span> <span class="keyword">implements</span> <span class="title">InitializingBean</span> </span>&#123;</span><br><span class="line">    <span class="comment">//读取配置文件内容</span></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;aliyun.oss.file.endpoint&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String endPoint;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;aliyun.oss.file.keyid&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String keyId;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;aliyun.oss.file.key.secret&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String keySecret;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;aliyun.oss.file.bucketname&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String bucketName;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义公开的静态常量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String END_POINT;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String KEY_ID;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String KEY_SECRET;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String BUCKET_NAME;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        END_POINT = endPoint;</span><br><span class="line">        KEY_ID = keyId;</span><br><span class="line">        KEY_SECRET = keySecret;</span><br><span class="line">        BUCKET_NAME = bucketName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建controller，创建service，编写具体内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/eduoss/fileoss&quot;)</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OssController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> OssService ossService;</span><br><span class="line">    <span class="comment">//上传头像的方法</span></span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">uploadOss</span><span class="params">(MultipartFile file)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取上传的文件 MultipartFile file</span></span><br><span class="line">        <span class="comment">//返回上传到oss的路径</span></span><br><span class="line">        String url = ossService.uploadFileAvatar(file);</span><br><span class="line">        <span class="keyword">return</span> R.ok().data(<span class="string">&quot;url&quot;</span>, url);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在service实现上传文件到oss过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OssServiceImpl</span> <span class="keyword">implements</span> <span class="title">OssService</span> </span>&#123;</span><br><span class="line">    <span class="comment">//上传头像到oss</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">uploadFileAvatar</span><span class="params">(MultipartFile file)</span> </span>&#123;</span><br><span class="line">        String endpoint = ConstantPropertiesUtils.END_POINT;</span><br><span class="line">        String accessKeyId = ConstantPropertiesUtils.KEY_ID;</span><br><span class="line">        String accessKeySecret = ConstantPropertiesUtils.KEY_SECRET;</span><br><span class="line">        String bucketName = ConstantPropertiesUtils.BUCKET_NAME;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//创建oss实例</span></span><br><span class="line">            OSS ossClient = <span class="keyword">new</span> OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret, bucketName);</span><br><span class="line">            <span class="comment">//获取上传文件的输入流</span></span><br><span class="line">            InputStream inputStream = file.getInputStream();</span><br><span class="line">            <span class="comment">//获取文件的名称</span></span><br><span class="line">            String filename = file.getOriginalFilename();</span><br><span class="line">            <span class="comment">//调用oss方法实现上传</span></span><br><span class="line">            ossClient.putObject(bucketName, filename, inputStream);</span><br><span class="line">            <span class="comment">//关闭OSSClient</span></span><br><span class="line">            ossClient.shutdown();</span><br><span class="line">            <span class="comment">//将上传之后的路径进行返回</span></span><br><span class="line">            String url = <span class="string">&quot;https://&quot;</span> + bucketName + <span class="string">&quot;.&quot;</span> + endpoint + <span class="string">&quot;/&quot;</span> + filename;</span><br><span class="line">            <span class="keyword">return</span> url;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="1-4-出现的问题"><a href="#1-4-出现的问题" class="headerlink" title="1.4 出现的问题"></a>1.4 出现的问题</h2><ul>
+<li><p>多次上传相同名称的文件，造成最后一次上传的把之前上传的文件覆盖</p>
+<ul>
+<li><p>在文件名称添加随机的唯一的值，让每个文件名称都不相同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String uuid = UUID.randomUUID().toString().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">fileName = uuid + fileName;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>把文件进行分类管理</p>
+<ul>
+<li><p>根据日期进行分类，实现年月日分类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String datePath = <span class="keyword">new</span> DateTime().toString(<span class="string">&quot;yyyy/MM/dd&quot;</span>);</span><br><span class="line">fileName = datePath + <span class="string">&quot;/&quot;</span> + fileName;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、nginx（反向代理服务器）"><a href="#二、nginx（反向代理服务器）" class="headerlink" title="二、nginx（反向代理服务器）"></a>二、nginx（反向代理服务器）</h1><h2 id="2-1-功能"><a href="#2-1-功能" class="headerlink" title="2.1 功能"></a>2.1 功能</h2><ul>
+<li>请求转发：</li>
+<li>负载均衡</li>
+<li>动静分离</li>
+</ul>
+<h2 id="2-2-配置nginx实现请求转发"><a href="#2-2-配置nginx实现请求转发" class="headerlink" title="2.2 配置nginx实现请求转发"></a>2.2 配置nginx实现请求转发</h2><ul>
+<li><p>找到nginx配置文件nginx.conf</p>
+</li>
+<li><p>配置nginx.conf</p>
+<ul>
+<li><p>修改nginx默认端口，把80修改为81</p>
+</li>
+<li><p>配置nginx转发规则</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server&#123;</span></span><br><span class="line">    <span class="attr">listen</span>          <span class="string">9001;</span></span><br><span class="line">    <span class="attr">server_name</span>     <span class="string">localhost;</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">location</span> <span class="string">~ /eduservice/&#123;</span></span><br><span class="line">        <span class="attr">proxy_pass</span> <span class="string">http://localhost:8001;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line">    <span class="attr">location</span> <span class="string">~ /eduoss/&#123;</span></span><br><span class="line">        <span class="attr">proxy_pass</span> <span class="string">http://localhost:8002;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>修改前端请求地址，改为nginx地址</p>
+</li>
+</ul>
+<h1 id="三、EasyExcel"><a href="#三、EasyExcel" class="headerlink" title="三、EasyExcel"></a>三、EasyExcel</h1><h2 id="3-1-写操作"><a href="#3-1-写操作" class="headerlink" title="3.1 写操作"></a>3.1 写操作</h2><ul>
+<li><p>引入EasyExcel和poi依赖</p>
+</li>
+<li><p>创建实体类，和excel数据对应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoData</span> </span>&#123;</span><br><span class="line">    <span class="comment">//设置excel表头名称</span></span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;学生编号&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer sno;</span><br><span class="line">    <span class="meta">@ExcelProperty(&quot;学生姓名&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String sname;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现写操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEasyExcel</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//实现excel写操作</span></span><br><span class="line">        <span class="comment">//1、设置写入文件夹的地址和excel文件的名称</span></span><br><span class="line">        String filename = <span class="string">&quot;D:\\write.xlsx&quot;</span>;</span><br><span class="line">        <span class="comment">//调用EasyExcel的方法实现写操作</span></span><br><span class="line">        EasyExcel.write(filename, DemoData.class).sheet(<span class="string">&quot;学生列表&quot;</span>).doWrite(getData());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建方法返回list集合</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;DemoData&gt; <span class="title">getData</span><span class="params">()</span></span>&#123;</span><br><span class="line">        List&lt;DemoData&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            DemoData data = <span class="keyword">new</span> DemoData();</span><br><span class="line">            data.setSno(i);</span><br><span class="line">            data.setSname(<span class="string">&quot;lucy&quot;</span> + i);</span><br><span class="line">            list.add(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="3-2-读操作"><a href="#3-2-读操作" class="headerlink" title="3.2 读操作"></a>3.2 读操作</h2><ul>
+<li><p>创建和excel对应的实体类，标记对应列的关系</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoData</span> </span>&#123;</span><br><span class="line">    <span class="comment">//设置excel表头名称</span></span><br><span class="line">    <span class="meta">@ExcelProperty(value = &quot;学生编号&quot;, index = 0)</span></span><br><span class="line">    <span class="keyword">private</span> Integer sno;</span><br><span class="line">    <span class="meta">@ExcelProperty(value = &quot;学生姓名&quot;, index = 1)</span></span><br><span class="line">    <span class="keyword">private</span> String sname;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个监听进行excel文件的读取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExcelListener</span> <span class="keyword">extends</span> <span class="title">AnalysisEventListener</span>&lt;<span class="title">DemoData</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">//按行读取excel里面的内容</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invoke</span><span class="params">(DemoData data, AnalysisContext analysisContext)</span> </span>&#123;</span><br><span class="line">        System.out.println(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取表头内容</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">invokeHeadMap</span><span class="params">(Map&lt;Integer, String&gt; headMap, AnalysisContext context)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;表头&quot;</span> + headMap);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//读取结束之后</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfterAllAnalysed</span><span class="params">(AnalysisContext analysisContext)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最终方法的调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestEasyExcel</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//实现excel写操作</span></span><br><span class="line">        String filename = <span class="string">&quot;D:\\write.xlsx&quot;</span>;</span><br><span class="line">        <span class="comment">//调用EasyExcel的方法实现读操作</span></span><br><span class="line">        EasyExcel.read(filename, DemoData.class, <span class="keyword">new</span> ExcelListener()).sheet().doRead();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="四、课程分类管理"><a href="#四、课程分类管理" class="headerlink" title="四、课程分类管理"></a>四、课程分类管理</h1><ul>
+<li><p>引入EasyExcel依赖</p>
+</li>
+<li><p>使用代码生成器把课程分类代码生成</p>
+</li>
+<li><p>创建实体类和excel对应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubjectData</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ExcelProperty(index = 0)</span></span><br><span class="line">    <span class="keyword">private</span> String oneSubject;</span><br><span class="line">    <span class="meta">@ExcelProperty(index = 1)</span></span><br><span class="line">    <span class="keyword">private</span> String teoSubject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%BA%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%BA%94/" class="post-title-link" itemprop="url">在线教育项目五</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-12 14:38:39" itemprop="dateCreated datePublished" datetime="2020-12-12T14:38:39+08:00">2020-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-13 12:20:01" itemprop="dateModified" datetime="2020-12-13T12:20:01+08:00">2020-12-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>讲师管理前端开发<ul>
+<li>讲师列表（分页条件查询）</li>
+<li>讲师添加</li>
+<li>讲师删除</li>
+<li>讲师修改</li>
+</ul>
+</li>
+</ul>
+<h1 id="一、系统登录功能改造"><a href="#一、系统登录功能改造" class="headerlink" title="一、系统登录功能改造"></a>一、系统登录功能改造</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/12/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%89/" class="post-title-link" itemprop="url">在线教育项目三</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-12 12:37:19 / 修改时间：12:38:42" itemprop="dateCreated datePublished" datetime="2020-12-12T12:37:19+08:00">2020-12-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
                 </span>
             </span>
 
@@ -701,7 +1031,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/06/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%80/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -715,7 +1045,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/06/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE%E4%B8%80/" class="post-title-link" itemprop="url">在线教育项目一</a>
+            <a href="/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/" class="post-title-link" itemprop="url">面向对象关键字</a>
         </h2>
 
         <div class="post-meta">
@@ -725,336 +1055,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-06 19:19:29" itemprop="dateCreated datePublished" datetime="2020-12-06T19:19:29+08:00">2020-12-06</time>
+              <time title="创建时间：2020-12-11 21:59:21" itemprop="dateCreated datePublished" datetime="2020-12-11T21:59:21+08:00">2020-12-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-09 15:43:00" itemprop="dateModified" datetime="2020-12-09T15:43:00+08:00">2020-12-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">项目</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A1%B9%E7%9B%AE/%E5%9C%A8%E7%BA%BF%E6%95%99%E8%82%B2%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">在线教育项目</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、项目功能模块"><a href="#一、项目功能模块" class="headerlink" title="一、项目功能模块"></a>一、项目功能模块</h1><p><strong>系统后台（管理员使用）</strong>                                        <strong>系统前台（普通用户使用）</strong></p>
-<p>① 讲师管理模块                                                       ① 首页数据显示</p>
-<p>② 课程分类管理模块                                               ② 讲师列表和详情</p>
-<p>③ 课程管理模块                                                       ③ 课程列表和课程详情</p>
-<p>④ 统计分析模块                                                       ④ 登录和注册功能</p>
-<p>⑤ 订单管理                                                               ⑤ 微信扫描登录</p>
-<p>⑥ banner管理                                                          ⑥ 微信扫描支付</p>
-<p>⑦ 权限管理</p>
-<h1 id="二、涉及到的技术"><a href="#二、涉及到的技术" class="headerlink" title="二、涉及到的技术"></a>二、涉及到的技术</h1><h2 id="2-1、后端技术"><a href="#2-1、后端技术" class="headerlink" title="2.1、后端技术"></a>2.1、后端技术</h2><p>springboot        springcloud        MybatisPlus        spring security        </p>
-<p>redis        maven        easyExcel        jwt        OAuth2</p>
-<h2 id="2-2、前端技术"><a href="#2-2、前端技术" class="headerlink" title="2.2、前端技术"></a>2.2、前端技术</h2><p>vue    +    element-ui    +    axios    +    node.js……</p>
-<h2 id="2-3、其他技术"><a href="#2-3、其他技术" class="headerlink" title="2.3、其他技术"></a>2.3、其他技术</h2><p>阿里云oss        阿里云视频点播服务        阿里云短信服务</p>
-<p>微信支付和登录        docker        git        jenkins</p>
-<h1 id="三、MyBatis-Plus"><a href="#三、MyBatis-Plus" class="headerlink" title="三、MyBatis-Plus"></a>三、MyBatis-Plus</h1><h2 id="3-1、MyBatis-Plus实现添加操作"><a href="#3-1、MyBatis-Plus实现添加操作" class="headerlink" title="3.1、MyBatis-Plus实现添加操作"></a>3.1、MyBatis-Plus实现添加操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setName(<span class="string">&quot;Lucy&quot;</span>);</span><br><span class="line">    user.setAge(<span class="number">30</span>);</span><br><span class="line">    user.setEmail(<span class="string">&quot;lucy@qq.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> insert = userMapper.insert(user);</span><br><span class="line">    System.out.println(<span class="string">&quot;insert:&quot;</span> + insert);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>不需要设置id值（主键）</li>
-<li>mp自动生成id值（19位id值）</li>
-</ul>
-<h2 id="3-2、主键生成策略"><a href="#3-2、主键生成策略" class="headerlink" title="3.2、主键生成策略"></a>3.2、主键生成策略</h2><p>mp自带策略：snowflake算法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableId(type = IdType.调用方法)</span></span><br><span class="line"><span class="keyword">private</span> Long id;</span><br></pre></td></tr></table></figure>
-
-<p><strong>调用方法</strong></p>
-<p>AUTO：自定增长        ID_WORKER：mp自带的策略，生成19位值，数字类型使用这种策略        ID_WORKER_STR：mp自带的策略，字符串类型使用这种策略</p>
-<p>INPUT和NONE：要自己手动设置id值        UUID：生成随机的唯一的值</p>
-<h2 id="3-3、mp实现修改操作"><a href="#3-3、mp实现修改操作" class="headerlink" title="3.3、mp实现修改操作"></a>3.3、mp实现修改操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修改操作</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updataUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setId(<span class="number">2L</span>);</span><br><span class="line">    user.setAge(<span class="number">120</span>);</span><br><span class="line">    <span class="keyword">int</span> i = userMapper.updateById(user);</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-4、实现自动填充"><a href="#3-4、实现自动填充" class="headerlink" title="3.4、实现自动填充"></a>3.4、实现自动填充</h2><ul>
-<li>手动设置</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.setCreateTime(<span class="keyword">new</span> Date());</span><br><span class="line">user.setUpdateTime(<span class="keyword">new</span> Date());</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>自动填充</p>
-<p>​    第一步：在实体类里面进行自动填充属性添加注解</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line"><span class="keyword">private</span> Date createTime;</span><br><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line"><span class="keyword">private</span> Date updateTime;</span><br></pre></td></tr></table></figure>
-
-<p>​           第二步：创建类，实现接口<code>MetaObjectHandler</code>里面的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMetaObjectHandler</span> <span class="keyword">implements</span> <span class="title">MetaObjectHandler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用mp实现添加操作，这个方法执行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;createTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//使用mp实现修改操作，这个方法执行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-5、mp实现乐观锁"><a href="#3-5、mp实现乐观锁" class="headerlink" title="3.5、mp实现乐观锁"></a>3.5、mp实现乐观锁</h2><ul>
-<li><p><strong>乐观锁</strong>：乐观锁假设数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发现冲突了，则返回给用户错误的信息，让用户决定如何去做。乐观锁适用于读操作多的场景，这样可以提高程序的吞吐量。</p>
-<p><strong>实现方式</strong>：取出记录时，获取当前version</p>
-<p>​                   更新时，带上这个version</p>
-<p>​                   执行更新时，set version = newVersion; where version = oldVersion</p>
-<p>​                   如果version不对，就更新失败</p>
-<p> <strong>代码层面实现步骤</strong>：① 表添加字段，作为乐观锁版本号</p>
-<p>​                                    ② 对应实体类添加版本号属性 ③ 在实体类版本号属性添加注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Version</span></span><br><span class="line">  <span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line">  <span class="keyword">private</span> Integer version;</span><br></pre></td></tr></table></figure>
-
-<p>​                                    ④ 配置乐观锁插件（放在配置类中）</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mpconfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> OptimisticLockerInterceptor <span class="title">optimisticLockerInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> OptimisticLockerInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试乐观锁version的方法，先查询再修改</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testOptimisticLocker</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//根据id查询出数据</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1335956937040252929L</span>);</span><br><span class="line">    <span class="comment">//进行修改</span></span><br><span class="line">    user.setAge(<span class="number">200</span>);</span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-6-mp实现简单查询"><a href="#3-6-mp实现简单查询" class="headerlink" title="3.6 mp实现简单查询"></a>3.6 mp实现简单查询</h2><ul>
-<li>根据id查询</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据id查询出数据</span></span><br><span class="line">User user = userMapper.selectById(<span class="number">1335956937040252929L</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>多个id的批量查询</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSelectDemo1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(<span class="number">1L</span>, <span class="number">2L</span>, <span class="number">3L</span>));</span><br><span class="line">    System.out.println(users);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>简单的条件查询（不常用此方法）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSelectMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">    HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Hellen&quot;</span>);</span><br><span class="line">    map.put(<span class="string">&quot;age&quot;</span>, <span class="string">&quot;18&quot;</span>);</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectByMap(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-7-mp实现分页查询"><a href="#3-7-mp实现分页查询" class="headerlink" title="3.7 mp实现分页查询"></a>3.7 mp实现分页查询</h2><p>① 配置分页插件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PaginationInnerInterceptor <span class="title">paginationInnerInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PaginationInnerInterceptor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>② 编写分页代码</p>
-<p>​        直接new page对象，传入两个参数：当前页和每页显示的记录数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testPage</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.创建page对象，传入两个参数：当前页和每页显示的记录数</span></span><br><span class="line">    Page&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="comment">//调用mp分页查询的方法，调用mp分页查询的过程中，底层封装，把分页的所有数据封装到page对象里面</span></span><br><span class="line">    userMapper.selectPage(page, <span class="keyword">null</span>);</span><br><span class="line">    <span class="comment">//通过page对象获取分页数据</span></span><br><span class="line">    System.out.println(page.getCurrent());<span class="comment">//当前页</span></span><br><span class="line">    System.out.println(page.getRecords());<span class="comment">//每页数据List集合</span></span><br><span class="line">    System.out.println(page.getSize());<span class="comment">//每页显示的记录数</span></span><br><span class="line">    System.out.println(page.getTotal());<span class="comment">//总记录数</span></span><br><span class="line">    System.out.println(page.getPages());<span class="comment">//总页数</span></span><br><span class="line">    System.out.println(page.hasNext());<span class="comment">//是否有下页</span></span><br><span class="line">    System.out.println(page.hasPrevious());<span class="comment">//是否有上页</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-8-mp实现删除"><a href="#3-8-mp实现删除" class="headerlink" title="3.8 mp实现删除"></a>3.8 mp实现删除</h2><ul>
-<li>物理删除：真实删除，将对应数据从数据库中删除，之后查询不到此条被删除记录</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除操作 物理删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteById</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.deleteById(<span class="number">1L</span>);</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//批量删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteBatchIds</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.deleteBatchIds(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>逻辑删除：假删除，将对应数据中代表是否被删除字段状态修改为“被删除状态”，之后在数据库中仍旧能看到此条数据记录</p>
-<p>① 表中添加逻辑删除字段，对应实体类添加属性，属性添加注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span></span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
-
-<p>② 配置逻辑删除插件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//逻辑删除插件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ISqlInjector <span class="title">sqlInjector</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LogicSqlInjector();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>③ 执行删除代码，deleted值变成1</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteById</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.deleteById(<span class="number">1336506426394271746L</span>);</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="3-9-mp性能分析插件"><a href="#3-9-mp性能分析插件" class="headerlink" title="3.9 mp性能分析插件"></a>3.9 mp性能分析插件</h2><p>① 配置性能分析插件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*sql执行性能分析插件</span></span><br><span class="line"><span class="comment"> *三种环境</span></span><br><span class="line"><span class="comment"> * dev：开发环境</span></span><br><span class="line"><span class="comment"> * test：测试环境</span></span><br><span class="line"><span class="comment"> * prob：生产环境</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Profile(&#123;&quot;dev&quot;, &quot;test&quot;&#125;)</span><span class="comment">//设置dev test环境开启</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PerformanceInterceptor <span class="title">performanceInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PerformanceInterceptor performanceInterceptor = <span class="keyword">new</span> PerformanceInterceptor();</span><br><span class="line">    performanceInterceptor.setMaxTime(<span class="number">100</span>);<span class="comment">//超过此处设置的ms则sql不执行</span></span><br><span class="line">    performanceInterceptor.setFormat(<span class="keyword">true</span>);</span><br><span class="line">    <span class="keyword">return</span> performanceInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>② 在application.properties中设置环境</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.profiles.active=dev</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-10-mp实现条件查询"><a href="#3-10-mp实现条件查询" class="headerlink" title="3.10 mp实现条件查询"></a>3.10 mp实现条件查询</h2><p>一般使用<code>QueryWrapper</code>构建条件</p>
-<p> 创建<code>QueryWrapper</code>对象，调用方法实现各种条件查询</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSelectQuery</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//创建对象</span></span><br><span class="line">    QueryWrapper&lt;User&gt; wrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    <span class="comment">//ge gt le lt：&gt;= &gt; &lt;= &lt;</span></span><br><span class="line">    wrapper.ge(<span class="string">&quot;age&quot;</span>, <span class="string">&quot;30&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//eq ne：= &lt;&gt;</span></span><br><span class="line">    wrapper.eq(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Tom&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//between notBetween：范围查询</span></span><br><span class="line">    wrapper.between(<span class="string">&quot;age&quot;</span>, <span class="string">&quot;20&quot;</span>, <span class="string">&quot;30&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//like：模糊查询</span></span><br><span class="line">    wrapper.like(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;岳&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//orderByDesc/Asc：排序</span></span><br><span class="line">    wrapper.orderByDesc(<span class="string">&quot;id&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//last：语句的最后拼接sql语句</span></span><br><span class="line">    wrapper.last(<span class="string">&quot;limit 1&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//查询指定的列</span></span><br><span class="line">    wrapper.select(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;name&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//共用的语句，这里为了方便只写这一个</span></span><br><span class="line">    List&lt;User&gt; users = userMapper.selectList(wrapper);</span><br><span class="line">    System.out.println(users);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/06/Struts2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/06/Struts2/" class="post-title-link" itemprop="url">Struts2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-12-06 10:17:55 / 修改时间：10:19:46" itemprop="dateCreated datePublished" datetime="2020-12-06T10:17:55+08:00">2020-12-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaEE%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">JavaEE框架</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/06/JDBC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/06/JDBC/" class="post-title-link" itemprop="url">JDBC</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-12-06 10:05:24 / 修改时间：10:09:20" itemprop="dateCreated datePublished" datetime="2020-12-06T10:05:24+08:00">2020-12-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%8A/" class="post-title-link" itemprop="url">面向对象上</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-05 18:51:41" itemprop="dateCreated datePublished" datetime="2020-12-05T18:51:41+08:00">2020-12-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-08 12:17:53" itemprop="dateModified" datetime="2020-12-08T12:17:53+08:00">2020-12-08</time>
+                <time title="修改时间：2020-12-16 20:05:13" itemprop="dateModified" datetime="2020-12-16T20:05:13+08:00">2020-12-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1077,7 +1085,129 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="一、值传递机制"><a href="#一、值传递机制" class="headerlink" title="一、值传递机制"></a>一、值传递机制</h1><p>如果参数是基本数据类型，此时实参赋给形参的是实参真实存储的数据值</p>
+          <h1 id="一、this"><a href="#一、this" class="headerlink" title="一、this"></a>一、this</h1><ul>
+<li>this可以用来修饰、调用：<ul>
+<li>属性、方法<ul>
+<li>this理解为：当前对象或当前正在创建的对象</li>
+<li>在类的方法中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果方法的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参</li>
+<li>在类的构造器中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果构造器的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参</li>
+</ul>
+</li>
+<li>构造器<ul>
+<li>在类的构造器中，可以显式的使用 this(形参列表) 方式，调用本类中指定的类的其他构造器</li>
+<li>构造器中不能通过 this(形参列表) 方式调用自己</li>
+<li>如果一个类中有n个构造器，则最多有n-1个构造器中使用了 this(形参列表)</li>
+<li>规定： this(形参列表) 必须声明在当前构造器的首行</li>
+<li>构造器内部，最多只能声明一个 this(形参列表) ，用来调用其他的构造器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、package"><a href="#二、package" class="headerlink" title="二、package"></a>二、package</h1><ul>
+<li>为了更好的实现项目中类的管理，提供包的概念</li>
+<li>MVC设计模式<ul>
+<li>model（数据模型层）</li>
+<li>view（视图模型层）</li>
+<li>controller（控制器层）</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、super"><a href="#三、super" class="headerlink" title="三、super"></a>三、super</h1><ul>
+<li><p>理解为父类的。。。</p>
+</li>
+<li><p>super的使用：调用属性和方法</p>
+<ul>
+<li>可以在子类的方法或构造器中，通过使用 super.属性或 super.方法的方式显式的调用父类中声明的属性或方法，但是通常情况下省略 super.</li>
+<li>特殊情况：当子类和父类中定义了同名的属性时，要想再子类中调用父类声明的属性，则必须显式的使用 super.属性 的方式，表面调用的是父类中的属性</li>
+</ul>
+</li>
+<li><p>特殊情况：当子类重写父类中的方法以后，如果想在子类的方法中调用父类中重写的方法时，则必须显式的使用 super.方法 的方式，表面调用的是父类中被重写的方法</p>
+</li>
+<li><p>super的使用：构造器</p>
+<ul>
+<li>可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器</li>
+<li>“super(形参列表)”的使用，必须声明在子类构造器的首行</li>
+<li>在类的构造器中，针对于”this(形参列表)”或者”super(形参列表)”只能二选一，不能同时出现</li>
+<li>在构造器的首行，没有显式的声明”this(形参列表)”或者”super(形参列表)”，则默认调用的是父类中空参的构造器：”super()”</li>
+<li>在类的多个构造器中，至少有一个类的构造器中使用了”super(形参列表)”，调用父类中的构造器</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、instanceof"><a href="#四、instanceof" class="headerlink" title="四、instanceof"></a>四、instanceof</h1><ul>
+<li><code>a instanceof A</code>：判断对象a是否是类A的实例。如果是，返回true；如果不是，返回false</li>
+<li>使用情景：为了避免在向下转型时出现ClassCastException异常，在向下转型之前先进行<code>instanceof</code>的判断</li>
+</ul>
+<h1 id="五、static"><a href="#五、static" class="headerlink" title="五、static"></a>五、static</h1><ul>
+<li>不能用了修饰构造器</li>
+<li>使用static来修饰属性<ul>
+<li>属性按是否static修饰，分为：静态属性（类变量）    vs    非静态属性</li>
+<li>多个对象共享一个静态属性。当通过某一个对象修改静态变量，会导致其他对象调用此静态变量时是修改过的。</li>
+<li>静态变量随着类的加载而加载。</li>
+<li>静态变量的加载要早于对象的创建</li>
+<li>由于类只加载一次，则静态变量在内存中也只会存在一份：存在方法区的静态域中。</li>
+</ul>
+</li>
+<li>使用static来修饰方法：静态方法<ul>
+<li>随着类的加载而加载，可以通过”类.静态方法”的方式进行调用</li>
+<li>静态方法中，只能调用静态的方法或属性，非静态方法中，既可以调用非静态的方法或属性，也可以调用静态的方法或属性</li>
+</ul>
+</li>
+<li>注意点<ul>
+<li>在静态的方法中，不能使用this关键字，super关键字</li>
+<li>关于静态属性和静态方法的使用，从生命周期的角度去理解</li>
+</ul>
+</li>
+</ul>
+<h1 id="六、final"><a href="#六、final" class="headerlink" title="六、final"></a>六、final</h1><ul>
+<li>可以用来修饰的结构：类、方法、变量</li>
+<li>final用来修饰类：此类不能被其他类所继承</li>
+<li>final用来修饰方法：表明此方法不可以被重写</li>
+<li>final用来修饰变量：此时的“变量”就称为一个常量<ul>
+<li>final修饰属性：可以考虑赋值的位置有<ul>
+<li>显示初始化</li>
+<li>代码块中初始化</li>
+<li>构造器中初始化</li>
+</ul>
+</li>
+<li>final修饰局部变量：<ul>
+<li>使用final修饰形参时，表明此形参是一个常量。当调用此方法时，给常量形参赋一个实参</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>static final：用来修饰属性：全局常量</li>
+</ul>
+<h1 id="七、abstract"><a href="#七、abstract" class="headerlink" title="七、abstract"></a>七、abstract</h1><h2 id="7-1-abstract修饰类"><a href="#7-1-abstract修饰类" class="headerlink" title="7.1 abstract修饰类"></a>7.1 abstract修饰类</h2><ul>
+<li>此类不能实例化</li>
+<li>抽象类中一定有构造器，便于子类实例化的时候调用</li>
+<li>开发中，提供抽象类的子类，提供子类对象实例化，完成相关的操作</li>
+</ul>
+<h2 id="7-2-abstract修饰方法"><a href="#7-2-abstract修饰方法" class="headerlink" title="7.2 abstract修饰方法"></a>7.2 abstract修饰方法</h2><ul>
+<li>抽象方法只有方法的声明，没有方法体</li>
+<li>包含抽象方法的类一定是一个抽象类。反之，抽象类中可以没有抽象方法</li>
+<li>若子类重写了父类中的所有的抽象方法以后，此子类方可实例化，若子类没有重写了父类中的所有的抽象方法，则此子类也是一个抽象类</li>
+</ul>
+<h2 id="7-3-abstract使用注意点"><a href="#7-3-abstract使用注意点" class="headerlink" title="7.3 abstract使用注意点"></a>7.3 abstract使用注意点</h2><ul>
+<li>abstract不能用来修饰：属性，构造器等结构</li>
+<li>abstract不能用来装饰似有方法、静态方法、final的方法、final的类</li>
+</ul>
+<h1 id="八、interface"><a href="#八、interface" class="headerlink" title="八、interface"></a>八、interface</h1><ul>
+<li>Java中，接口和类是并列的结构</li>
+<li>如何定义接口：定义接口中的成员<ul>
+<li>JDK7及以前：只能定义全局常量和抽象方法<ul>
+<li>全局常量：public static final的，可以省略不写</li>
+<li>抽象方法：public abstract的</li>
+</ul>
+</li>
+<li>JDK8：还可以定义静态方法、和默认方法</li>
+</ul>
+</li>
+<li>接口中不能定义构造器，意味着接口不可以实例化</li>
+<li>如果实现类覆盖了接口中的所有抽象方法，则此实现类就可以实例化</li>
+<li>Java类可以实现多个接口</li>
+<li>接口与接口之间可以继承，而且可以多继承</li>
+</ul>
 
       
     </div>
@@ -1097,7 +1227,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/04/Java8%E6%96%B0%E7%89%B9%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1111,7 +1241,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/04/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">Java8新特性</a>
+            <a href="/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81/" class="post-title-link" itemprop="url">面向对象三大特征</a>
         </h2>
 
         <div class="post-meta">
@@ -1121,14 +1251,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-04 20:22:44" itemprop="dateCreated datePublished" datetime="2020-12-04T20:22:44+08:00">2020-12-04</time>
+              <time title="创建时间：2020-12-11 21:08:53" itemprop="dateCreated datePublished" datetime="2020-12-11T21:08:53+08:00">2020-12-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-05 11:16:04" itemprop="dateModified" datetime="2020-12-05T11:16:04+08:00">2020-12-05</time>
+                <time title="修改时间：2020-12-14 20:25:27" itemprop="dateModified" datetime="2020-12-14T20:25:27+08:00">2020-12-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1151,91 +1281,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-Lambda表达式"><a href="#1-Lambda表达式" class="headerlink" title="1 Lambda表达式"></a>1 Lambda表达式</h1><p><strong>举例：</strong>(o1, o2) -&gt; Integer.compare(o1, o2) </p>
-<p><strong>格式：</strong>  -&gt;：lambda操作符或箭头操作符    </p>
-<p>​             -&gt;左边：lambda形参列表（其实就是接口中的抽象方法的形参列表）    </p>
-<pre><code>         -&gt;右边：lambda体（其实重写的抽象方法的方法体）</code></pre>
-<p><strong>lambda表达式的使用：（分为6种情况）</strong></p>
-<ul>
-<li>语法格式一：无参，无返回值</li>
+          <h1 id="一、封装性"><a href="#一、封装性" class="headerlink" title="一、封装性"></a>一、封装性</h1><h1 id="二、继承性"><a href="#二、继承性" class="headerlink" title="二、继承性"></a>二、继承性</h1><ul>
+<li>继承性的好处<ul>
+<li>减少代码的冗余，提高代码的复用性</li>
+<li>便于功能的扩展</li>
+<li>为了多态性的使用，提供了前提</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">      Runnable r1 = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">          <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">              System.out.println(<span class="string">&quot;Java&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式改写</span></span><br><span class="line">      Runnable r1 = () -&gt; &#123;</span><br><span class="line">          System.out.println(<span class="string">&quot;Java&quot;</span>);</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>语法格式二：lambada需要一个参数，但是没有返回值</li>
+</li>
+<li>继承性的格式：class A extends B{}<ul>
+<li>A：子类，派生类，subclass            B：父类、超类、基类、superclass</li>
+<li>体现：一旦子类A继承父类B，子类A中就获取了父类B中声明的所有属性和方法。特别的，父类中声明为private的属性或方法，子类继承父类以后，任然认为获取了父类中私有的结构，只是因为封装性的影响，使得子类无法直接调用父类的结构而已。</li>
+<li>子类继承父类以后，还可以声明自己特有的属性或方法，实现功能的扩展</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">      Consumer&lt;String&gt; con = <span class="keyword">new</span> Consumer&lt;String&gt;() &#123;</span><br><span class="line">          <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">              System.out.println(s);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式改写</span></span><br><span class="line">      Consumer&lt;String&gt; con = (String s) -&gt; &#123;</span><br><span class="line">          System.out.println(s);</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>语法格式三：数据类型可以省略，因为可由编译器推断得出，称为“类型推断”</li>
+</li>
+<li>Java中关于继承性的规定<ul>
+<li>一个类可以被多个子类继承</li>
+<li>Java单继承性：一个类只能有一个父类</li>
+<li>子父类是相对概念</li>
+<li>子类直接继承父类，称为：直接父类。间接继承的父类称为：间接父类</li>
+<li>子类继承父类之后，就获取了直接父类以及所有间接父类中声明的属性和方法</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">      Consumer&lt;String&gt; con = (String s) -&gt; &#123;</span><br><span class="line">          System.out.println(s);</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式改写</span></span><br><span class="line">      Consumer&lt;String&gt; con = (s) -&gt; &#123;</span><br><span class="line">          System.out.println(s);</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式再改写</span></span><br><span class="line">      Consumer&lt;String&gt; con = s -&gt; System.out.println(s);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>语法格式四：lambda若只需要一个参数时，参数的小括号可以省略</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      Consumer&lt;String&gt; con = (s) -&gt; &#123;</span><br><span class="line">          System.out.println(s);</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式改写</span></span><br><span class="line">      Consumer&lt;String&gt; con = s -&gt; &#123;</span><br><span class="line">          System.out.println(s);</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>语法格式五：lambda需要两个或以上的的参数，多条执行语句，并且可以有返回值</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">      Comparator&lt;Integer&gt; con = <span class="keyword">new</span> Comparator&lt;Integer&gt;() &#123;</span><br><span class="line">          <span class="meta">@Override</span></span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer o1, Integer o2)</span> </span>&#123;</span><br><span class="line">              System.out.println(o1);</span><br><span class="line">              System.out.println(o2);</span><br><span class="line">              <span class="keyword">return</span> o1.compareTo(o2);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式改写</span></span><br><span class="line">      Comparator&lt;Integer&gt; con = (o1, o2) -&gt; &#123;</span><br><span class="line">          System.out.println(o1);</span><br><span class="line">          System.out.println(o2);</span><br><span class="line">          <span class="keyword">return</span> o1.compareTo(o2);</span><br><span class="line">      &#125;;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>语法格式六：当lambda体只有一条语句时，return与大括号若有，都可以省略</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">      Comparator&lt;Integer&gt; con = (o1, o2) -&gt; &#123;</span><br><span class="line">          <span class="keyword">return</span> o1.compareTo(o2);</span><br><span class="line">      &#125;;</span><br><span class="line"><span class="comment">//使用lambda表达式改写</span></span><br><span class="line">      Comparator&lt;Integer&gt; con = (o1, o2) -&gt; o1.compareTo(o2);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>总结：</strong><ul>
-<li><strong>-&gt;左边：</strong>lambda形参列表类型可以省略（类型推断）；如果参数列表只有一个参数，其一对()也可以省略。</li>
-<li><strong>-&gt;右边：</strong>lambda体应该有一对{}包裹；如果lambda体只有一条执行语句（可能是return语句），可以省略这一对{}和return关键字</li>
+</li>
+<li>如果没有显式的声明一个父类，则此类继承于 java.lang.object 类<ul>
+<li>所有的java类（除java.lang.object 类之外）都直接或间接的继承于 java.lang.object 类</li>
+<li>意味着，所有的java类具有 java.lang.object 类中声明的功能</li>
 </ul>
 </li>
 </ul>
-<p><strong>lambda表达式的本质：</strong>作为函数式接口的实例。</p>
-<p>​                                          使用匿名实现类表示的现在都可以用lambda表达式来写</p>
-<h1 id="2-函数式（Functional）接口"><a href="#2-函数式（Functional）接口" class="headerlink" title="2 函数式（Functional）接口"></a>2 函数式（Functional）接口</h1><ul>
-<li>只包含一个抽象方法的接口，称为函数式接口</li>
-<li>能通过lambda表达式来创建该接口</li>
-<li>可以在接口上使用<code>@FunctionalInterface</code>注解来检验是否是一个函数式接口</li>
-<li>在<code>java.util.function</code>包下定义了Java8丰富的函数式接口</li>
+<h1 id="三、多态性"><a href="#三、多态性" class="headerlink" title="三、多态性"></a>三、多态性</h1><ul>
+<li>何为多态性<ul>
+<li>对象的多态性：父类的引用指向子类的对象</li>
 </ul>
-<h2 id="2-1-Java内置四大核心函数式接口"><a href="#2-1-Java内置四大核心函数式接口" class="headerlink" title="2.1 Java内置四大核心函数式接口"></a>2.1 Java内置四大核心函数式接口</h2><table>
-<thead>
-<tr>
-<th align="center">函数式接口名</th>
-<th align="center">参数类型</th>
-<th align="center">返回类型</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Consumer&lt;T&gt;</code>消费型接口</td>
-<td align="center">T</td>
-<td align="center">void</td>
-<td align="center">对类型为T的对象应用操作，包含方法：<code>void accept(T t)</code></td>
-</tr>
-<tr>
-<td align="center"><code>Supplier&lt;T&gt;</code>供给型接口</td>
-<td align="center">无</td>
-<td align="center">T</td>
-<td align="center">返回类型为T的对象，包含方法：<code>T get()</code></td>
-</tr>
-<tr>
-<td align="center"><code>Function&lt;T,R&gt;</code>函数式接口</td>
-<td align="center">T</td>
-<td align="center">R</td>
-<td align="center">对类型为T的对象应用操作，并返回结果。结果是R类型的对象。包含方法：<code>R apply(T t)</code></td>
-</tr>
-<tr>
-<td align="center"><code>Predicate&lt;T&gt;</code>断定型接口</td>
-<td align="center">T</td>
-<td align="center">boolean</td>
-<td align="center">确定类型为T的对象是否满足某约束，并返回boolean值。包含方法：<code>boolean test(T t)</code></td>
-</tr>
-</tbody></table>
-<h1 id="3-方法引用与构造器"><a href="#3-方法引用与构造器" class="headerlink" title="3 方法引用与构造器"></a>3 方法引用与构造器</h1><h1 id="4-强大的Stream-API"><a href="#4-强大的Stream-API" class="headerlink" title="4 强大的Stream API"></a>4 强大的Stream API</h1><h1 id="5-Optional类"><a href="#5-Optional类" class="headerlink" title="5 Optional类"></a>5 Optional类</h1>
+</li>
+<li>多态的使用：虚拟方法调用<ul>
+<li>有了对象的多态性以后，在编译期，只能调用父类中声明的方法，但在运行期，实际执行的是子类重写父类的方法</li>
+<li>总结：编译看左边，执行看右边</li>
+</ul>
+</li>
+<li>多态的使用前提<ul>
+<li>类的继承关系</li>
+<li>方法的重写</li>
+</ul>
+</li>
+<li>对象的多态性，只适用于方法，不适用于属性</li>
+</ul>
+
       
     </div>
 
@@ -1253,7 +1343,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1321,20 +1411,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
