@@ -28,7 +28,7 @@
 <meta property="og:description" content="一、Object类的使用 Object类是所有Java类的根父类 如果在类的声明中未使用extends关键字指明其父类，则默认父类为java.lang.object类 Object类中的功能具有通用性 Object类只声明了一个空参的构造器  1.1 equals()方法 &#x3D;&#x3D;和equals()区别  &#x3D;&#x3D;的使用  是运算符，可以使用在基本数据类型变量和引用数据类型变量中 如果比较的是基本数据类型">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-30T01:47:57.000Z">
-<meta property="article:modified_time" content="2020-12-24T02:15:01.003Z">
+<meta property="article:modified_time" content="2020-12-30T04:19:12.050Z">
 <meta property="article:author" content="JerAexChen">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-24 10:15:01" itemprop="dateModified" datetime="2020-12-24T10:15:01+08:00">2020-12-24</time>
+                <time title="修改时间：2020-12-30 12:19:12" itemprop="dateModified" datetime="2020-12-30T12:19:12+08:00">2020-12-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -295,7 +295,7 @@
 <li>String实现了<code>Serializable</code>接口：表示字符串是支持序列化的，实现了<code>Comparable</code>接口：表示String可以比较大小</li>
 <li>String内部定义了<code>final char value[]</code>用于存储字符串数据，代表String是不可变的字符序列，即不可变性。<ul>
 <li>体现：<ul>
-<li>当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值</li>
+<li>当对字符串重新赋值时，需要重新指定内存区域赋值，不能使用原有的value进行赋值</li>
 <li>当对现有的字符串进行连接操作时，需要重新指定内存区域赋值，不能使用原有的value进行赋值</li>
 <li>当调用String的<code>replace()</code>方法修改指定字符或字符串时，也需要重新指定内存区域</li>
 </ul>
@@ -313,16 +313,28 @@
 </li>
 <li><p>方式二：通过new+构造器的方式：此时的s3和s4保存的地址值是数据在堆空间中开辟空间以后对应的地址值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">&quot;javaEE&quot;</span>);</span><br><span class="line">String s4 = <span class="keyword">new</span> String(<span class="string">&quot;javaEE&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-
+</li>
+</ul>
+</li>
+<li><p><strong>String类与其他结构之间的转换</strong></p>
+<ul>
+<li><p>String和基本数据类型、包装类之间的互相转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1 = <span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="keyword">int</span> num = Integer.parseInt(str1);</span><br><span class="line">String str2 = String.valueOf(num);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>String和字符数组之间的转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String类型转换为char[]</span></span><br><span class="line">String str1 = <span class="string">&quot;abc123&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>[] chars = str1.toCharArray();</span><br><span class="line"><span class="comment">//char[]转换为String</span></span><br><span class="line"><span class="keyword">char</span>[] arr = <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">&#x27;h&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;l&#x27;</span>, <span class="string">&#x27;o&#x27;</span>&#125;;</span><br><span class="line">String str2 = <span class="keyword">new</span> String(arr);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>String和byte[]之间的相互转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//String类型转换为byte[]</span></span><br><span class="line">String str1 = <span class="string">&quot;abc123&quot;</span>;</span><br><span class="line"><span class="keyword">byte</span>[] bytes = str1.getBytes();</span><br><span class="line"><span class="comment">//byte[]转换为String类型</span></span><br><span class="line">String str2 = <span class="keyword">new</span> String(bytes);</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="1-3-StringBuffer-StringBuilder"><a href="#1-3-StringBuffer-StringBuilder" class="headerlink" title="1.3 StringBuffer/StringBuilder"></a>1.3 StringBuffer/StringBuilder</h2><h1 id="二、日期时间API"><a href="#二、日期时间API" class="headerlink" title="二、日期时间API"></a>二、日期时间API</h1><h2 id="2-1-java-lang-System类"><a href="#2-1-java-lang-System类" class="headerlink" title="2.1 java.lang.System类"></a>2.1 java.lang.System类</h2><p>System类提供的<code>public static long currentTimeMillis()</code>用来返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差。</p>
+<h2 id="1-2-StringBuffer"><a href="#1-2-StringBuffer" class="headerlink" title="1.2 StringBuffer"></a>1.2 StringBuffer</h2><ul>
+<li><h2 id="1-3-StringBuilder"><a href="#1-3-StringBuilder" class="headerlink" title="1.3 StringBuilder"></a>1.3 StringBuilder</h2></li>
+</ul>
+<h1 id="二、日期时间API"><a href="#二、日期时间API" class="headerlink" title="二、日期时间API"></a>二、日期时间API</h1><h2 id="2-1-java-lang-System类"><a href="#2-1-java-lang-System类" class="headerlink" title="2.1 java.lang.System类"></a>2.1 java.lang.System类</h2><p>System类提供的<code>public static long currentTimeMillis()</code>用来返回当前时间与1970年1月1日0时0分0秒之间以毫秒为单位的时间差。</p>
 <ul>
 <li><strong>此方法适于计算时间差。</strong></li>
 </ul>
@@ -436,7 +448,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Object%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">一、Object类的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-equals-%E6%96%B9%E6%B3%95"><span class="nav-text">1.1 equals()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-toString-%E6%96%B9%E6%B3%95"><span class="nav-text">1.2 toString()方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">二、包装类的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E7%B1%BB"><span class="nav-text">一、字符串相关的类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-String%E7%B1%BB%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">1.1 String类及常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-StringBuffer-StringBuilder"><span class="nav-text">1.3 StringBuffer&#x2F;StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="nav-text">二、日期时间API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-java-lang-System%E7%B1%BB"><span class="nav-text">2.1 java.lang.System类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-java-util-Date%E7%B1%BB"><span class="nav-text">2.2 java.util.Date类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-java-text-SimpleDateFormat%E7%B1%BB"><span class="nav-text">2.3 java.text.SimpleDateFormat类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-java-util-Calendar-%E6%97%A5%E5%8E%86-%E7%B1%BB"><span class="nav-text">2.4 java.util.Calendar(日历)类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E6%96%B0%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9FAPI"><span class="nav-text">2.5 新时间日期API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Java%E6%AF%94%E8%BE%83%E5%99%A8"><span class="nav-text">三、Java比较器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81System%E7%B1%BB"><span class="nav-text">四、System类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81Math%E7%B1%BB"><span class="nav-text">五、Math类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81BigInteger%E4%B8%8EBigDecimal"><span class="nav-text">六、BigInteger与BigDecimal</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Object%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">一、Object类的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-equals-%E6%96%B9%E6%B3%95"><span class="nav-text">1.1 equals()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-toString-%E6%96%B9%E6%B3%95"><span class="nav-text">1.2 toString()方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8C%85%E8%A3%85%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">二、包装类的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%9A%84%E7%B1%BB"><span class="nav-text">一、字符串相关的类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-String%E7%B1%BB%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">1.1 String类及常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-StringBuffer"><span class="nav-text">1.2 StringBuffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-StringBuilder"><span class="nav-text">1.3 StringBuilder</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4API"><span class="nav-text">二、日期时间API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-java-lang-System%E7%B1%BB"><span class="nav-text">2.1 java.lang.System类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-java-util-Date%E7%B1%BB"><span class="nav-text">2.2 java.util.Date类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-java-text-SimpleDateFormat%E7%B1%BB"><span class="nav-text">2.3 java.text.SimpleDateFormat类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-java-util-Calendar-%E6%97%A5%E5%8E%86-%E7%B1%BB"><span class="nav-text">2.4 java.util.Calendar(日历)类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E6%96%B0%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9FAPI"><span class="nav-text">2.5 新时间日期API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81Java%E6%AF%94%E8%BE%83%E5%99%A8"><span class="nav-text">三、Java比较器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81System%E7%B1%BB"><span class="nav-text">四、System类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81Math%E7%B1%BB"><span class="nav-text">五、Math类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81BigInteger%E4%B8%8EBigDecimal"><span class="nav-text">六、BigInteger与BigDecimal</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -452,20 +464,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -492,7 +504,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

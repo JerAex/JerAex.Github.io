@@ -159,6 +159,349 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/17/JUC%E7%BA%BF%E7%A8%8B%E9%AB%98%E7%BA%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/17/JUC%E7%BA%BF%E7%A8%8B%E9%AB%98%E7%BA%A7/" class="post-title-link" itemprop="url">JUC线程高级</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-17 17:02:18 / 修改时间：18:29:38" itemprop="dateCreated datePublished" datetime="2020-12-17T17:02:18+08:00">2020-12-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Java基础</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、volatile关键字-内存可见"><a href="#一、volatile关键字-内存可见" class="headerlink" title="一、volatile关键字-内存可见"></a>一、<code>volatile</code>关键字-内存可见</h1><ul>
+<li>内存可见性是指当某个线程正在使用对象状态而另一个线程在同时修改该状态，需要确保当一个线程修改了对象状态后，其他线程能够看到发生的状态变化。</li>
+<li>volatile关键字：当多个线程进行操作共享数据时，可以保证内存中的数据可见<ul>
+<li>用来修饰共享变量</li>
+<li>相较于synchronized是一种较为轻量级的同步策略</li>
+<li>注意：<ul>
+<li>volatile不具备互斥性</li>
+<li>volatile不能保证变量的原子性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、原子变量-CAS算法"><a href="#二、原子变量-CAS算法" class="headerlink" title="二、原子变量-CAS算法"></a>二、原子变量-CAS算法</h1><h1 id="三、ConcurrentHashMap锁分段机制"><a href="#三、ConcurrentHashMap锁分段机制" class="headerlink" title="三、ConcurrentHashMap锁分段机制"></a>三、<code>ConcurrentHashMap</code>锁分段机制</h1><h1 id="四、CountDownLatch闭锁"><a href="#四、CountDownLatch闭锁" class="headerlink" title="四、CountDownLatch闭锁"></a>四、<code>CountDownLatch</code>闭锁</h1><h1 id="五、实现Callable接口"><a href="#五、实现Callable接口" class="headerlink" title="五、实现Callable接口"></a>五、实现<code>Callable</code>接口</h1><h1 id="六、Lock同步锁"><a href="#六、Lock同步锁" class="headerlink" title="六、Lock同步锁"></a>六、<code>Lock</code>同步锁</h1><h1 id="七、Condition控制线程"><a href="#七、Condition控制线程" class="headerlink" title="七、Condition控制线程"></a>七、Condition控制线程</h1><h1 id="八、线程八锁"><a href="#八、线程八锁" class="headerlink" title="八、线程八锁"></a>八、线程八锁</h1><h1 id="九、线程按序交替"><a href="#九、线程按序交替" class="headerlink" title="九、线程按序交替"></a>九、线程按序交替</h1><h1 id="十、ReadWriteLock读写锁"><a href="#十、ReadWriteLock读写锁" class="headerlink" title="十、ReadWriteLock读写锁"></a>十、<code>ReadWriteLock</code>读写锁</h1><h1 id="十一、线程池"><a href="#十一、线程池" class="headerlink" title="十一、线程池"></a>十一、线程池</h1><h1 id="十二、线程调度"><a href="#十二、线程调度" class="headerlink" title="十二、线程调度"></a>十二、线程调度</h1><h1 id="十三、ForkJoinPool分支-合并框架-工作窃取"><a href="#十三、ForkJoinPool分支-合并框架-工作窃取" class="headerlink" title="十三、ForkJoinPool分支/合并框架 工作窃取"></a>十三、ForkJoinPool分支/合并框架 工作窃取</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/17/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/17/Redis/" class="post-title-link" itemprop="url">Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-17 10:15:42 / 修改时间：10:59:40" itemprop="dateCreated datePublished" datetime="2020-12-17T10:15:42+08:00">2020-12-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaEE%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">JavaEE高级</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、NoSql入门和概述"><a href="#一、NoSql入门和概述" class="headerlink" title="一、NoSql入门和概述"></a>一、NoSql入门和概述</h1><h1 id="二、Redis入门介绍"><a href="#二、Redis入门介绍" class="headerlink" title="二、Redis入门介绍"></a>二、Redis入门介绍</h1><h2 id="2-1-入门概述"><a href="#2-1-入门概述" class="headerlink" title="2.1 入门概述"></a>2.1 入门概述</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="JerAexChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JerAex">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%B3%E9%94%AE%E5%AD%97/" class="post-title-link" itemprop="url">面向对象关键字</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-12-11 21:59:21" itemprop="dateCreated datePublished" datetime="2020-12-11T21:59:21+08:00">2020-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-01 15:34:25" itemprop="dateModified" datetime="2021-01-01T15:34:25+08:00">2021-01-01</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、this"><a href="#一、this" class="headerlink" title="一、this"></a>一、this</h1><ul>
+<li>this可以用来修饰、调用：<ul>
+<li>属性、方法<ul>
+<li>this理解为：当前对象或当前正在创建的对象</li>
+<li>在类的方法中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果方法的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参</li>
+<li>在类的构造器中，可以使用 this.属性 或 this.方法 的方式，调用当前对象属性或方法。但是，通常情况下选择省略 this. 。特殊情况下，如果构造器的形参和类的属性同名是，必须显式的使用 this.变量 方式，表明此变量是属性，而非形参</li>
+</ul>
+</li>
+<li>构造器<ul>
+<li>在类的构造器中，可以显式的使用 this(形参列表) 方式，调用本类中指定的类的其他构造器</li>
+<li>构造器中不能通过 this(形参列表) 方式调用自己</li>
+<li>如果一个类中有n个构造器，则最多有n-1个构造器中使用了 this(形参列表)</li>
+<li>规定： this(形参列表) 必须声明在当前构造器的首行</li>
+<li>构造器内部，最多只能声明一个 this(形参列表) ，用来调用其他的构造器</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、package"><a href="#二、package" class="headerlink" title="二、package"></a>二、package</h1><ul>
+<li>为了更好的实现项目中类的管理，提供包的概念</li>
+<li>MVC设计模式<ul>
+<li>model（数据模型层）</li>
+<li>view（视图模型层）</li>
+<li>controller（控制器层）</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、super"><a href="#三、super" class="headerlink" title="三、super"></a>三、super</h1><ul>
+<li><p>理解为父类的。。。</p>
+</li>
+<li><p>super的使用：调用属性和方法</p>
+<ul>
+<li>可以在子类的方法或构造器中，通过使用 super.属性或 super.方法的方式显式的调用父类中声明的属性或方法，但是通常情况下省略 super.</li>
+<li>特殊情况：当子类和父类中定义了同名的属性时，要想再子类中调用父类声明的属性，则必须显式的使用 super.属性 的方式，表面调用的是父类中的属性</li>
+</ul>
+</li>
+<li><p>特殊情况：当子类重写父类中的方法以后，如果想在子类的方法中调用父类中重写的方法时，则必须显式的使用 super.方法 的方式，表面调用的是父类中被重写的方法</p>
+</li>
+<li><p>super的使用：构造器</p>
+<ul>
+<li>可以在子类的构造器中显式的使用”super(形参列表)”的方式，调用父类中声明的指定的构造器</li>
+<li>“super(形参列表)”的使用，必须声明在子类构造器的首行</li>
+<li>在类的构造器中，针对于”this(形参列表)”或者”super(形参列表)”只能二选一，不能同时出现</li>
+<li>在构造器的首行，没有显式的声明”this(形参列表)”或者”super(形参列表)”，则默认调用的是父类中空参的构造器：”super()”</li>
+<li>在类的多个构造器中，至少有一个类的构造器中使用了”super(形参列表)”，调用父类中的构造器</li>
+</ul>
+</li>
+</ul>
+<h1 id="四、instanceof"><a href="#四、instanceof" class="headerlink" title="四、instanceof"></a>四、instanceof</h1><ul>
+<li><code>a instanceof A</code>：判断对象a是否是类A的实例。如果是，返回true；如果不是，返回false</li>
+<li>使用情景：为了避免在向下转型时出现ClassCastException异常，在向下转型之前先进行<code>instanceof</code>的判断</li>
+</ul>
+<h1 id="五、static"><a href="#五、static" class="headerlink" title="五、static"></a>五、static</h1><ul>
+<li><strong>可以用来修饰：属性、方法、代码块、内部类</strong></li>
+<li><strong>使用static来修饰属性</strong><ul>
+<li>属性按是否被static修饰，分为：静态属性（类变量）    vs    非静态属性</li>
+<li>多个对象共享一个静态属性。当通过某一个对象修改静态变量，会导致其他对象调用此静态变量时是修改过的。</li>
+<li>静态变量随着类的加载而加载。</li>
+<li>静态变量的加载要早于对象的创建</li>
+<li>由于类只加载一次，则静态变量在内存中也只会存在一份：存在方法区的静态域中。</li>
+</ul>
+</li>
+<li><strong>使用static来修饰方法：静态方法</strong><ul>
+<li>随着类的加载而加载，可以通过”类.静态方法”的方式进行调用</li>
+<li>静态方法中，只能调用静态的方法或属性，非静态方法中，既可以调用非静态的方法或属性，也可以调用静态的方法或属性</li>
+</ul>
+</li>
+<li>注意点<ul>
+<li>在静态的方法中，不能使用this关键字，super关键字</li>
+<li>关于静态属性和静态方法的使用，从生命周期的角度去理解</li>
+</ul>
+</li>
+</ul>
+<h1 id="六、final"><a href="#六、final" class="headerlink" title="六、final"></a>六、final</h1><ul>
+<li>可以用来修饰的结构：类、方法、变量</li>
+<li>final用来修饰类：此类不能被其他类所继承</li>
+<li>final用来修饰方法：表明此方法不可以被重写</li>
+<li>final用来修饰变量：此时的“变量”就称为一个常量<ul>
+<li>final修饰属性：可以考虑赋值的位置有<ul>
+<li>显示初始化</li>
+<li>代码块中初始化</li>
+<li>构造器中初始化</li>
+</ul>
+</li>
+<li>final修饰局部变量：<ul>
+<li>使用final修饰形参时，表明此形参是一个常量。当调用此方法时，给常量形参赋一个实参</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>static final：用来修饰属性：全局常量</li>
+</ul>
+<h1 id="七、abstract"><a href="#七、abstract" class="headerlink" title="七、abstract"></a>七、abstract</h1><h2 id="7-1-abstract修饰类"><a href="#7-1-abstract修饰类" class="headerlink" title="7.1 abstract修饰类"></a>7.1 abstract修饰类</h2><ul>
+<li>此类不能实例化</li>
+<li>抽象类中一定有构造器，便于子类实例化的时候调用</li>
+<li>开发中，提供抽象类的子类，提供子类对象实例化，完成相关的操作</li>
+</ul>
+<h2 id="7-2-abstract修饰方法"><a href="#7-2-abstract修饰方法" class="headerlink" title="7.2 abstract修饰方法"></a>7.2 abstract修饰方法</h2><ul>
+<li>抽象方法只有方法的声明，没有方法体</li>
+<li>包含抽象方法的类一定是一个抽象类。反之，抽象类中可以没有抽象方法</li>
+<li>若子类重写了父类中的所有的抽象方法以后，此子类方可实例化，若子类没有重写了父类中的所有的抽象方法，则此子类也是一个抽象类</li>
+</ul>
+<h2 id="7-3-abstract使用注意点"><a href="#7-3-abstract使用注意点" class="headerlink" title="7.3 abstract使用注意点"></a>7.3 abstract使用注意点</h2><ul>
+<li>abstract不能用来修饰：属性，构造器等结构</li>
+<li>abstract不能用来装饰似有方法、静态方法、final的方法、final的类</li>
+</ul>
+<h1 id="八、interface"><a href="#八、interface" class="headerlink" title="八、interface"></a>八、interface</h1><ul>
+<li>Java中，接口和类是并列的结构</li>
+<li>如何定义接口：定义接口中的成员<ul>
+<li>JDK7及以前：只能定义全局常量和抽象方法<ul>
+<li>全局常量：public static final的，可以省略不写</li>
+<li>抽象方法：public abstract的</li>
+</ul>
+</li>
+<li>JDK8：还可以定义静态方法、和默认方法</li>
+</ul>
+</li>
+<li>接口中不能定义构造器，意味着接口不可以实例化</li>
+<li>如果实现类覆盖了接口中的所有抽象方法，则此实现类就可以实例化</li>
+<li>Java类可以实现多个接口</li>
+<li>接口与接口之间可以继承，而且可以多继承</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/11/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E5%BE%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1156,432 +1499,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/IO%E6%B5%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/01/IO%E6%B5%81/" class="post-title-link" itemprop="url">IO流</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-01 20:57:22" itemprop="dateCreated datePublished" datetime="2020-12-01T20:57:22+08:00">2020-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-21 18:59:08" itemprop="dateModified" datetime="2020-12-21T18:59:08+08:00">2020-12-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、File类的使用"><a href="#一、File类的使用" class="headerlink" title="一、File类的使用"></a>一、File类的使用</h1><p>1️⃣ File类的一个对象，代表一个文件或一个文件目录（俗称：文件夹）</p>
-<p>2️⃣ File类声明在java.io包下</p>
-<p>3️⃣ File类中涉及到关于文件或文件目录的创建、删除、重命名、修改时间、文件大小等方法，并未涉及到写入或读取文件内容的操作。如果需要写入或读取文件内          容，必须使用IO流完成。</p>
-<p>4️⃣ 后续的File类的对象常会作为参数传递到流的构造器中，指明读取或写入的“终点”。</p>
-<h2 id="1-1-如何创建File类的实例"><a href="#1-1-如何创建File类的实例" class="headerlink" title="1.1 如何创建File类的实例"></a>1.1 如何创建File类的实例</h2><p>第一种方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(String filePath);<span class="comment">//绝对路径或者相对路径</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第二种方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(String parentPath, String childPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第三种方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(File parentFile, String childPath);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-2-File类常用方法"><a href="#1-2-File类常用方法" class="headerlink" title="1.2 File类常用方法"></a>1.2 File类常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(file.getAbsolutePath());<span class="comment">//绝对路径</span></span><br><span class="line">System.out.println(file.getPath());<span class="comment">//相对路径</span></span><br><span class="line">System.out.println(file.getName());</span><br><span class="line">System.out.println(file.getParent());<span class="comment">//如果通过相对路径构造File类，则为null；绝对路径则存在</span></span><br><span class="line">System.out.println(file.length());</span><br><span class="line">System.out.println(file.lastModified());</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">      String[] list = file.list();</span><br><span class="line">      File[] files = file.listFiles();</span><br><span class="line"><span class="keyword">boolean</span> renamedTo = file1.renameTo(file2);</span><br></pre></td></tr></table></figure>
-
-<p>创建硬盘中对应的文件或文件目录：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file.createNewFile();<span class="comment">//文件的创建</span></span><br><span class="line"><span class="keyword">boolean</span> mkdir = file.mkdir();</span><br><span class="line"><span class="keyword">boolean</span> mkdirs = file.mkdirs();<span class="comment">//如果上层目录不存在，mkdirs会创建文件的上层目录</span></span><br></pre></td></tr></table></figure>
-
-<p>删除硬盘中对应的文件或文件目录：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> delete = file.delete();<span class="comment">//Java中的删除不走回收箱		</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="二、IO流原理及流的分流"><a href="#二、IO流原理及流的分流" class="headerlink" title="二、IO流原理及流的分流"></a>二、IO流原理及流的分流</h1><h2 id="2-1-流的分类"><a href="#2-1-流的分类" class="headerlink" title="2.1 流的分类"></a>2.1 流的分类</h2><ul>
-<li>操作数据单位：字节流，字符流</li>
-<li>数据的流向：输入流，输出流</li>
-<li>留的角色：节点流和处理流</li>
-</ul>
-<h2 id="2-2-流的体系结构"><a href="#2-2-流的体系结构" class="headerlink" title="2.2 流的体系结构"></a>2.2 流的体系结构</h2><p>抽象基类：                    节点流（文件流）                    缓冲流（处理流的一种）</p>
-<p><code>InputStream</code>                <code>FileInputStream</code>                 <code>BufferInputStream</code></p>
-<p><code>OutputStream</code>              <code>FileOutputStream</code>               <code>BufferOutputStream</code></p>
-<p><code>Reader</code>                           <code>FileReader</code>                           <code>BufferedReader</code></p>
-<p><code>Writer</code>                           <code>FileWriter</code>                           <code>BufferedWriter</code></p>
-<h1 id="三、节点流（文件流）"><a href="#三、节点流（文件流）" class="headerlink" title="三、节点流（文件流）"></a>三、节点流（文件流）</h1><h2 id="3-1-FileReader读入数据"><a href="#3-1-FileReader读入数据" class="headerlink" title="3.1 FileReader读入数据"></a>3.1 <code>FileReader</code>读入数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReader</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//1.实例化File类的对象，指明要操作的文件</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">        <span class="comment">//2.提供具体的流</span></span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">        <span class="comment">//3.数据的读入</span></span><br><span class="line">        <span class="comment">//read()：返回读入的一个字符。如果达到文件末尾，返回-1</span></span><br><span class="line">        <span class="keyword">int</span> data;</span><br><span class="line">        <span class="keyword">while</span> ((data = fr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println((<span class="keyword">char</span>) data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="comment">//4.流的关闭操作</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fr.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<p>① <code>read()</code>：返回读入的一个字符。如果达到文件末尾，返回-1</p>
-<p>② 异常的处理：为了保证流资源一定可以执行关闭操作，需要使用<code>try...catch...fianlly</code>来处理</p>
-<p>③ 读入的文件一定要存在，否则就会报<code>FileNotFoundException</code></p>
-<hr>
-<p><strong>对<code>read()</code>方法操作升级：使用read的重载方法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReader</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">            fr = <span class="keyword">new</span> FileReader(file);</span><br><span class="line">            <span class="keyword">char</span>[] cbnf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">            <span class="keyword">int</span> len;</span><br><span class="line">            <span class="keyword">while</span> ((len = fr.read(cbnf)) != -<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="comment">//第一种方法</span></span><br><span class="line"><span class="comment">//                for (int i = 0; i &lt; len; i++) &#123;</span></span><br><span class="line"><span class="comment">//                    System.out.print(i);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line">                <span class="comment">//第二种方法</span></span><br><span class="line">                String str = <span class="keyword">new</span> String(cbnf, <span class="number">0</span>, len);</span><br><span class="line">                System.out.print(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    fr.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-2-FileWriter写出数据"><a href="#3-2-FileWriter写出数据" class="headerlink" title="3.2 FileWriter写出数据"></a>3.2 <code>FileWriter</code>写出数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileWriter</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    <span class="comment">//1.提供File类的对象，指明写出到的文件</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">    <span class="comment">//2.提供FileWriter的对象，用于数据的写出</span></span><br><span class="line">    FileWriter fw = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">    <span class="comment">//3.写出的操作</span></span><br><span class="line">    fw.write(<span class="string">&quot;I hava a dream!&quot;</span>);</span><br><span class="line">    <span class="comment">//4.流资源的关闭</span></span><br><span class="line">    fw.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<p>① 输出操作，对应的File可以不存在。并不会报异常</p>
-<p>② File对应的硬盘中的文件，如果不存在，在输出的过程中，会自动创建此文件。</p>
-<p>​                                                 如果存在：</p>
-<p>​                                                                    如果流使用的构造器是：<code>FileWriter(file, false)/FilterWrite(file)</code>：对原有文件的覆盖</p>
-<p>​                                                                    如果流使用的构造器是：<code>FileWriter(file, true)</code>：不会对原有文件覆盖，而是在原有文件基础上追加内容</p>
-<h2 id="3-3-复制文件"><a href="#3-3-复制文件" class="headerlink" title="3.3 复制文件"></a>3.3 复制文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFileReaderFileWriter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FileReader fr = <span class="keyword">null</span>;</span><br><span class="line">    FileWriter fw = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        File srcfile = <span class="keyword">new</span> File(<span class="string">&quot;hello.txt&quot;</span>);</span><br><span class="line">        File destfile = <span class="keyword">new</span> File(<span class="string">&quot;hello1.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line">        fr = <span class="keyword">new</span> FileReader(srcfile);</span><br><span class="line">        fw = <span class="keyword">new</span> FileWriter(destfile);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] cbuf = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">        <span class="keyword">int</span> len;</span><br><span class="line">        <span class="keyword">while</span> ((len = fr.read(cbuf)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            fw.write(cbuf, <span class="number">0</span>, len);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fw != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fw.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (fr != <span class="keyword">null</span>) &#123;</span><br><span class="line">                fr.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="四、缓冲流"><a href="#四、缓冲流" class="headerlink" title="四、缓冲流"></a>四、缓冲流</h1><p>说明：</p>
-<p>先关闭外层的流，再关闭内层的流</p>
-<p>关闭外层流的同时，内层流也会自动的进行关闭。</p>
-<h1 id="五、转换流"><a href="#五、转换流" class="headerlink" title="五、转换流"></a>五、转换流</h1><p>属于字符流</p>
-<p>作用：提供字节流和字符流之间的转换</p>
-<p><code>InputStreamReader</code>：将一个字节的输入流转换为字符的输入流（解码）</p>
-<p><code>OutputStreamWriter</code>：将一个字符的输出流转换为字节的输出流（编码）</p>
-<h1 id="6-标准输入、输出流"><a href="#6-标准输入、输出流" class="headerlink" title="6 标准输入、输出流"></a>6 标准输入、输出流</h1><p><code>System.in</code></p>
-<p><code>System.out</code></p>
-<h1 id="7-打印流"><a href="#7-打印流" class="headerlink" title="7 打印流"></a>7 打印流</h1><h1 id="8-数据流"><a href="#8-数据流" class="headerlink" title="8 数据流"></a>8 数据流</h1><p><code>DataInputStream</code></p>
-<p><code>DataOutputStream</code></p>
-<h1 id="9-对象流"><a href="#9-对象流" class="headerlink" title="9 对象流"></a>9 对象流</h1><ul>
-<li><p><code>ObjectOutputStream</code>：保存基本数据类型数据或对象的机制（序列化）</p>
-</li>
-<li><p><code>ObjectInputStream</code>：读取基本类型数据或对象的机制（反序列化）</p>
-</li>
-</ul>
-<p><strong>序列化过程：</strong>将内存中的Java对象保存到磁盘中或通过网络传输出去</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testObjectOutputStream</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ObjectOutputStream oos = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        oos = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;object.dat&quot;</span>));</span><br><span class="line">        oos.writeObject(<span class="keyword">new</span> String(<span class="string">&quot;我爱北京天安门&quot;</span>));</span><br><span class="line">        oos.flush();<span class="comment">//刷新</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (oos != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                oos.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>反序列化过程：</strong>将磁盘文件中的对象还原为内存中的一个Java对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testObjectInputStream</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ObjectInputStream ois = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        ois = <span class="keyword">new</span> ObjectInputStream(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;object.dat&quot;</span>));</span><br><span class="line">        Object obj = ois.readObject();</span><br><span class="line">        String str = (String) obj;</span><br><span class="line">        System.out.print(str);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (ois != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                ois.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><p>要想一个Java对象是可序列化的，需要满足相应的要求：</p>
-<p>① 需要实现<code>Serializable</code>接口</p>
-<p>② 当前类提供一个全局常量<code>serialVersionUID</code></p>
-<p>③ 除了当前<code>Person</code>类需要实现<code>Serializable</code>接口之外，还必须保证其内部的所有属性也必须是可序列化的（默认情况下，基本数据类型可序列化）</p>
-<p>④ 序列化机制：对象系列化机制允许把内存中的Java对象装换为平台无关的二进制流，从而允许把这种二进制流持久的保存在磁盘上，或通过网络将这种二进制流传输到另一个网络节点，当其他程序获取了这种二进制流，就可以恢复成原理的Java对象。</p>
-</li>
-</ul>
-<p>补充：<strong>不能序列化<code>static</code>和<code>transient</code>修饰的成员变量</strong></p>
-<h1 id="10-随机存取文件流"><a href="#10-随机存取文件流" class="headerlink" title="10 随机存取文件流"></a>10 随机存取文件流</h1><h2 id="10-1-RandomAccessFile类"><a href="#10-1-RandomAccessFile类" class="headerlink" title="10.1 RandomAccessFile类"></a>10.1 <code>RandomAccessFile</code>类</h2><p><strong>使用说明：</strong></p>
-<ul>
-<li><code>RandomAccessFile</code>直接继承于<code>java.lang.Object</code>类，实现了<code>DataInput</code>和<code>DataOutput</code>接口</li>
-<li><code>RandomAccessFile</code>既可以作为一个输入流，又可以作为一个输出流</li>
-<li>如果<code>RandomAccessFile</code>作为输出流时，写出到的文件如果不存在，则在执行过程中自动创建。 如果写出到的文件存在，则会对原文件内容进行覆盖。（默认情况下，从头覆盖）</li>
-<li>可以通过相关的操作，实现<code>RandomAccessFile</code>“插入”数据的效果。<code>seek(int pos)</code></li>
-</ul>
-<h1 id="11-NIO-2中Path、Paths、Files类的使用"><a href="#11-NIO-2中Path、Paths、Files类的使用" class="headerlink" title="11 NIO.2中Path、Paths、Files类的使用"></a>11 NIO.2中Path、Paths、Files类的使用</h1><p>x</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/%E6%B3%9B%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/01/%E6%B3%9B%E5%9E%8B/" class="post-title-link" itemprop="url">泛型</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-01 17:17:34" itemprop="dateCreated datePublished" datetime="2020-12-01T17:17:34+08:00">2020-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-17 16:42:54" itemprop="dateModified" datetime="2020-12-17T16:42:54+08:00">2020-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、"><a href="#一、" class="headerlink" title="一、"></a>一、</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/01/Java%E9%9B%86%E5%90%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="JerAexChen">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JerAex">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/01/Java%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">Java集合</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-01 13:16:17" itemprop="dateCreated datePublished" datetime="2020-12-01T13:16:17+08:00">2020-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-17 16:14:39" itemprop="dateModified" datetime="2020-12-17T16:14:39+08:00">2020-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaSE/" itemprop="url" rel="index"><span itemprop="name">JavaSE</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、Java集合框架概述"><a href="#一、Java集合框架概述" class="headerlink" title="一、Java集合框架概述"></a>一、Java集合框架概述</h1><p>集合和数组都是对多个数据进行存储操作的结构，简称为Java容器</p>
-<hr>
-<p> <strong>数组在存储多个数据方面的特点：</strong></p>
-<ul>
-<li><p> 一旦初始化以后，其长度就确定了</p>
-</li>
-<li><p> 数组一旦定义好，其元素的类型也就确定了。就只能操作指定类型的数据了。</p>
-</li>
-</ul>
-<p> <strong>数组在存储多个数据方面的缺点：</strong></p>
-<ul>
-<li> 一旦初始化以后，其长度就不可修改。</li>
-<li>数组中提供的方法非常有限，对于删除、插入数据等操作，非常不便，同时效率不高。</li>
-<li>获取数组中实际元素的个数，数组没有现成的属性或方法可用。</li>
-<li>数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。</li>
-</ul>
-<h2 id="1-1-集合框架"><a href="#1-1-集合框架" class="headerlink" title="1.1 集合框架"></a>1.1 集合框架</h2><ul>
-<li><code>Collection</code>接口：单列数据，定义了存取一组对象的方法的集合<ul>
-<li><strong><code>List</code>接口：存储有序、可重复的集合</strong><ul>
-<li><code>ArrayList</code>：作为<code>List</code>接口的主要实现类， 线程不安全，效率高，底层使用<code>Object[]</code> <code>elementData</code>存储</li>
-<li><code>LinkedList</code>：对于频繁的插入、删除操作，使用此类效率比<code>ArrayList</code>高，底层使用双向链表存储，</li>
-<li><code>Vector</code>：作为List接口的古老实现类，线程安全，效率低，底层使用<code>Object[]</code> <code>elementData</code>存储</li>
-<li>面试题：<code>ArrayList</code>、<code>LinkedList</code>、<code>Vector</code>三者的异同<ul>
-<li>同：三个类都实现了List接口，存储数据的特点相同：存储有序的、可重复的数据</li>
-<li>异：见上</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong><code>Set</code>接口：存储无序、不可重复的元素</strong><ul>
-<li><code>HashSet</code>：作为Set接口的主要实现类；线程不安全；可以存储null值<ul>
-<li><code>LinkedHashSet</code>：作为<code>HashSet</code>的子类；遍历其内部数据时，可以按照添加的顺序遍历</li>
-</ul>
-</li>
-<li><code>TreeSet</code>：可以按照添加的对象的指定属性，进行排序。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>Map</code>接口：双列集合，保存具有映射关系“key-value对”的数据<ul>
-<li><code>HashMap</code></li>
-<li><code>LinkedHashMap</code></li>
-<li><code>TreeMap</code></li>
-<li><code>HashTable</code></li>
-<li><code>Properties</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="1-2-Collection接口中的方法的使用"><a href="#1-2-Collection接口中的方法的使用" class="headerlink" title="1.2 Collection接口中的方法的使用"></a>1.2 Collection接口中的方法的使用</h2><ul>
-<li>contains()</li>
-</ul>
-<h1 id="二、Collection子接口：List接口"><a href="#二、Collection子接口：List接口" class="headerlink" title="二、Collection子接口：List接口"></a>二、Collection子接口：List接口</h1><h2 id="2-1-ArrayList源码分析：jdk7情况下"><a href="#2-1-ArrayList源码分析：jdk7情况下" class="headerlink" title="2.1 ArrayList源码分析：jdk7情况下"></a>2.1 ArrayList源码分析：jdk7情况下</h2><ul>
-<li> <code>ArrayList list = new ArrayList()</code>：底层创建了长度为10的Object[]数组elementData</li>
-</ul>
-<h2 id="2-4-List接口中的常用方法"><a href="#2-4-List接口中的常用方法" class="headerlink" title="2.4 List接口中的常用方法"></a>2.4 List接口中的常用方法</h2><ul>
-<li><p><code>void add(int index, E element)</code>：在index位置插入element</p>
-</li>
-<li><p><code>boolean addAll(int index, Collection&lt;? extends E&gt; c)</code>：从index位置开始将c中的所有元素添加进来</p>
-</li>
-<li><p><code>E get(int index)</code>：获取指定index位置的元素</p>
-</li>
-<li><p><code>int indexOf(Object o)</code>：返回o在集合中首次出现的位置</p>
-</li>
-<li><p><code>int lastIndexOf(Object o)</code>：返回o在集合中末次出现的位置</p>
-</li>
-<li><p><code>E remove(int index)</code>：移除指定index位置的元素，并返回此元素</p>
-</li>
-<li><p><code>E set(int index, E element)</code>：设置指定index位置的元素element</p>
-</li>
-<li><p><code>List&lt;E&gt; subList(int fromIndex, int toIndex)</code>：返回从<code>fromIndex</code>到<code>toIndex</code>位置的子集合</p>
-</li>
-<li><p><strong>总结：常用方法</strong></p>
-<ul>
-<li><p>增：<code>add(object obj)</code></p>
-</li>
-<li><p>删：<code>remove(int index) / remove(Object obj)</code></p>
-</li>
-<li><p>改：<code>E set(int index, E element)</code></p>
-</li>
-<li><p>查：<code>get(int index)</code></p>
-</li>
-<li><p>插：<code>add(int index, E element)</code></p>
-</li>
-<li><p>长度：<code>size()</code></p>
-</li>
-<li><p>遍历</p>
-<ul>
-<li><p>Iterator迭代器方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">    System.out.println(iterator.next());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>增强for循环</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Object obj: list)&#123;</span><br><span class="line">    System.out.println(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>普通的循环</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">    System.out.println(list.get(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="三、Collection子接口：Set接口"><a href="#三、Collection子接口：Set接口" class="headerlink" title="三、Collection子接口：Set接口"></a>三、<code>Collection</code>子接口：<code>Set</code>接口</h1><ul>
-<li>Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法</li>
-</ul>
-<h2 id="3-3-LinkedHashSet"><a href="#3-3-LinkedHashSet" class="headerlink" title="3.3 LinkedHashSet"></a>3.3 <code>LinkedHashSet</code></h2><h2 id="3-4-TreeSet"><a href="#3-4-TreeSet" class="headerlink" title="3.4 TreeSet"></a>3.4 <code>TreeSet</code></h2><ul>
-<li>向<code>TreeSet</code>添加的数据，要求是相同类的对象</li>
-<li>两种排序方式<ul>
-<li>自然排序</li>
-<li>定制排序</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1653,20 +1570,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1693,7 +1610,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
